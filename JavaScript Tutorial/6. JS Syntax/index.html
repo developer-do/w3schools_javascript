@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h2>JavaScript 구문</h2>
+  <hr>
+  <p>자바스크립트 구문은 자바스크립트 프로그램이 어떻게 구성되는지에 대한 일련의 규칙입니다.</p>
+  <pre>
+    var x, y;
+    x = 5; y =6;
+    z = x + y;
+  </pre>
+  <hr>
+
+  <h2>자바스크립트 값</h2>
+  <p>JavaScript 구문은 고정 값과 가변 값이라는 두가지 유형의 값을 정의합니다.</p>
+  <p>고정 값을 리터럴 이라고 하고, 변수 값을 변수라고 합니다.</p>
+  <hr>
+
+  <h2>자바스크립트 리터럴</h2>
+  <p>고정 값 작성의 가장 중요한 규칙은 다음과 같습니다.</p>
+  <p>숫자는 십진법의 유무와 관계없이 쓰입니다.</p>
+  <pre>
+    10.50
+
+    1001
+  </pre>
+  <p>문자열은 이중 따옴표 또는 작음 따옴표로 작성된 텍스트 입니다.</p>
+  <pre>
+    "John Doe"
+
+    'John Doe'
+  </pre>
+  <hr>
+
+  <h2>자바스크립트 변수</h2>
+  <p>프로그래밍 언어에서 변수는 데이터 값을 저장하는데 사용됩니다.</p>
+  <p>JavaScript는 var 키워드를 사용하여 변수를 선언합니다.</p>
+  <p>= 기호를 사용하여 변수에 값을 할당합니다.</p>
+  <p>이 예에서 x는 변수로 저의됩니다. 그런다음 x에 값 6이 지정됩니다.</p>
+  <pre>
+    var x;
+    
+    x = 6;
+  </pre>
+  <hr>
+
+  <h2>자바스크립트 연산자</h2>
+  <p>JavaScript는 산술연산자 (+ - * /)를 사용하여 값을 계산합니다.</p>
+  <pre>
+    (5 + 6) * 10
+  </pre>
+  <p>JavaScript는 할당 연산자 (=)를 사용하여 변수에 값을 할당합니다.</p>
+  <pre>
+    var x, y;
+    x = 5;
+    y = 6;
+  </pre>
+  <hr>
+
+  <h2>JavaScript 표현식</h2>
+  <p>표현식은 값으로 계산되는 값, 변수 및 연산자의 조합입니다.</p>
+  <p>계산을 평가라고합니다.</p>
+  <p>예를들어, 5 * 10은 50으로 평가 됩니다.</p>
+  <pre>
+    5 * 10
+  </pre>
+  <p>표현식에는 변수 값이 포함될 수도있습니다.</p>
+  <pre>
+    var x = 5;
+    x * 10;
+  </pre>
+  <p>값은 숫자 및 문자열과 같은 다양한 유형이 될 수 있습니다.</p>
+  <p>예를 들어, "John" + " " + "Doe"는 "John Doe"로 평가 됩니다.</p>
+  <pre>
+    "John" + " " + "Doe";
+  </pre>
+  <hr>
+
+  <h2>자바스크립트 키워드</h2>
+  <p>JavaScript 키워드는 수행 작업을 식별하는데 사용됩니다.</p>
+  <p>var에 키워드는 브라우저에서 변수를 생성하도록 지시합니다.</p>
+  <pre>
+    var x,y;
+    x = 5 + 6;
+    y = x * 10;
+  </pre>
+  <hr>
+
+  <h2>자바스크립트 주석</h2>
+  <p>모든 JavaScript문이 "실행" 되는건 아닙니다.</p>
+  <p>이중 슬래쉬 "//" || /* */ 사이의 코드는 주석으로 처리됩니다.</p>
+  <p>주석은 무시되고 실행되지 않습니다.</p>
+  <pre>
+    var x = 5; // I will be executed
+    // var x = 6; I will NOT be executed
+  </pre>
+  <hr>
+
+  <h2>자바스크립트 식별자</h2>
+  <p>식별자는 이름입니다.</p>
+  <p>자바스크립트에서 식별자는 변수(및 키워드, 함수, 라벨)의 이름을 짓는데 사용된다.</p>
+  <p>대부분의 프로그래밍 언어에서는 이름에 대한 규칙이 거의 동일합니다.</p>
+  <p>자바스크립트에서 첫 번째 문자는 (문자) 또는 (_) 또는 ($) 달러 기호여야 합니다.</p>
+  <p>후속 문자는 문자, 숫자, 밑줄 또는 달러기호일 수 있습니다.</p>
+  <p class="red">숫자는 첫 번째 문자로 허용되지 않습니다. 이 방법으로 자바스크립트는 식별자와 숫자를 쉽게 구별할 수 있습니다.</p>
+  <hr>
+
+  <h2>자바스크립트는 대소문자를 구분합니다.</h2>
+  <p>모든 자바스크립트 식별자는 대소 문자를 구분합니다.</p>
+  <p>변수 lastName과 lastname은 두개의 다른 변수입니다.</p>
+  <pre>
+    var lastname, lastName;
+    lastName = "Doe";
+    lastname = "Peterson";
+  </pre>
+  <p class="green">VAR || Var는 키워드 var로 해석하지 않습니다.</p>
+  <hr>
+
+  <h2>자바스크립트 camel표시법</h2>
+  <p>역사적으로 프로그래머는 여러 단어를 하나의 변수 이름으로 결합하는 다양한방법을 사용했습니다.</p>
+  <p>하이폰</p>
+  <p>first-name, last-name, master-card, inter-city</p>
+  <p class="yellow">자바스크립트에서는 하이폰을 사용할 수 없습니다. 뺄셈을 위해 예약되어있습니다.</p>
+  <p class="green">underscore</p>
+  <p>first_name, last_name, master_card, inter_city</p>
+  <p class="green">Upper Camel Case(Pascal Case)</p>
+  <p>FirstName, LastName, MasterCard, InterCity</p>
+  <p class="green">Lower Camel Case</p>
+  <p>firstName, lastName, masterCard, interCity</p>
+  <hr>
+
+  <h2>자바스크립트 문자 세트</h2>
+  <p>자바스크립트는 유니코드 문자 집합을 사용합니다.</p>
+  <p>유니코드는 세계의 모든 문자, 구두점 및 기호를 (거의) 포함합니다.</p>
+</body>
+</html>
+<script src="main.js"></script>
