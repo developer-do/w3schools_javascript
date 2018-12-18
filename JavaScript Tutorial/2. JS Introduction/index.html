@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  
+</head>
+<body>
+  <h1>JavaScript Introduction</h1>
+  <hr>
+
+  <h2>JavaScript는 HTML 내용을 변경 할 수 있습니다.</h2>
+  <p>많은 JavaScript HTML 메소드중 하나가 getElementById() 입니다.</p>
+  <p>이 예제는 이 메소드를 사용하여 HTML element (id = "demo")를 "검색" 하고 요소 내용 (innerHTML)을 "Hello JavaScript"로 변경합니다.</p>
+  <p id="btn_p1">JavaScript can change HTML content.</p>
+  <button id="btn1">click me!</button>
+  <hr>
+
+  <h2>JavaScript는 HTML 속성 값을 변경할 수 있습니다.</h2>
+  <p>이 예제에서 JavaScript는 img 태그의 src 속성 값을 변경합니다.</p>
+  <div style="text-align: center;">
+    <button id="lightOn">불 켜기</button>
+    <img src="pic_bulboff.gif" alt="전구" id="imgLight">
+    <button id="lightOff">불 끄기</button>
+  </div>
+  <hr>
+
+  <h2>JavaScript는 HTML Style을 변경 할 수 있습니다.</h2>
+  <p>HTML 요소의 스타일을 변경하는 것은 HTML속성을 변경하는 변형입니다.</p>
+  <button id="fontSize">font-size 변경 click me!</button>
+  <p id="btn_p2">위의 버튼을 클릭해서 font-size를 변경해주세요.</p>
+  <hr>
+
+  <h2>JavaScript가 HTML 요소를 숨길 수 있습니다.</h2>
+  <p>HTML 요소 숨기기는 display 스타일에서 변경하여 수행할 수 있습니다.</p>
+  <div>
+    <button id="disNone">display: none</button>
+    <button id="disBlock">display: block</button>
+    <p id="treePoem">
+      나무가 춤을 추면<br/>
+      바람이 불고<br/>
+      나무가 잠잠하면<br/>
+      바람도 자오
+    </p>
+  </div>
+  <hr>
+</body>
+</html>
+<script src="main.js"></script>
