@@ -1,0 +1,4 @@
+ul.green { border: 1px solid; border-left: 6px solid; border-color: #4CAF50; padding: 8px; padding-left: 30px;}
+p.green { border: 1px solid; border-left: 6px solid; border-color: #4CAF50; padding: 8px;}
+.red { border: 1px solid; border-left: 6px solid; border-color: #f44336; padding: 8px; background-color:#ffdddd;}
+.yellow { border: 1px solid; border-left: 6px solid; border-color: #ffeb3b; padding: 8px; background-color:#ffffcc;}
