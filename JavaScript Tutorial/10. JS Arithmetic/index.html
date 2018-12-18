@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript Arithmetic</h1>
+  <hr>
+
+  <h2>JavaScript 산술 연산자</h2>
+  <p>산술 연산자는 숫자 (리터럴 또는 변수)에 대한 산술 연산을 수행합니다.</p>
+  <hr>
+
+  <h2>산술 연산</h2>
+  <p>일반적인 산술 연산은 두 개의 숫자에서 작동합니다.</p>
+  <p>두 숫자는 리터럴 일 수 있습니다.</p>
+  <pre>
+    var x = 100 + 50;
+  </pre>
+  <p>또는 변수</p>
+  <pre>
+    var x = a + b;
+  </pre>
+  <p>또는 표현</p>
+  <pre>
+    var x = (100 + 50) * a;
+  </pre>
+  <hr>
+
+  <h2>연산자와 피연산자</h2>
+  <p>숫자(산술 연산에서)를 피연산자 라고합니다.</p>
+  <p>두 피연산자 사이에서 수행될 연산은 연산자에 의해 정의됩니다.</p>
+  <pre>
+    100 + 50
+    100 == 피연산자
+    + == 연산자
+    50 == 피연산자
+  </pre>
+  <hr>
+
+  <h2>더하다</h2>
+  <pre>
+    var x = 5;
+    var y = 2;
+    var z = x + y;
+  </pre>
+  <hr>
+
+  <h2>빼기</h2>
+  <pre>
+    var x = 5;
+    var y = 2;
+    var z = x - y;
+  </pre>
+  <hr>
+
+  <h2>곱하기 나머지 나누기</h2>
+  <pre>
+    var x = 5;
+    var y = 2;
+    var z = x (* / %) y;
+  </pre>
+  <hr>
+
+  <h2>증가 연산자</h2>
+  <pre>
+    var x = 5;
+    x++;
+    var z = x;
+
+    result z = 6;
+  </pre>
+  <hr>
+
+  <h2>감소 연산자</h2>
+  <pre>
+    var x = 5;
+    x--;
+    var z = x;
+
+    result z = 4;
+  </pre>
+  <hr>
+
+
+
+  <h2>지수 계산</h2>
+  <p>지수연산자(**)</p>
+  <pre>
+    var x = 5;
+    var z = x ** 2;
+
+    result = 25;
+  </pre>
+
+  <p>x ** y는 Math.pow(x, y)와 같은 결과를 생성합니다.</p>
+  <pre>
+    var x = 5;
+    var z = Math.pow(x,2);
+  </pre>
+  <hr>
+
+  <h2>연산자 우선순위</h2>
+  <p>연산자 우선순위는 연산이 산술 식에서 수행되는 순서를 설명합니다.</p>
+  <pre>
+    var x = 100 + 50 * 3;
+  </pre>
+  <p>위 예제의 결과는 150 * 3과 같거나 100 + 150과 동일 합니까?</p>
+  <p>추가 또는 곱셈이 먼저 수행됩니까?</p>
+  <p>전통적인학교 수학에서 처럼 곱셈이 먼저 수행됩니다.</p>
+  <p>곱하기 (*)와 나눗셈 (/)은 더하기와 (+) 빼기 (-) 보다 우선순위가 높습니다. </p>
+  <p>그리고 학교 수학과 마찬가지로 괄호를 사용하여 우선순위를 변경 할 수 있습니다.</p>
+  <pre>
+    var x = (100 + 50) * 3;
+  </pre>
+  <p>괄호를 사용할 때 괄호안의 연산이 먼저 계산됩니다.</p>
+  <p>많은 연산이 더하기와 빼기와 같은 우선순위를 가질 때, 왼쪽에서 오른쪽으로 계산됩니다.</p>
+  <pre>
+    var x = 100 + 50 - 3;
+  </pre>
+</body>
+</html>
+<script src="main.js"></script>
