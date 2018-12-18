@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>자바스크립트 연산자</h1>
+  <hr>
+  
+  <p>변수에 값을 할당하고 함께 추가하십시오.</p>
+  <pre>
+    var x = 5;
+    var y = 2;
+    var z = x + y;
+  </pre>
+  <p>할당 연산자는 (=) 변수에 값을 할당한다.</p>
+  <pre>
+    할당
+    var x = 10;
+  </pre>
+  <p>가산 연산자 (+)는 숫자를 추가한다.</p>
+  <pre>
+    var x = 5;
+    var y = 2;
+    var z = x + y;
+  </pre>
+  <p>곱셈 연산자 (*)는 숫자를 곱한다.</p>
+  <pre>
+    var x = 5;
+    var y = 2;
+    var z = x * y;
+  </pre>
+  <hr>
+
+  <h2>JavaScript 산순 연산자</h2>
+  <p>산순연산자는 숫자에 산술 연산을 수행하는 데 사용됩니다.</p>
+  <p>산술은 이미 알고있는 내용이니 눈으로 훑고 넘어가겠음</p>
+  <hr>
+
+  <h2>JavaScript 할당 연산자</h2>
+  <p>할당 연산자는 JavaScript 변수에 값을 할당합니다.</p>
+  <table>
+    <tr>
+      <th>Operator</th>
+      <th>Example</th>
+      <th>Same As</th>
+    </tr>
+    <tr>
+      <td>=</td>
+      <td>x = y</td>
+      <td>x = y</td>
+    </tr>
+    <tr>
+      <td>+=</td>
+      <td>x += y</td>
+      <td>x = x + y</td>
+    </tr>
+    <tr>
+      <td>-=</td>
+      <td>x -= y</td>
+      <td>x = x - y</td>
+    </tr>
+    <tr>
+      <td>*=</td>
+      <td>x *= y</td>
+      <td>x = x * y</td>
+    </tr>
+    <tr>
+      <td>/=</td>
+      <td>x /= y</td>
+      <td>x = x / y</td>
+    </tr>
+    <tr>
+      <td>%=</td>
+      <td>x %= y</td>
+      <td>x = x % y</td>
+    </tr>
+  </table>
+  <p>또한 연산자(+ =)는 변수에 값을 추가한다.</p>
+  <pre>
+    var x = 10;
+    x += 5;
+    x = 10 + 5;
+    x = 15;
+  </pre>
+
+  <hr>
+
+  <h2>JavaScript 문자열 연산자</h2>
+  <p>+ 연산자를 사용하여 문자열을 추가 (연결) 할 수도 있습니다.</p>
+  <pre>
+    var txt1 = "John";
+    var txt2 = "Doe";
+    var txt3 = txt1 + " " + txt2;
+    result = John Doe;
+  </pre>
+
+  <p>+ = 대입연산자를 사용하여 문자열을 추가 (연결) 할 수도 있습니다.</p>
+  <pre>
+    var txt1 = "What a very";
+    txt1 += "nice day";
+    result = What a very nice day;
+  </pre>
+  <p class="yellow">문자열에 사용되면 + 연산자는 연결 연산자라고 합니다.</p>
+  <hr>
+
+  <h2>문자열 몇 숫자 추가</h2>
+  <p>두 개의 숫자를 추가하면 합계가 반환되지만 숫자와 문자열을 추가하면 문자열으로 반환됩니다.</p>
+  <pre>
+    var x = 5 + 5;
+    var y = "5" + 5;
+    var z = "Hello" + 5;
+    
+    result x = 10;
+    result y = 55;
+    result z = Hello5;
+  </pre>
+  <p class="yellow">숫자와 문자열을 더하면 문자열로 반환됩니다.</p>
+</body>
+</html>
+<script src="main.js"></script>
