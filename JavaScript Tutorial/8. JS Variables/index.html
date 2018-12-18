@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+  <script src="main.js"></script>
+</head>
+<body>
+  <h1>JavaScript Variables</h1>
+  <hr>
+
+  <p>자바스크립트 변수는 데이터 값을 저장하기 위한 컨테이너 입니다.</p>
+  <p>이 예제에서 x, y및 z는 변수입니다.</p>
+  <pre>
+    var x = 5;
+    var y = 6;
+    var z = x + y;
+  </pre>
+  <p>위의 예에서 다음과 같이 예상 할 수 있습니다.</p>
+  <ul>
+    <li>x는 값 5를 저장합니다.</li>
+    <li>y는 값 6을 저장합니다.</li>
+    <li>z는 값 11을 저장합니다.</li>
+  </ul>
+  <hr>
+
+  <h2>대수와 비슷합니다.</h2>
+  <p>이 예에서 price1, price2 및 total은 변수입니다.</p>
+  <pre>
+    var price1 = 5;
+    var price2 = 6;
+    var total = price1 + price2;
+  </pre>
+  <p>프로그래밍에서 수학과 마찬가지로 변수 (예 : price1)를 사용하여 값을 저장합니다.</p>
+  <p>프로그래밍에서 수학에서와 마찬가지로 식에서 변수를 사용합니다 (total = price1 + price2)</p>
+  <p>위의 예에서 합계를 11로 계산할 수 있습니다.</p>
+  <p class="yellow">자바스크립트 변수는 데이터 값을 저장하기 위한 컨테이너 입니다.</p>
+  <hr>
+
+  <h2>JavaScript 식별자</h2>
+  <p>모든 자바스크립트 변수는 고유 이름으로 식별되어야 합니다.</p>
+  <p>이 고유한 이름들은 식별자 라고 합니다.</p>
+  <p>식별자는 짧은 이름 (예: x 및 y) 또는 더 자세한 이름(age, sum, totalVolume 등등)이 될 수 있습니다.</p>
+  <p>변수(고유 식별자)의 이름름을 구성하는 일반적인 규칙은 다음과 같다.</p>
+  <ul>
+    <li>이름에는 문자, 숫자, 밑줄 및 달러 표시가 포함될 수 있다.</li>
+    <li>이름은 문자로 시작해야 한다.</li>
+    <li>이름은 $및 _로 시작할 수도 있지만 이 튜토리얼에서는 사용하지 않는다.</li>
+    <li>이름은 대/소문자를 구분한다.(y와 Y는 다른 변수이다.)</li>
+    <li>예약된 단어 (JavaScript 키워드 등)를 이름으로 사용할 수 없다.</li>
+  </ul>
+  <p class="yellow">자바스크립트는 대소문자를 구분합니다.</p>
+  <hr>
+
+  <h2>할당 연산자</h2>
+  <p>JavaScript에서 등호(=)는 "대입 연산자"이며 "같음"연산자는 아닙니다.</p>
+  <p>이것은 수학과 다릅니다. 다음은 수학에서 의미가 없습니다.</p>
+  <pre>
+    x = x + 5;
+  </pre>
+  <p>하지만 자바스크립트에서는 x + 5의 값을 x에 대입합니다.</p>
+  <p>(x + 5의 값을 계산하고 그결과를 x에 넣습니다. x의 값은 5씩 증가합니다.)</p>
+  <p class="yellow">"equal to"연산자는 JavaScript에서 == 와 같이 작성됩니다.</p>
+  <hr>
+
+  <h2>JavaScript 데이터 유형</h2>
+  <p>자바스크립트 변수는 100과 같은 숫자와 "John Doe"와 같은 텍스트 값을 포함 할 수 있습니다.</p>
+  <p>프로그래밍에서 텍스트 값을 텍스트 문자열이라고합니다.</p>
+  <p>JavaScript는 많은 유형의 데이터를 처리 할 수 있지만, 지금은 숫자와 문자열을 생각하면 됩니다.</p>
+  <p>문자열은 큰 따옴표나 작은 따옴표로 작성됩니다. 숫자는 따옴표없이 쓰여집니다.</p>
+  <p>따옴표 안에 숫자를 넣으면 텍스트 문자열로 취급됩니다.</p>
+  <pre>
+    var pi = 3.14;
+    var person = "John Doe";
+    var answer = 'Yes I am!';
+  </pre>
+  <hr>
+
+  <h2>JavaScript 변수 선언 (만들기)</h2>
+  <p>자바스크립트에서 변수를 생성하는 것은 변수를 선언하는 것입니다.</p>
+  <p>var 키워드를 사용하여 JavaScript변수를 선언합니다.</p>
+  <pre>
+    var carName;
+  </pre>
+  <p>선언 후에는 변수에 값이 없습니다.(기술적으로 그것은 정의되지않은 undefined 값을 가집니다.)</p>
+  <p>변수에 값을 할당하려면 등호를 사용하십시오.</p>
+  <pre>
+    carName = "Volvo";
+  </pre>
+  <p>변수를 선언 할 때 변수에 값을 할당 할 수도 있습니다.</p>
+  <pre>
+    var carName = "Volvo";
+  </pre>
+  <p>아래 예제에서는 carName이라는, 변수를 만들고 "Volvo" 값을 할당합니다.</p>
+  <p>그런다음 id = "demo"인 HTML 단락에서 값을 "출력"합니다.</p>
+  <pre>
+    < p id="demo" >< /p >
+    var carName = "Volvo";
+    document.getElementById("demo").innerHTML = carName;
+  </pre>
+  <p class="yellow">스크립트를 시작할 때 모든 변수를 선언하는 것이 좋은 프로그래밍 습관입니다.</p>
+  <hr>
+
+  <h2>하나의 실행문, 많은 변수들</h2>
+  <p>한 문장에서 많은 변수를 선언 할 수도 있습니다.</p>
+  <p class="green">var를 사용하여 명령문을 시작하고 변수를 쉼표로 구분하십시오.</p>
+  <pre>
+    var person = "John Doe", carName = "Volvo", price = 200;
+  </pre>
+  <p>선언은 여러줄에 걸쳐 있을수 있습니다.</p>
+  <pre>
+    var person = "John Doe",
+    carName = "Volvo",
+    price = 200;
+  </pre>
+  <hr>
+
+  <h2>value = undefined</h2>
+  <p>컴퓨터 프로그램에서 변수는 종종 값없이 선언됩니다. 이 값은 계산되어야하는 것이거나 나중에 사용자 입력과 같이 제공 될 수 있습니다.</p>
+  <p>값 없이 선언 된 변수는 값이 정의되지 않습니다.</p>
+  <p>carName 변수는 이 명령문 실행 후 값이 undefined가 됩니다.</p>
+  <pre>
+    var carName;
+  </pre>
+
+  <hr>
+
+  <h2>자바스크립트 변수 재선언</h2>
+  <p>자바스크립트 변수를 다시 선언하면 값을 잃지 않습니다.</p>
+  <p>carName 변수는 다음 명령문 실행후에도 여전히 "Volvo" 값을 갖습니다.</p>
+  <pre>
+    var carName = "Volvo";
+    var carName;
+  </pre>
+  <hr>
+
+  <h2>JavaScript 산술</h2>
+  <p>수학과 마찬가지로 = 및 + 와 같은 연산자를 사용하여 JavaScript 변수로 산술 연산을 수행 할 수 있습니다.</p>
+  <pre>
+    var x = 5 + 2 + 3;
+  </pre>
+  <p>문자열을 추가 할 수도 있지만 문자열은 연결됩니다.</p>
+  <pre>
+    var x = "John" + " " + "Doe";
+  </pre>
+  <p>또한 이것도 시도해 보십시오.</p>
+  <pre>
+    var x = "5" + 2 + 3;
+  </pre>
+  <p class="yellow">숫자를 따옴표로 묶으면 나머지 숫자는 문자열로 처리되고 연결됩니다.</p>
+  <p>아래 이것을 시도해보자</p>
+  <pre>
+    var x = 2 + 3 + "5";
+  </pre>
+</body>
+</html>
