@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript Arrays</h1>
+  <hr>
+
+  <p>JavaScript 배열은 단일 변수에 여러값을 저장하는 데 사용됩니다.</p>
+  <pre>
+    var cars = ["Saab", "Volvo", "BMW"];
+  </pre>
+  <hr>
+
+  <h2>배열이란 무었입니까?</h2>
+  <p>배열은 한 번에 둘 이상의 값을 저장할 수 있는 특수 변수 입니다.</p>
+  <p>항목 목록(예: 자동차 이름 목록)이 있는 경우 단일 변수에 자동차를 저장하면 다음과 같이 표시 될 수 있습니다.</p>
+  <pre>
+    var car1 = "Saab";
+    var car2 = "Volvo";
+    var car3 = "BMW";
+  </pre>
+  <p>그러나 자동차를 돌아보고 특정 차량을 찾으려면 어떻게 해야 할까요 ? 3대가 아니라 300대가 있다면?</p>
+  <p>해결책은 배열입니다.</p>
+  <p>배열은 하나의 이름으로 여러 값을 가질 수 있으며 인덱스 번호를 참조하여 값에 접근 할 수 있습니다.</p>
+  <hr>
+
+  <h2>배열 만들기</h2>
+  <p>배열 리터럴을 사용하는 것이 JavaScript 배열을 만드는 가장 쉬운 방법 입니다.</p>
+  <p>var array_name = [ item1, item2, ... ]</p>
+  <pre>
+    var car = ["Saab", "Volvo", "BMW"];
+  </pre>
+  <p>공백과 줄 바꿈은 중요하지 않습니다. 선언은 여러줄에 걸쳐 있을수 있습니다.</p>
+  <pre>
+    var cars = [
+      "Saab",
+      "Volvo",
+      "BMW"
+    ]
+  </pre>
+
+  <p class="yellow">"BMW"와 같은 마지막 요소 뒤에 쉼표를 넣으면 브라우저 간에 일관성이 없습니다.<br/> IE8 및 이전 버전은 실패합니다.</p>
+  <hr>
+
+
+  <h2>JavaScript 키워드 new 사용하기 </h2>
+  <p>또한 다음 예제에서는 Array를 만들고 값을 할당합니다.</p>
+  <pre>
+    var cars = new Array("Saab", "Volvo", "BMW");
+  </pre>
+  <p class="yellow">위의 두 예제는 완전히 동일합니다. 새로운 Array()를 사용할 필요가 없습니다. <br/> 단순성, 가독성 및 실행 속도를 위해 첫 번째 (배열 리터럴 메소드)를 사용하십시오.</p>
+  <hr>
+
+  <h2>배열 요소 접근</h2>
+  <p>index 번호를 참조하여 배열 요소에 접근 할 수 있습니다.</p>
+  <p>이 문은 자동자의 첫 번째 요소 값에 접근합니다.</p>
+  <pre>
+    var name = cars[0];
+    var vars = ["Saab", "Volvo", "BMW"];
+    document.getELementById("demo").innerHTML = cars[0];
+  </pre>
+  <p id="demo"></p>
+  <p class="yellow">배열 인덱스는 0부터 시작합니다. <br/> [0]은 첫번째 요소입니다. [1]은 두번째 요소 입니다.</p>
+  <hr>
+
+  <h2>배열 요소 변경</h2>
+  <p>이 문은 자동차의 첫 번째 요소 값을 변경합니다.</p>
+  <pre>
+    cars[0] = "Opel";
+
+    var cars = ["Saab", "Volvo", "BMW"];
+    cars[0] = "Opel";
+    document.getElementById("demo1").innerHTML = cars[0];
+  </pre>
+  <p id="demo1"></p>
+  <hr>
+
+  <h2>전체 배열 접근</h2>
+  <p>JavaScript를 사용하면 배열 이름을 참조하여 전체 배열에 액세스 할 수 있습니다.</p>
+  <pre>
+    var cars = ["Saab", "Volvo", "BMW"];
+    document.getElementById("demo2").innerHTML = cars;
+  </pre>
+  <p id="demo2"></p>
+  <hr>
+  
+  <h2>배열은 객체입니다.</h2>
+  <p>배열은 특별한 유형의 객체입니다. JavaScript의 typeof 연산자는 배열의 "object"를 반환합니다.</p>
+  <p>그러나 JavaScript 배열은 배열로 가장 잘 묘사됩니다.</p>
+  <p>배열은 숫자를 사용하여 "요소"에 접근합니다. 이 예제에서 person[0]은 John을 반환합니다.</p>
+  <pre>
+    var person = ["John", "Doe", 46];
+    document.getElementById("demo3").innerHTML = person[0];
+  </pre>
+  <p id="demo3"></p>
+  <p>객체는 이름을 사용하여 "멤버"에 접근합니다. 이 예제에서 person.firstName은 John을 반환합니다.</p>
+  <pre>
+    var person = {firstName: "John", lastName: "Doe", age: 46};
+  </pre>
+  <p id="demo4"></p>
+  <hr>
+
+  <h2>배열 요소가 객체가 될 수 있음</h2>
+  <p>JavaScript 변수는 객체가 될 수 있습니다. 배열은 특별한 종류의 객체입니다.</p>
+  <p>이 때문에 동일한 배열에서 여러 유형의 변수를 가질 수 있습니다.</p>
+  <p>배열에 객체를 가질 수 있습니다. 배열에 함수를 포함할 수 있습니다. 배열에 배열을 가질 수 있습니다.</p>
+  <pre>
+    myArray[0] = Date.now;
+    myArray[1] = myFunction;
+    myArray[2] = myCars;
+  </pre>
+  <hr>
+
+  <h2>array property 및 method</h2>
+  <p>JavaScript 배열의 진정한 강점은 내장 배열 속성 및 메서드 입니다.</p>
+  <pre>
+    var x = cars.length;
+    var y = cars.sort();
+  </pre>
+  <hr>
+
+  <h2>길이 속성</h2>
+  <p>배열의 length 속성은 배열의 길이(배열 요소의 수)를 반환합니다.</p>
+  <pre>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.length;
+  </pre>
+  <p class="yellow">length 속성은 항상 가장 높은 배열 인덱스보다 하나 더 큽니다. 마지막 배열을 가질려면 length - 1을하면 됩니다.</p>
+  <hr>
+
+  <h2>첫 번쨰 배열 요소 접근하기</h2>
+  <pre>
+    var first = fruits[0];
+  </pre>
+  <p id="demo5"></p>
+  <hr>
+
+  <h2>마지막 배열 요소 접근하기</h2>
+  <pre>
+    var last = fruits[fruits.length - 1];
+  </pre>
+  <p id="demo6"></p>
+  <hr>
+
+  <h2>루팡 배열 요소</h2>
+  <p>배열을 반복하는 가장 안전한 방법은 "for" 루프를 사용하는 것입니다.</p>
+  <pre>
+    var fruits, text, fLen, i;
+    fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fLen = fruits.length;
+
+    text = "< ul >";
+    for(i = 0; i < fLen; i++){
+      text += "< li >" + fruits[i] + "< /li >";
+    }
+    text = "< /ul >";
+  </pre>
+  <div id="divWrap"></div>
+  
+
+  <p>Array.forEach() 함수를 사용할 수도 있습니다.</p>
+  <pre>
+    var fruits, text;
+    fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+    text = "< ul >";
+    fruits.forEach(myFunction);
+    text += "< /ul >";
+
+    function myFunction(value) {
+      text += "< li >" + value + "< /li >";
+    }
+  </pre>
+  <div id="divWrap1"></div>
+  <hr>
+
+  <h2>배열 요소 추가하기</h2>
+  <p>새 요소를 배열에 추가하는 가장 쉬운 방법은 push method를 사용하는 것입니다.</p>
+  <pre>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.push("Lemon");
+  </pre>
+  <p>length속성을 사용해서 새 요소를 배열에 추가 할 수도 있습니다.</p>
+  <pre>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits[fruits.length] = "Lemon";
+  </pre>
+  <p class="red">경고!<br/>높은 인덱스를 가진 요소를 추가하면 배열에 정의되지 않은 "구멍"이 생길 수 있습니다.</p>
+  
+  <pre>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits[6] = "Lemon"; 
+  </pre>
+
+  <hr>
+
+  <h2>연관 배열</h2>
+  <p>많은 프로그래밍 언어는 인덱스가 지정된 배열을 지원합니다.</p>
+  <p>명명된 인덱스가 있는 배열을 연관 배열(또는 해시)이라고 합니다.</p>
+  <p>JavaScript는 인덱스가 지정된 배열을 지원하지 않습니다.</p>
+  <p>JavaScript에서 array는 항상 number가 매겨진 index를 사용합니다.</p>
+
+  <pre>
+    var person = [];
+    person[0] = "John";
+    person[1] = "Doe";
+    person[2] = 46;
+    var x = person.length;
+    var y = person[0];
+  </pre>
+  <p class="red">경고!!<br/>이미 정의된 인덱스를 사용하면 JavaScript가 배열을 표준객체로 다시 정의합니다.<br/>그런 다음 일부 배열 메서드와 속성은 잘못된 결과를 생성합니다.</p>
+  <pre>
+    var person = [];
+    person["firstName"] = "John";
+    person["lastName"] = "Doe";
+    person["age"] = 46;
+    var x = person.length;
+    var y = person[0]; 
+  </pre>
+  <hr>
+
+  <h2>배열과 객체의 차이점</h2>
+  <p>자바스크립트에서 배열은 번호가 매겨진 index를 사용합니다.</p>
+  <p>자바스크립트에서 객체는 이미 정의된 index를 사용합니다.</p>
+  <p class="yellow">배열은 번호가 매겨진 인덱스가 있는 특별한 종류의 객체입니다.</p>
+  <hr>
+
+  <h2>배열을 사용해야 하는 경우. 객체 사용시기</h2>
+  <ul class="green">
+    <li>자바스크립트는 연관 배열을 지원하지 않습니다.</li>
+    <li>요소 이름을 문자열(텍스트)로 만들려면 object를 사용해야 합니다.</li>
+    <li>요소 이름을 숫자로 지정하려면 array를 사용하십시오.</li>
+  </ul>
+  <hr>
+
+  <h2>new Array()를 피하십시오.</h2>
+  <p>JavaScript의 기본 제공 배열 생성자인 new Array()를 사용할 필요가 없습니다.</p>
+  <p>대신 []를 사용하십시오.</p>
+  <p>이 두개의 다른 명령문은 모두 points라는 새 빈 배열을 만듭니다.</p>
+  <pre>
+    var points = new Array();     // Bad
+    var points = [];              // Good
+  </pre>
+  <p>이 두개의 서로 다른 명령문은 모두 6개의 숫자를 포함하는 새로운 배열을 만듭니다.</p>
+  <pre>
+    var points = new Array(40, 100, 1, 5, 25, 10); // Bad
+    var points = [40, 100, 1, 5, 25, 10];          // Good
+  </pre>
+  <p>new 키워드는 코드를 복잡하게 합니다. 또한 예기치 않은 결과가 발생할 수 있습니다.</p>
+  <pre>
+    var points = new Array(40, 100);  // Creates an array with two elements (40 and 100)
+  </pre>
+  <p>요소 중 하나를 제거하면 에러가 난다.</p>
+  <pre>
+    var points = new Array(40);  // Creates an array with 40 undefined elements !!!!!
+  </pre>
+  <hr>
+
+  <h2>배열을 인식하는 방법</h2>
+  <p>일반적인 질문은 변수가 배열인지 어떻게 알 수 있습니까?</p>
+  <p>문제는 JavaScript 연산자인 typeof가 "object"를 반환 한다는 것입니다.</p>
+  <pre>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+    typeof fruits;    // returns object
+  </pre>
+  <p>typeof 연산자는 JavaScript 배열이 객체이기 때문에 object를 반환합니다.</p>
+  <h3>해결책 1:</h3>
+  <p>이 문제를 해결하기 위해 ECMAScript 5 에서는 Array.isArray() 라는 새 메서드를 정의합니다.</p>
+  <pre>
+    Array.isArray(fruits);
+  </pre>
+  <p>이 솔루션의 문제점은 이전 브라우저에서 ECMAScript 5가 지원되지 않는다는 것 입니다.</p>
+  <h3>해결책 2:</h3>
+  <p>이 문제를 해결하기 위해 자신만의 isArray()함수를 만들 수 있습니다.</p>
+  <pre>
+    function isArray(x) {
+      return x.constructor.toString().indexOf("Array") > -1;
+    }
+  </pre>
+  <p>인수가 배열이면 위의 함수는 항상 true를 반환합니다.</p>
+  <p>또는 더 정확하게 : 객체 프로토 타입에 "Array"라는 단어가 포함되어 있으면 true를 반환합니다.</p>
+  <h3>해결책 3:</h3>
+  <p>지정된 생성자에 의해 객체가 생성된 경우 연산자 인스턴스틑 true를 반환한다.</p>
+  <pre>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+    fruits instanceof Array;   // returns true
+  </pre>
+
+
+
+
+
+
+</body>
+</html>
+<script src="main.js"></script>
