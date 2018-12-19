@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript Number method</h1>
+  <hr>
+
+  <p>number method는 숫자 작업에 도움이 됩니다.</p>
+  <hr>
+
+  <h2>number method 및 property</h2>
+  <p>프리미티브 값 (3.14 또는 2014)은 객체가 아니기 때문에 속성 및 메서드를 가질 수 없습니다.</p>
+  <p>하지만 자바스크립트에서는 method와 property를 실행할 때 원시 값을 객체로 처리하므로 method 및 property를 기본값으로 사용할 수도 있습니다.</p>
+  <hr>
+
+  <h2>toString() method</h2>
+  <p>toString()은 숫자를 문자로 반환합니다.</p>
+  <p>모든 number method는 모든 유형의 (리터럴, 변수 또는 표현식)에서 사용할 수 있습니다.</p>
+  <pre>
+    var x = 123;
+    x.toString();
+    (123).toString();
+    (100 + 23).toString();
+  </pre>
+  <hr>
+
+  <h2>toExponential() method</h2>
+  <p>toExponential() method는 지수 표기법을 사용하여 숫자를 반올림하여 쓰는 문자열을 반환합니다.</p>
+  <p>매개 변수는 소수점 뒤의 문자 수를 정의합니다.</p>
+  <pre>
+    var x = 9.656;
+    x.toExponential(2);
+    x.toExponential(4);
+    x.toExponential(6);
+  </pre>
+  <p>매개변수는 선택적 입니다. 지정하지 않으면 JavaScript가 숫자를 반올림하지 않습니다.</p>
+  <hr>
+
+
+  <h2>toFixed() method</h2>
+  <p>toFixed() method는 지정된 소수점 이하 자릿수로 작성된 문자열을 반환합니다.</p>
+  <pre>
+    var x = 9.656;
+    x.toFixed(0);
+    x.toFixed(2);
+    x.toFixed(4);
+    x.toFixed(6);
+  </pre>
+  <hr>
+
+  <h2>toPrecision() method</h2>
+  <p>toPrecision() method는 지정된 길이로 쓰여진 숫자를 반환합니다.</p>
+  <pre>
+    var x = 9.656;
+    x.toPrecision();
+    x.toPrecision(2);
+    x.toPrecision(4);
+    x.toPrecision(6);
+  </pre>
+
+  <hr>
+
+
+  <h2>valueOf() method</h2>
+  <p>valueOf() method는 숫자를 숫자로 반환합니다.</p>
+  <pre>
+    var x = 123;
+    x.valueOf();
+    (123).valueOf();
+    (100 + 23).valueOf();
+  </pre>
+  <p>자바스크립트에서 숫자는 원시값(typeof = number)또는 객체 (typeof = object)일 수 있습니다.</p>
+  <p>valueOf() method는 Number객체를 기본 값으로 변환하기 위해 JavaScript에서 내부적으로 사용됩니다.</p>
+  <p>코드에서 사용할 이유가 없습니다.</p>
+  <p class="yellow">모든 JavaScript 데이터 유형에는 valueOf() 및 toString() 메소드가 있습니다.</p>
+  <hr>
+
+  <h2>변수를 숫자로 변환</h2>
+  <p>변수를 숫자로 변환하는 데 사용할 수 있는 3가지 JavaScript method가 있습니다.</p>
+  <ul>
+    <li>Number() method</li>
+    <li>parseInt() method</li>
+    <li>parseFloat() method</li>
+  </ul>
+  <p>이 method는 number method가 아니라 global JavaScript method입니다. </p>
+  <hr>
+
+  <h2>global JavaScript method</h2>
+  <p>JavaScript global method는 모든 JavaScript 데이터 형식에서 사용할 수 있습니다.</p>
+  <p>위의 3가지 방법은 숫자 작업시 가장 관련 있는 방법입니다.</p>
+  <hr>
+
+  <h2>Number() method</h2>
+  <p>Number()은 JavaScript 변수를 숫자로 변환하는데 사용 할 수 있습니다.</p>
+  <pre>
+    Number(true);          // returns 1
+    Number(false);         // returns 0
+    Number("10");          // returns 10
+    Number("  10");        // returns 10
+    Number("10  ");        // returns 10
+    Number(" 10  ");       // returns 10
+    Number("10.33");       // returns 10.33
+    Number("10,33");       // returns NaN
+    Number("10 33");       // returns NaN 
+    Number("John");        // returns NaN
+  </pre>
+  <p class="yellow">숫자를 반환 할 수 없는 경우 NaN(숫자가 아니다.)이 반환됩니다.</p>
+  <hr>
+
+  <h2>날짜에 사용되는 Number() method</h2>
+  <p>Number()는 날짜를 숫자로 변환 할 수도 있습니다.</p>
+  <pre>
+    Number(new Data("2017-09-30"));    // return 1506729600000;
+  </pre>
+  <p class="yellow">위의 Number(new Date("2017-09-30")) 메서드는 1.1.1970부터의 밀리초 수를 반환합니다.</p>
+  <hr>
+
+  <h2>parseInt() method</h2>
+  <p>parseInt()는 문자열을 파싱하고 정수를 반환합니다. 공백은 허용됩니다. 첫번쨰 숫자만 반환됩니다.</p>
+  <pre>
+    parseInt("10");         // returns 10
+    parseInt("10.33");      // returns 10
+    parseInt("10 20 30");   // returns 10
+    parseInt("10 years");   // returns 10
+    parseInt("years 10");   // returns NaN 
+  </pre>
+  <p>숫자를 변환 할 수없는 경우 NaN(숫자 아님)이 반환 됩니다.</p>
+  <hr>
+
+  <h2>parseFloat() method</h2>
+  <p>parseFloat()는 문자열을 파싱하고 숫자를 반환합니다. 공백은 허용됩니다. 첫 번쨰 숫자만 반환됩니다.</p>
+  <pre>
+    parseFloat("10");        // returns 10
+    parseFloat("10.33");     // returns 10.33
+    parseFloat("10 20 30");  // returns 10
+    parseFloat("10 years");  // returns 10
+    parseFloat("years 10");  // returns NaN
+  </pre>
+  <p>숫자를 변환 할 수없는 경우 NaN(숫자 아님)이 반환 됩니다.</p>
+
+  <hr>
+
+  <h2>JavaScript MIN_BALUE 및 MAX_VALUE</h2>
+  <pre>
+    var x = Number.MAX_VALUE;
+
+    var x = Number.MIN_VALUE;
+  </pre>
+  <hr>
+
+  <h2>JavaScript POSITIVE_INFINITY</h2>
+  <pre>
+    var x = Number.POSITIVE_INFINITY;
+
+    오버 플로우시 POSITIVE_INFINITY가 반환됩니다.
+
+    var x = 1 / 0;
+  </pre>
+  <hr>
+
+  <h2>JavaScript NEGATIVE_INFINITY</h2>
+  <pre>
+    var x = Number.NEGATIVE_INFINITY;
+
+    오버 플로우시 NEGATIVE_INFINITY가 반환됩니다.
+
+    var x = -1 / 0;
+  </pre>
+  <hr>
+
+  <h2>JavaScript NaN - Not a Number</h2>
+  <pre>
+    var x = Number.NaN;
+  </pre>
+  <p>NaN은 숫자가 유효한 숫자가 아님을 나타내는 JavaScript 예약어 입니다.</p>
+  <p>숫자가 아닌 문자열로 산술 연산을 수행하면 NaN(숫자가 아님)이 됩니다.</p>
+  <pre>
+    var x = 100 / "Apple";      // x will be NaN (Not a Number)
+  </pre>
+  <hr>
+
+  <h2>변수에 숫자 속성을 사용할 수 없습니다.</h2>
+  <p>Number속성은 Number라고 하는 JavaScript의 Number 객체 래퍼에 속한다.</p>
+  <p>Number.MAX_BALUE이 속성들은 오직 숫자로만 접근할 수 있다.</p>
+  <pre>
+    var x = 6;
+    var y = x.MAX_VALUE;
+  </pre>
+  <hr>
+  
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+<script src="main.js"></script>
