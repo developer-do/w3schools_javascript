@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript Event</h1>
+  <hr>
+
+  <p>HTML 이벤트는 HTML 요소에 발생하는 "사물" 입니다.</p>
+  <p>JavaScript가 HMTL 페이지에서 사용될 때 JavaScript는 이러한 이벤트에 "반응" 할 수 있습니다.</p>
+  <hr>
+
+  <h2>HTML 이벤트</h2>
+  <p>HTML 이벤트는 브라우저가 수행하는 작업이거나 사용자가 수행하는 작업 일 수 있습니다.</p>
+  <p>다음은 HTML 이벤트의 몇가지 예입니다.</p>
+  <ul>
+    <li>HTML 웹 페이지 로드가 완료되었습니다.</li>
+    <li>HTML 입력 필드가 변경되었습니다.</li>
+    <li>HTML 버튼을 클릭했습니다.</li>
+  </ul>
+  <p>때로는 event가 발생하면 뭔가하고 싶을 수도 있습니다.</p>
+  <p>JavaScript를 사용하면 Event가 감지 될 때 코드를 실행 할 수 있습니다.</p>
+  <p>HTML을 사용하면 JavaScript 코드가 있는 Event Handler속성을 HTML 요소에 추가 할 수 있습니다.</p>
+  <pre>
+    작은 따옴표 사용:
+    < element event='some JavaScript' >
+    큰 따옴표 사용:
+    < element event="some JavaScript" >
+  </pre>
+  <p>다음 예제에서는 onclick 특성 (코드 포함)이 button 요소에 추가됩니다.</p>
+  <pre>
+    < button onclick="document.getElementById('demo').innerHTML = Date()">The time is?< /button >
+  </pre>
+  <button onclick="document.getElementById('demo').innerHTML = Date()">The time is?</button>
+  <p id="demo"></p>
+  <p>위의 예제에서 JavaScript 코드는 id = "demo"를 사용하여요소의 내용을 변경합니다.</p>
+  <p>다음 예제의 코드는 .innerHTML을 사용하여 자체 요소의 내용을 변경합니다.</p>
+  <button onclick="this.innerHTML = Date()">The time is?</button>
+  <p class="yellow">JavaScript 코드는 종종 여러줄로 구성됩니다. 함수를 호출하는 이벤트 속성을 보는 것이 더 일반적입니다.</p>
+  <pre>
+    < button onclick="displayDate()" >The time is?< /button >
+  </pre>
+  <button onclick="displayDate()" id="displayDate">click me!</button>
+  <hr>
+
+  <h2>일반적인 HTML 이벤트</h2>
+  <p>onchange - HTML 요소가 변경되었습니다.</p>
+  <p>onclick - 사용자가 HTML 요소를 클릭했습니다.</p>
+  <p>onmouseover - 사용자가 HTML 요소 위로 마우스를 이동했습니다.</p>
+  <p>onmouseout - 사용자가 마우스를 HTML 요소에서 멀리 이동시킵니다.</p>
+  <p>onkeydown - 사용자가 키보드를 누릅니다.</p>
+  <p>onload - 브라우저가 페이지 로드를 완료했습니다.</p>
+</body>
+</html>
+<script src="main.js"></script>
