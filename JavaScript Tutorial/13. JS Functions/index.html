@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+  
+</head>
+<body>
+  <h1>JavaScript Function</h1>
+  <hr>
+  
+  <p>JavaScript 함수는 특정 작업을 수행하도록 설계된 코드 블록입니다.</p>
+  <p>JavaScript 함수는 "무언가"가 호출할 때 실행 됩니다.</p>
+  <hr>
+  <script>
+    document.write(add(5,10));
+  </script>
+  <hr>
+
+  <h2>JavaScript 함수 구문</h2>
+  <p>JavaScript 함수는 function 키워드와 함께 이름 뒤에 괄호()가 옵니다.</p>
+  <p>함수 이름에는 문자, 숫자, 밑줄 및 달러기호(변수와 동일한 규칙)가 포함 될 수 있습니다.</p>
+  <p>괄호는 매개변수 이름을 쉼표로 구분하여 포함 할 수 있습니다.</p>
+  <p>(parameter1, parameter2....)</p>
+  <p>함수에 의해 실행될 코드는 중괄호 안에 위치합니다. {}</p>
+  <pre>
+    function name(parameter1, parameter2, parameter3) {
+      // code to be executed
+    }
+  </pre>
+  <p>함수 parameter(매개변수)는 함수 정의에서 괄호() 안에 나열됩니다.</p>
+  <p>함수 arguments(인수)는 함수 호출시에 수신된 값입니다.</p>
+  <p>함수 내에서 인수(매개변수)는 로컬 변수로 작동합니다.</p>
+  <p class="yellow">함수는 다른 프로그래밍 언어에서 프로시저 또는서브 루틴과 거의 동일합니다.</p>
+  <p class="green">프로시저 - 특정 작업을 수행 하는, 이름이 있는 PL/SQL BLOCK 이다.<br/>매개변수를 받을 수 있고, 반복적으로 사용할 수 있는 BLOCK이다.<br/>보통 연속 실행 또는 구현이 복잡한 트랜잭션을 수행하는 PL/SQL BLOCK을 데이터베이스에 저장하기 위해 생성한다.</p>
+  <p class="green">함수(function), 서브루틴(subroutine), 루틴(routine), 메서드(method), 프로시저(procedure)는 소프트웨어에서 특정 동작을 수행하는 일정 코드 부분을 의미한다.</p>
+  <hr>
+
+  <h2>함수 호출</h2>
+  <p>함수 내의 코드는 "어떤 무엇가"가 호출 할 때 실행됩니다.</p>
+  <ul>
+    <li>이벤트가 발생할 때(사용자가 버튼을 클릭 할 때)</li>
+    <li>JavaScript 코드에서 호출(호출) 될 때</li>
+    <li>자동 (자체 호출)</li>
+  </ul>
+  <hr>
+
+  <h2>function return</h2>
+  <p>JavaScript가 return문에 도달하면 함수의 실행이 중지됩니다.</p>
+  <p>함수가 명령문에서 호출 된 경우 JavaScript는 호출 문 다음에 코드를 실행하기 위해 "return"됩니다.</p>
+  <p>함수는 종종 return 값을 계산합니다. return 값은 "호출자"에게 "반환"됩니다.</p>
+  <pre>
+    var x = myFunction(4, 3);
+
+    function myFunction(a, b) {
+      return a * b;
+    }
+
+    console.log(x); // 12
+  </pre>
+  <hr>
+
+  <h2>왜 function인가?</h2>
+  <p class="green">코드를 재사용 할 수 있습니다. 코드를 한번 정의하고 여러번 사용하십시오.</p>
+  <p>서로 다른 인수를 사용하여 동일한 코드를 여러번 사용하여 다른 결과를 얻을 수 있습니다.</p>
+  <pre>
+    화씨를 섭씨로 변환
+    function toCelsius(fahrenheit) {
+      return (5/9) * (fahrenheit-32);
+    }
+    document.getElementById("demo").innerHTML = toCelsius(77);
+  </pre>
+  <p id="demo1"></p>
+  <hr>
+
+  <h2>변수 값으로 사용되는 함수</h2>
+  <p>함수는 모든 유형의 수식, 할당 및 계산에서 변수를 사용할 때와 같은 방법으로 사용할 수 있습니다.</p>
+  <pre>
+    변수를 사용하여 함수의 반환 값을 저장하는 대신
+    var x = toCelsius(77);
+    var text = "The temperature is " + x + " celsius";
+
+    이 함수를 변수 값으로 직접 사용할 수 있습니다.
+    var text = "The temperature is " + toCelsius(77) + " Celsius";
+  </pre>
+
+  <hr>
+
+  <h2>지역 변수 (Local variable)</h2>
+  <p>JavaScript 함수 내에서 선언 된 변수는 함수의 Local이 됩니다.</p>
+  <p>로컬 변수는 함수 내에서만 액세스 할 수 있습니다.</p>
+  <pre>
+    // code here can NOT use carName
+
+    function myFunction(){
+      var carName = "Volvo";
+      // code here CAN use carName
+    }
+
+    // code here can NOT use carName
+  </pre>
+  <p>지역 변수는 함수 내부에서만 인식되기 때문에 같은 이름의 변수를 다른 함수에서 사용할 수 있습니다.</p>
+  <p>로컬 변수는 함수가 시작될 때 만들어지며 함수가 완료되면 삭제됩니다.</p>
+</body>
+</html>
+<script src="main.js"></script>
