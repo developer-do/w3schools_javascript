@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript Numbers</h1>
+  <hr>
+
+  <p>자바스크립트에는 한 가지 유형의 number만 있습니다. 숫자는 십진수의 유무와 상관없이 쓸 수 있습니다.</p>
+  <hr>
+
+  <h2>JavaScript 숫자는 항상 64비트 부동 소수점 입니다.</h2>
+  <p>다른 많은 프로그래밍 언어와 달라 JavaScript는 integers, short, long, floating-pointer 등 다른 유형의 숫자를 정의하지 않습니다.</p>
+  <p>자바스크립트 number은 IEEE 754 표준에 따라 항상 배정도 부동소수점 숫자로 저장됩니다.</p>
+  <p>이 형식은 숫자를 64비트로 저장합니다. 숫자(분수)는 비트 0 ~ 51에 저장되고 지수는 비트 52 ~ 62에 저장되고 부호 63은 다음과 같이 저장됩니다.</p>
+  <table>
+    <tr>
+      <th>value (aka Fraction / Mantissa)</th>
+      <th>Exponent</th>
+      <th>Sign</th>
+    </tr>
+    <tr>
+      <td>52비트(0 - 51)</td>
+      <td>11비트(52 - 62)</td>
+      <td>1비트(63)</td>
+    </tr>
+  </table>
+  <hr>
+  <h2>정확성</h2>
+  <p>정수 (마침표 또는 지수 표기가 없는 숫자)는 최대 15자리 까지 정확합니다.</p>
+  <pre>
+    var x = 999999999999999;   // x will be 999999999999999
+    var y = 9999999999999999;  // y will be 10000000000000000
+  </pre>
+  <p>소수점의 최대 수는 17이지만 부동소수점 산술은 항상 100% 정확하지는 않습니다.</p>
+  <pre>
+    var x = 0.2 + 0.1;         // x will be 0.30000000000000004
+  </pre>
+  <p>위의 문제를 해결하려면 다음과 같이 곱셈 및 나눗샘을 수행하는 것이 좋습니다.</p>
+  <pre>
+    var x = (0.2 * 10 + 0.1 * 10) / 10;  // x will be 0.3
+  </pre>
+  <hr>
+
+  <h2>숫자 및 문자열 추가</h2>
+  <p>이 부분은 정확히 알기 때문에 넘어가겠습니다.</p>
+  <hr>
+
+  <h2>숫자 문자열</h2>
+  <p>JavaScript 문자열은 숫자로 된 내용을 가질 수 있습니다.</p>
+  <pre>
+    var x = 100;    // x is a number
+    var y = "100";  // x is a string
+  </pre>
+  <p>JavaScript는 모든 숫ㅅ자 연산에서 문자열을 숫자로 변환하려고 시도합니다.</p>
+  <p>아래와 같은 코드는 작동합니다.</p>
+  <pre>
+    작동합니다.
+    var x = "100";
+    var y = "10";
+    var z = x / y;
+
+    작동합니다.
+    var x = "100";
+    var y = "10";
+    var z = x * y;
+
+    작동합니다.
+    var x = "100";
+    var y = "10";
+    var z = x - y;
+
+    작동하지 않습니다.
+    var x = "100";
+    var y = "10";
+    var z = x + y;
+  </pre>
+  <hr>
+
+  <h2>NaN - 숫자가 아님</h2>
+  <p>NaN은 숫자가 유효한 숫자가 아님을 나타내는 JavaScript 예약어 입니다.</p>
+  <p>숫자가 아닌 문자열로 산술 연산을 수행하면 NaN (숫자가 아님)이 됩니다.</p>
+  <pre>
+    var x = 100 / "Apple";      // x will be NaN (Not a Number)
+  </pre>
+  <p>그러나 문자열에 숫자 값이 들어 있으면 결과는 숫자가 됩니다.</p>
+  <pre>
+    var x = 100 / "10";         // x wiil be 10
+  </pre>
+  <p>전역 JavaScript 함수 isNaN()을 사용하여 값이 숫자인지 확인할 수 있습니다.</p>
+  <pre>
+    var x = 100 / "Apple";
+    isNaN(x);                 // returns true because x is Not a Number
+  </pre>
+  <p>NaN에 주의 하십시오. 수학 연산에서 NaN을 사용하는 경우 결과도 NaN이 됩니다.</p>
+  <pre>
+    var x = NaN;
+    var y = 5;
+    var z = x + y;    // z will be NaN;
+  </pre>
+  <p>또는 결과가 결합일 수도 있습니다.</p>
+  <pre>
+    var x = NaN;
+    var y = "5";
+    var z = x + y;    // z will be NaN5
+  </pre>
+  <p>NaN은 숫자입니다.</p>
+  <pre>
+    typeof NaN;       // returns "number";
+  </pre>
+  <hr>
+
+  <h2>무한대</h2>
+  <p>Infinity (또는 -Infinity)는 가능한 가장 큰 숫자 이외의 숫자를 계산할 때 JavaScript가 반환하는 값입니다.</p>
+  <pre>
+    var myNumber = 2;
+    while(myNumber != Infinity) {
+      myNumber = myNumber * myNumber;
+    }
+  </pre>
+  <p>0으로 나눈 값도 Infinity를 생성합니다.</p>
+  <pre>
+    var x =  2 / 0;
+    var y = -2 / 0;
+  </pre>
+  <p>무한대는 숫자입니다. 무한대는 숫자를 반환합니다.</p>
+  <pre>
+    typeof Infinity;
+  </pre>
+
+  <hr>
+
+  <h2>16 진수</h2>
+  <p>JavaScript는 0x가 앞에 오면 숫자 상수를 16진수로 해석합니다.</p>
+  <pre>
+    var x = 0xFF;     // x will be 255;
+  </pre>
+  <p class="yellow">0과 같이 숫자를 쓰지 마십시오. (예: 07)</p>
+  <p class="yellow">일부 JavaScript 버전에서는 선행 0으로 작성된 경우 숫자를 8진수로 해석합니다.</p>
+  <p>기본적으로 JavaScript는 기본 10진수로 숫자를 표시합니다.</p>
+  <p>그러나 toString() method를 사용하여 base 2에서 base 36까지 번호를 출력할 수 있습니다.</p>
+  <p>Hexadecimal는 16진수입니다. Decimal은 기본 10진수입니다. Octal는 8진수 입니다. Binary는 2진수 입니다.</p>
+  <pre>
+    var myNumber = 32;
+    myNumber.toString(10);    // returns 32
+    myNumber.toString(32);    // returns 10
+    myNumber.toString(16);    // returns 20
+    myNumber.toString(8);     // returns 40
+    myNumber.toString(2);     // returns 100000
+  </pre>
+
+  <hr>
+
+  <h2>객체가 될 수 있는 number</h2>
+  <p>일반적으로 자바스크립트 숫자는 리터럴에서 생성된 프라미티브 값입니다.</p>
+  <p>var x = 123;</p>
+  <p>그러나 숫자는 키워드 new를 사용하여 객체로 정의할 수도 있습니다.</p>
+  <p>var y = new Number(123)</p>
+  <pre>
+    var x = 123;
+    var y = new Number(123);
+
+      // typeof x returns number
+      // typeof y returns object
+  </pre>
+
+  <p class="yellow">Number 객체를 만들지 마십시오. 실행속도가 느려집니다. new 키워드는 코드를 복잡하게 합니다. 이로인해 예상치 못한결과가 발생할 수 있습니다.</p>
+  <p class="yellow">두개의 값이 같은 객체를 비교하면 항상 false가 반환됩니다.</p>
+
+
+</body>
+</html>
+<script src="main.js"></script>
