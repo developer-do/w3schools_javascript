@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript String Nethods</h1>
+  <hr>
+
+  <p>String method는 String 작업을 도와줍니다.</p>
+  <hr>
+
+  <h2>String method 및 property</h2>
+  <p>"John Doe"와 같은 원시 값은 객체가 아니기 때문에 property나 method를 가질 수 없습니다.</p>
+  <p>그러나 자바스크립트에서는 method와 property를 실행할 때 자바스크립트가 원시 값을 객체로 처리하기 때문에 method와 property를 원시 값에서도 사용할 수 있습니다.</p>
+  <hr>
+
+  <h2>String length</h2>
+  <p>length property는 String의 length를 return 시킵니다.</p>
+  <pre>
+    var txt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var sln = txt.length;
+  </pre>
+  <hr>
+
+  <h2>String에서 a string find하기</h2>
+  <p>indexOf() method는 String에서 지정된 텍스트의 첫 번째 발생 index를 return합니다.</p>
+  <pre>
+    var str = "Please locate where 'locate' occurs!";
+    var pos = str.indexOf("locate");
+  </pre>
+  <p class="yellow">JavaScript는 위치를 0에서 부터 계산합니다. <br/>0은 문자열의 첫 번째 위치이고, 1은 두 번째, 2는 세 번째 입니다.</p>
+  <p>lastIndexOf() method는 마지막 문자열에서 지정된 텍스트의 위치의 index를 return 합니다.</p>
+  <pre>
+    var str = "Please locate where 'locate' occurs!";
+    var pos = str.lastIndexOf("locate");
+  </pre>
+  <p>indexOf() 및 lastIndexOf() method는 찾는 string가 없으면 -1을 return합니다.</p>
+  <pre>
+    var str = "Please locate where 'locate' occurs!";
+    var pos = str.lastIndexOf("John");
+  </pre>
+  <p>두가지 방법 모두 검색의 시작 위치로 두 번쨰 매개변수를 사용합니다.</p>
+  <pre>
+    var str = "Please locate where 'locate' occurs!";
+    var pos = str.indexOf("locate",15);
+  </pre>
+  <hr>
+
+  <h2>String 에서 String search</h2>
+  <p>search() method는 지정된 값에 대한 string을 search하고 일치한 위치를 반환합니다.</p>
+  <pre>
+    var str = "Please locate where 'locate' occurs!";
+    var pos = str.search("locate");
+  </pre>
+  <hr>
+
+  <h2>알아 차리셨습니까 ?</h2>
+  <p>indexOf()와 search() 두 method는 동일 합니까?</p>
+  <p>두개의 method는 동일한 인수(매개변수)를 받아들이고 동일한 값을 return합니다.</p>
+  <p>두 가지 방법이 동일 하지는 않습니다. 차이점은 다음과 같습니다.</p>
+  <ul class="green">
+    <li>search() method는 두번쨰 시작 위치 인수를 취할 수 없습니다.</li>
+    <li>indexOf() method는 강력한 검색값인 정규표현식을 사용할 수 없습니다.</li>
+  </ul>
+  <hr>
+
+  <h2>String part return</h2>
+  <p>문자열의 일부를 추출하는 방법에는 3가지가 있습니다.</p>
+  <ul class="green">
+    <li>slice (start, end)</li>
+    <li>substring (start, end)</li>
+    <li>substr (start, length)</li>
+  </ul>
+  <hr>
+
+  <h2>slice() method</h2>
+  <p>slice() method는 String의 일부를 추출하여 추출한 부분을 새 String으로 retunr합니다.</p>
+  <p>이 method는 시작 index(위치)와 마지막 index(위치)의 두 매개변수를 사용합니다.</p>
+  <p>이 예제는 문자열의 일부를 위치 7에서 위치 13으로 분할 합니다.</p>
+  <pre>
+    var str = "Apple, Banana, Kiwi";
+    var res = str.slice(7, 13);
+  </pre>
+  <p>매개변수가 음수이면 문자열 끝에서 부터 계산됩니다.</p>
+  <p>이 예제는 -12위치에서 -6위치 까지 문자열의 일부를 추출합니다.</p>
+  <pre>
+    var str = "Apple, Banana, Kiwi";
+    var res = str.slice(7, 13);
+  </pre>
+  <p>두번째 매개변수를 생략하면 method는 문자열의 나머지 부분을 잘라서 반환합니다.</p>
+  <pre>
+    var res = str.slice(7);
+  </pre>
+  <p>또는 끝에서 부터 계산</p>
+  <pre>
+    var res = str.slice(-12);
+  </pre>
+  <p class="red">IE8 이하에서는 음수 위치가 작동하지 않습니다. 풕 IE</p>
+  <hr>
+
+  <h2>substring() method</h2>
+  <p>substring()는 slice()와 비슷합니다.</p>
+  <p>차이점은 substring()이 음수 인덱스를 허용 하지 않는다는 것 입니다.</p>
+  <pre>
+    var str = "Apple, Banana, Kiwi";
+    var pos = str.substring(7, 13);
+  </pre>
+  <p>두 번째 매개변수를 생략하면 substring()는 문자열의 나머지 부분을 잘라냅니다.</p>
+  <hr>
+
+  <h2>substr() method</h2>
+  <p>substr()은 slice()와 비슷합니다.</p>
+  <p>차이점은 두 번째 매개변수는 추출되는 부분의 length를 지정한다는 것입니다.</p>
+  <pre>
+    var str = "Apple, Banana, Kiwi";
+    var res = str.substr(7, 6); 
+  </pre>
+  <p>두 번째 매개변수를 생략하면 substr()은 나머지 문자열을 잘라서 반환합니다.</p>
+  <pre>
+    var str = "Apple, Banana, Kiwi";
+    var res = str.substr(7); 
+  </pre>
+  <p>첫번째 매개변수가 음수이면 위치는 문자열 끝에서 부터 계산됩니다.</p>
+  <pre>
+    var str = "Apple, Banana, Kiwi";
+    var res = str.substr(-4);
+  </pre>
+  <hr>
+
+  <h2>String 내용 바꾸기</h2>
+  <p>replace() method는 문자열에서 다른 값으로 지정된 값을 대체합니다.</p>
+  <pre>
+    var str = "Please visit Microsoft!";
+    var n = str.replace("Microsoft", "W3Schools");
+  </pre>
+  <p>replace() method는 호출된 문자열을 변경하지 않습니다. 새 문자열을 반환합니다.</p>
+  <p>기본적으로 replace() method는 첫 번째 일치 항목만 바꿉니다.</p>
+  <pre>
+    str = "Please visit Microsoft and Microsoft!";
+    var n = str.replace("Microsoft", "W3Schools");
+  </pre>
+  <p>기본적으로 replace() method는 대 / 소문자를 구분합니다. MICROSOFT 는 작동하지 않습니다.</p>
+  <pre>
+    str = "Please visit Microsoft!";
+    var n = str.replace("MICROSOFT", "W3Schools");
+  </pre>
+  <p>대 / 소문자를 구분핮 ㅣ않으려면 /i 를 사용하는 정규표현식을 사용하십시오.</p>
+  <pre>
+    str = "Please visit Microsoft!";
+    var n = str.replace(/MICROSOFT/i, "W3Schools");
+  </pre>
+  <p class="yellow">정규식을 따옴표 없이 작성됩니다.</p>
+  <p>모든 일치 항목을 바꾸려면 /g 플래그 (전역 일치)와 함께 정규식을 사용하십시오.</p>
+  <pre>
+    str = "Please visit Microsoft!";
+    var n = str.replace(/MICROSOFT/g, "W3Schools");
+  </pre>
+  <hr>
+
+  <h2>대 / 소문자로 변환</h2>
+  <p>toUpperCase() method로 문자열을 대문자로 변환합니다.</p>
+  <pre>
+    var text1 = "Hello World!";
+    var text2 = text1.toUpperCase();
+  </pre>
+  <p>toLowerCase() method를 사용하면 문자열이 소문자로 변환됩니다.</p>
+  <pre>
+    var text3 = text2.toLowerCase();
+  </pre>
+  <hr>
+
+  <h2>concat() method</h2>
+  <p>concat() method는 두 개 이상의 문자열을 join합니다.</p>
+  <pre>
+    var text1 = "Hello";
+    var text2 = "World";
+    var text3 = text1.concat(" ", text2);
+  </pre>
+  <p>concat() method 대신 덧셈 연산자가 사용될 수 있습니다. 이 두줄은 똑같습니다.</p>
+  <pre>
+    var text = "Hello" + " " + "World!";
+    var text = "Hello".concat(" ", "World!");
+  </pre>
+  <p class="yellow">모든 string method는 새 string을 return합니다. 그들은 원래 string을 수정하지 않습니다.<br/> 공식적으로 : string는 변경 불가능합니다. string는 변경 될 수 없고 대체됩니다.</p>
+  <hr>
+
+  <h2>String trim()</h2>
+  <p>String.trim() method는 문자열 양쪽끝의 공백을 제거합니다.</p>
+  <pre>
+    var str = "      Hello World!       ";
+    console.log(str.trim());
+  </pre>
+  <p class="yellow">IE 8 이하에서는 String.trim()이 지원되지 않습니다.</p>
+  <p>IE 8 을 지원해야 하는 경우 trim()대신  String.replace를 정규식과 함께 사용할 수 있습니다.</p>
+  <pre>
+    var str = "       Hello World!        ";
+    alert(str.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, ''));
+  </pre>
+  <p>위의 바꾸기 솔루션을 사용하여 javaScriptStringportotype에 trim 함수를 추가할 수도 있습니다.</p>
+  <pre>
+    if (!String.prototype.trim) {
+      String.prototype.trim = function () {
+      return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+    };
+    var str = "       Hello World!        ";
+    alert(str.trim());
+  </pre>
+
+  <hr>
+  <h2>문자열에서 문자 추출하기</h2>
+  <p>문자열에서 문자를 추출하는 방법에는 3가지가 있습니다.</p>
+  <ul>
+    <li>charAt (position)</li>
+    <li>carCodeAt (position)</li>
+    <li>Property access []</li>
+  </ul>
+  <hr>
+
+  <h2>charAt() method</h2>
+  <p>charAt() method는 문자열에서 지정된 index(position)에 있는 문자를 돌려줍니다.</p>
+  <pre>
+    var str = "HELLO WORLD";
+    str.charAt(0);
+  </pre>
+  <hr>
+
+  <h2>charCodeAt() method</h2>
+  <p>charCodeAt() method는 문자열에서 지정된 index에 있는 문자의 유니코드를 반환합니다.</p>
+  <p>이 method는 UTF-16 코드 (0에서 65535 사이의 정수)를 반환합니다.</p>
+  <pre>
+    var str = "HELLO WORLD";  
+    var ch = str.charCodeAt(0);
+  </pre>
+  <hr>
+
+  <h2>Property access []</h2>
+  <p>ECMAScript 5 (2009)는 문자열에 대한 속성 엑세스 []을 허용합니다.</p>
+  <pre>
+    var str = "HELLO WORLD";
+    var ch = str[0];
+  </pre>
+  <p>속성 접근은 예측할 수 없을수도 있습니다.</p>
+  <ul class="yellow">
+    <li>IE7 이하에서는 작동하지 않습니다.</li>
+    <li>문자열을 배열처럼 보이게 합니다 (그러나 그렇지 않습니다.)</li>
+    <li>문자가 없으면 []는 undefined를 반환하고 charAt()은 빈 문자열을 반환합니다.</li>
+    <li>읽기 전용합니다. str[0] = "A"는 오류를 주지 않습니다. (그러나 작동하지 않습니다.)</li>
+  </ul>
+  <pre>
+    var str = "HELLO WORLD";
+    str[0] = "A";           // Gives no error, but does not work
+    str[0];                 // returns H
+  </pre>
+  <p class="yellow">문자열을 배열로 사용하려면 배열로 변환 할 수 있습니다.</p>
+  <hr>
+
+  <h2>문자열을 배열로 변환</h2>
+  <p>split() method를 사용하면 문자열을 배열로 변환 할 수 있습니다.</p>
+  <pre>
+    var txt = "a,b,c,d,e";
+    txt.split(",");
+    txt.split(" ");
+    txt.split("|");
+  </pre>
+  <p>구분 기호가 생략되면 리턴된 배열은 전체 문자열을 index[0]에 포함시킵니다.</p>
+  <p>구분기호가 ""인 경우 반환되는 배열은 단일문자 배열입니다.</p>
+  <pre>
+    var txt = "Hello";      // String
+    var sp = txt.split(""); // Split in characters 
+  </pre>
+
+
+
+</body>
+</html>
+<script src="main.js"></script>
