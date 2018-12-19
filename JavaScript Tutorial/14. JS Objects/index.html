@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript Object</h1>
+  <hr>
+  
+  <h2>실제 생명 객체, 속성 및 메소드</h2>
+  <p>실생활에서 자동차는 하나의 대상입니다.</p>
+  <p>자동차는 무게와 색상과 같은 특성과 시동과 정지와 같은 방법을 가지고 있다.</p>
+  <p>모든 자동차는 동일한 속성을 갖지만 속성값은 자동차마다 다릅니다.</p>
+  <p>모든 자동차에는 동일한 방법이 있지만 방법은 다른시간에 수행됩니다.</p>
+  <hr>
+
+  <h2>자바스크립트 객체</h2>
+  <p>JavaScript 변수는 데이터 값의 컨테이너라는 것을 이미 배웠습니다.</p>
+  <p>이 코드는 car라는 변수에 간단한 값("Fiat")을 할당합니다.</p>
+  <pre>
+    var car = "Fiat";
+  </pre>
+  <p>객체도 변수입니다. 그러나 객체에는 많은 값이 포함될 수 있습니다.</p>
+  <p>이 코드는 car라는 변수에 많은 값을 할당합니다.</p>
+  <pre>
+    var car = { type: "Fiat", model: "500", color: "white"};
+  </pre>
+  <p>값은 ( 이름 : 값 ) 으로 작성 되며 콜론으로 구분됩니다.</p>
+  <p class="yellow">JavaScript 객체는 속성 또는 메서드라고 하는 명명된 값의 컨테이너 입니다.</p>
+  <hr>
+
+  <h2>Object 정의</h2>
+  <p>객체 리터럴을 사용하여 JavaScript 객체를 정의 및 생성합니다.</p>
+  <pre>
+    var person = { firstName: "John", lastName: "Doe", age: 50, eyeColor: "blue"};
+  </pre>
+  <p>공백과 줄바꿈은 중요하지 않습니다. 객체 정의는 여러줄에 걸쳐있을 수 있습니다.</p>
+  <pre>
+    var person = {
+      firstName: "John",
+      lastName: "Doe",
+      age: 50,
+      eyeColor: "blue"
+    };
+  </pre>
+  <hr>
+
+  <h2>Object property</h2>
+  <p>자바스크립트 객체의 이름 : 값 의 쌍을 property 라고 합니다.</p>
+  <pre>
+    var person = {
+      firstName: "John",
+      lastName: "Doe",
+      age: 50,
+      eyeColor: "blue"
+    };
+  </pre>
+  <hr>
+
+  <h2>Object property 접근하기</h2>
+  <p>다음 두 가지 방법으로 객체 속성에 접근 할수 있습니다.</p>
+  <pre>
+    objectName.propertyName
+
+    or
+
+    objectName["propertyName"]
+  </pre>
+  <hr>
+  
+
+  <h2>Object method</h2>
+  <p>객체는 method를 가질수도 있습니다</p>
+  <p>method는 Object에 대해 수행 할 수 있는 작업입니다.</p>
+  <p>method는 function 정의로 property에 저장됩니다.</p>
+  <pre>
+    var person = {
+      firstName: "John",
+      lastName: "Doe",
+      age: 50,
+      eyeColor: "blue",
+      fullName: function () {
+        return this.firstName + " " + this.lastName;
+      }
+    };
+  </pre>
+  <hr>
+
+  <h2>This keyword</h2>
+  <p>함수 정의에서 This는 function "소유자"를 참조합니다.</p>
+  <p>위의 예에서, This는 person object의 fullName을 "소유"한 객체입니다.</p>
+  <p>즉 this.firstName은 person의 firstName을 가리킨다.</p>
+  <hr>
+
+  <h2>object method 접근</h2>
+  <p>다음 구문을 사용하여 객체 메서드에 엑세스 합니다.</p>
+  <pre>
+    objectName.methodName()
+
+    name = person.fullName();
+
+    괄호 없이 method에 접근하면 function 정의가 return됩니다.
+    name = person.fullName;
+  </pre>
+  <hr>
+
+  <h2>문자열, 숫자 및 불린을 객체로 선언하지 마십시오!</h2>
+  <p>JavaScript 변수가 키워드 "new"로 선언되면 변수는 객체로 만들어집니다.</p>
+  <pre>
+    var x = new String();
+    var y = new Number();
+    var z = new Boolean();
+  </pre>
+  <p>String, Number, Boolean 객체를 피하십시오. 코드가 복잡해지고 실행속도가 느려집니다.</p>
+</body>
+</html>
+
+<script src="main.js"></script>
