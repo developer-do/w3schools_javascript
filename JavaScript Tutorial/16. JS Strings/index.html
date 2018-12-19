@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+  
+</head>
+<body>
+  <h1>JavaScript String</h1>
+  <hr>
+
+  <p>JavaScript 문자열은 텍스트 저장 및 조작에 사용됩니다.</p>
+  <hr>
+
+  <h2>JavaScript 문자열</h2>
+  <p>JavaScript 문자열은 따옴표 안에 0개이상의 문자로 작성됩니다.</p>
+  <pre>
+    var x = "John Doe";
+  </pre>
+  <p>작은 따옴표나 큰 따옴표를 사용할 수 있습니다.</p>
+  <pre>
+    var carName = "Volvo XC60";
+    var carName = 'Volvo XC60';
+  </pre>
+  <p>문자열을 둘러싼 따옴표와 일치하지 않는 한 문자열 내에서 따옴표를 사용할 수 있습니다.</p>
+  <pre>
+    var answer = "It's alright";
+    var answer = "He is called 'Johnny'";
+    var answer = 'He is called "Johnny"';
+  </pre>
+  <hr>
+
+  <h2>문자열 길이</h2>
+  <p>문자열의 길이는 내장된 속성 length를 사용해서 찾을 수 있습니다.</p>
+  <pre>
+    var txt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var sln = txt.length;
+  </pre>
+  <hr>
+
+  <h2>특수 문자</h2>
+  <p>문자열은 따옴표로 작성해야 하므로 JavaScript는 다음 문자열을 오해합니다.</p>
+  <p>문자열은 "우리는 소위 입니다."라고 잘게 자릅니다.</p>
+  <p>이 문제를 피하느 해결책은 백  슬래시 이스케잎 문자를 사용하는 것 입니다.</p>
+  <p>백슬래시(\) 이스케이프 문자는 특수 문자를 문자열로 바꿔줍니다.</p>
+  <p>\' -> ' 가 된다.</p>
+  <p>\" -> " 가 된다.</p>
+  <p>\\ -> \ 가 된다.</p>
+  <p>문자열 \"은  문자열에 큰 따옴표를 삽입합니다.</p>
+  <pre>
+    var x = "We are the so-called \"Vikings\" from the north";
+  </pre>
+  <p>문자열 \'은 문자열에 작은 따옴표를 삽입합니다.</p>
+  <pre>
+    var x = 'It\'s alright';
+  </pre>
+  <p>문자열 \\ 는 문자열에 백슬래시를 삽입합니다.</p>
+  <pre>
+    var x = "The character \\ is called backslash.";
+  </pre>
+  <p>6개의 다른 이스케이프 시퀸스가 JavaScript에서 유효합니다.</p>
+  <ul>
+    <li>\b backspace</li>
+    <li>\f Form Feed</li>
+    <li>\n New Line</li>
+    <li>\r Carriage Return</li>
+    <li>\t Horizontal Tabulator</li>
+    <li>\v Vertical Tabulator</li>
+  </ul>
+  <hr>
+
+  <h2>긴 코드 라인 깨기</h2>
+  <p>가독성을 극대화 하기 위해 프로그래머는 종종 80자 이상 코드 행을 피하기를 원합니다.</p>
+  <p>JavaScript문이 한 줄에 들어맞지 않는 경우, 이 문장을 끊는 가장 좋은 위치는 연산자 다음입니다.</p>
+  <pre>
+    document.getElementById("demo").innerHTML = 
+    "Hello Dolly!";
+  </pre>
+  <p>단일 백슬래시로 텍스트 문자열 내의 코드 줄을 분리할 수도 있습니다.</p>
+  <pre>
+    document.getElementById("demo").innerHTML = "Hello \
+    Dolly!";
+  </pre>
+  <p class="yellow">\ method는 선호되는 방법이 아닙니다. 보편적인 지원이 없을수도 있습니다. 일부 브라우저는 \문자 뒤에 공백을 허용하지 않습니다.</p>
+  <p>문자열을 분리하는 더 안전한 방법은 문자열 추가를 사용하는 것입니다.</p>
+  <pre>
+    document.getElementById("demo").innerHTML = "Hello " +
+    "Dolly!";
+  </pre>
+  <p>백 슬래시를 사용하여 코드 줄을 분리 할 수 없습니다.</p>
+  <pre>
+    document.getElementById("demo").innerHTML = \
+    "Hello Dolly!";
+    error!!!
+  </pre>
+  <hr>
+
+  <h2>문자열은 객체가 될 수 있습니다.</h2>
+  <p>일반적으로 JavaScript 문자열은 리터럴에서 생성된 프리미티브 값입니다.</p>
+  <p>var firstName = "John";</p>
+  <p>그러나 문자열은 키워드 new를 사용하여 객체로 정의 할 수도 있습니다.</p>
+  <p>var firstName = new String("John");</p>
+  <pre>
+    var x = "John";
+    var y = new String("John");
+
+    // typeof x will return string
+    // typeof y will return object
+  </pre>
+  <p class="yellow">문자열을 객체로 생성하지 마십시오. 실행속도가 느려집니다. new 키워드는 코드를 복잡하게 합니다. 이로인해 예상치 못한 결과가 발생할 수 있습니다.</p>
+  <p>== 연산자를 사용할 때 동등한 문자열은 같습니다.</p>
+  <pre>
+    var x = "Ponny";
+    var y = new String("Ponny");
+
+    // (x == y) is true because x and y have equal values
+  </pre>
+  <p>=== 연산자를 사용하면 false입니다. === 연산자는 typeof와 value가 동일해야 합니다.</p>
+  <pre>
+    var x = "Ponny";
+    var y = new String("Ponny");
+
+    // (x === y) is false because x and y have different types ( string and object )
+  </pre>
+  <pre>
+    var x = new String("John");             
+    var y = new String("John");
+
+    // (x == y) is false because x and y are different objects
+
+    var x = new String("John");             
+    var y = new String("John");
+
+    // (x === y) is false because x and y are different objects
+  </pre>
+  <p class="yellow">(x == y)와 (x === y)의 차이점에 유의하십시오.</p>
+  <p class="red">두 개의 JavaScript 객체를 비교하면 항상 false입니다.</p>
+</body>
+</html>
+<script src="main.js"></script>
