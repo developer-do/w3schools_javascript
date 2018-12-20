@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript Get Date methods</h1>
+  <hr>
+
+  <p>이러한 mehtod는 날짜 객체에서 정보를 가져오는데 사용할 수 있습니다.</p>
+  <table>
+    <tr>
+      <th>Method</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>getFullYear()</td>
+      <td>연도를 4자리 숫자로 가져오기(yyyy)</td>
+    </tr>
+    <tr>
+      <td>getMonth()</td>
+      <td>월을 숫자로 가져오기(0-11)</td>   
+    </tr>
+    <tr>
+      <td>getDate()</td>
+      <td>날짜를 숫자로 가져오기(1-31)</td>   
+    </tr>
+    <tr>
+      <td>getHours()</td>
+      <td>시간 가져오기(0-23)</td>   
+    </tr>
+    <tr>
+      <td>getMinutes()</td>
+      <td>시간 가져오기(0-59)</td>   
+    </tr>
+    <tr>
+      <td>getSeconds()</td>
+      <td>초 가져오기(0-59)</td>   
+    </tr>
+    <tr>
+      <td>getMilliseconds()</td>
+      <td>밀리초 가져오기(0-999)</td>   
+    </tr>
+    <tr>
+      <td>getTime()</td>
+      <td>시간 확보(70년 1월 1일 이후 밀리초)</td>   
+    </tr>
+    <tr>
+      <td>getDay()</td>
+      <td>요일을 숫자로 가져오기(0-6)</td>   
+    </tr>
+    <tr>
+      <td>Date.now()</td>
+      <td>현재 시간</td>   
+    </tr>
+  </table>
+  <hr>
+
+  <h2>getTime() method</h2>
+  <p>다음 getTime() method는 1970년 1월 1일 이후의 밀리초 수를 반환합니다.</p>
+  <pre>
+    var d = new Date();
+    document.getElementById("demo").innerHTML = d.getTime();
+  </pre>
+  <div id="demo"></div>
+  <hr>
+
+  <h2>getFullYear() method</h2>
+  <p>getFullYear() method는 네자리 숫자로 날짜의 연도를 반환합니다.</p>
+  <pre>
+    var d = new Date();
+    document.getElementById("demo1").innerHTML = d.getFullYear();
+  </pre>
+  <div id="demo1"></div>
+  <hr>
+
+
+  <h2>getMonth() method</h2>
+  <p>getMonth() method는 숫자 0~11을 반환합니다.</p>
+  <pre>
+    var d = new Date();
+    document.getElementById("demo2").innerHTML = d.getMonth();
+  </pre>
+  <div id="demo2"></div>
+  <p class="yellow">자바스크립트에서 첫번째달(1월)은 번호 0 이므로 마지막 달(12월)은 11을 반환합니다.</p>
+  <p>일련의 이름을 사용하고 getMonth()를 사용하여 월을 이름으로 반환하십시오.</p>
+  <pre>
+    var d = new Date();
+    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    document.getElementById("demo3").innerHTML = months[d.getMonth()];
+  </pre>
+  <div id="demo3"></div>
+  <hr>
+
+  <h2>getDate() method</h2>
+  <p>getDate() method는 수(1~31)와 같은 날짜의 일을 반환합니다.</p>
+  <pre>
+    var d = new Date();
+    document.getElementById("demo4").innerHTML = d.getDate();
+  </pre>
+  <div id="demo4"></div>
+  <hr>
+
+  <h2>gerHours() method</h2>
+  <p>getHours() method는 수(0~23)와 같은 날짜의 시간을 반환합니다.</p>
+  <pre>
+    var d = new Date();
+    document.getElementById("demo5").innerHTML = d.getHours();
+  </pre>
+  <div id="demo5"></div>
+  <hr>
+
+  <h2>getMinutes() method</h2>
+  <p>getMinutes() method는 수(0~59)와 같은 날짜의 분을 반환합니다.</p>
+  <pre>
+    var d = new Date();
+    document.getElementById("demo6").innerHTML = d.getMinutes();
+  </pre>
+  <div id="demo6"></div>
+  <hr>
+
+  <h2>getSeconds() method</h2>
+  <p>getSeconds() method는 수(0~59)와 같은 날짜의 초를 반환합니다.</p>
+  <pre>
+    var d = new Date();
+    document.getElementById("demo7").innerHTML = d.getSeconds();
+  </pre>
+  <div id="demo7"></div>
+  <hr>
+  
+  <h2>getMilliseconds() method</h2>
+  <p>getMilliseconds() method는 날짜의 밀리초를 숫자 (0~999)로 반환합니다.</p>
+  <pre>
+    var d = new Date();
+    document.getElementById("demo8").innerHTML = d.getMilliseconds();
+  </pre>
+  <div id="demo8"></div>
+  <hr>
+
+  <h2>getDay() method</h2>
+  <p>getDay() method는 숫자(0~6)와 같은 날짜의 요일을 반환합니다.</p>
+  <pre>
+    var d = new Date();
+    document.getElementById("demo9").innerHTML = d.getDay();
+  </pre>
+  <div id="demo9"></div>
+  <p class="yellow">자바스크립트에서 세계의 일부 국가가 주의 첫날을 "월요일"로 간주하더라고 주중 첫 번쨰 날(0)은 "일요일"을 의미합니다.</p>
+  <p>이름 배열을 사용하여 getDay()를 사용하여 평일을 이름으로 반환 할 수 있습니다.</p>
+  <pre>
+    var d = new Date();
+    var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    document.getElementById("demo10").innerHTML = days[d.getDay()];
+  </pre>
+  <div id="demo10"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+<script src="main.js"></script>
