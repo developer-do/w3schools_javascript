@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript Array sort</h1>
+  <hr>
+
+  <h2>배열 정렬</h2>
+  <p>sort() method는 알파벳순으로 배열을 정렬한다.</p>
+  <pre>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.sort();
+  </pre>
+  <hr>
+
+  <h2>배열 반전</h2>
+  <p>reverse() method는 배열의 요소를 반대로</p>
+  <p>배열을 사용하여 알파벳 역순으로 배열을 정렬 할 수 있습니다.</p>
+  <pre>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.sort();
+    fruits.reverse();
+  </pre>
+  <hr>
+
+  <h2>숫자 정렬</h2>
+  <p>기본적으로 sort()함수는 값을 string 순으로 정렬합니다.</p>
+  <p>이것은 문자열 ( "Apple"은 "Banana" 앞에 옵니다. )에서 잘 작동합니다.</p>
+  <p>그러나 숫자를 문자열로 정렬하면 "2"가 "1"보다 크므로 "25"는 "100"보다 큽니다.</p>
+  <p>이 때문에 sort() 메서드는 숫자를 정렬 할 때 잘못된 결과를 생성합니다.</p>
+  <p>비교 기능을 제공하여 이 문제를 해결할 수 있습니다.</p>
+  <pre>
+    var points = [40, 100, 1, 5, 25, 10];
+    points.soft(function(a,b){return a - b});
+
+    동일한 트릭을 사용하여 내림차순 배열 정렬 할 수 있다.
+    points.sort(function (a, b) { return b - a });
+  </pre>
+  <hr>
+
+  <h2>비교 함수</h2>
+  <p>compare 함수의 목적은 대체 정렬 순서를 정의하는 것입니다.</p>
+  <p>compare 함수는 인수에 따라 음수, 0 또는 양수 값을 반환해야합니다.</p>
+  <pre>
+    function (a, b) { return a - b };
+  </pre>
+  <p>sort() method는 두 값을 비교할 때 비교 함수에 값을 보내고 반환된 (음수, 0, 양수) 값에 따라 값을 정렬합니다.</p>
+  <p>예:</p>
+  <p>40과 100을 비교할 때 sort() method 는 compare함수 (40, 100)을 호출합니다.</p>
+  <p>이 함수는 40 - 100을 계산하고 -60(음수값)을 반환합니다.</p>
+  <p>sort() 는 40을 100보다 낮은 값으로 정렬합니다.</p>
+  <p>이 코드 스니펫을 사용하여 숫자 및 알파벳순 정렬을 실험 해 볼 수 있습니다.</p>
+  <p id="demo1"></p>
+  <button onclick="myFunction1()">Sort Alphabetically</button>
+  <button onclick="myFunction2()">Sort Numberically</button>
+  <pre>
+    var points = [40, 100, 1, 5, 25, 10];
+    document.getElementById("demo1").innerHTML = points;
+
+    function myFunction1() {
+      points.sort();
+      document.getElementById("demo1").innerHTML = points;
+    }
+
+    function myFunction2() {
+      document.getElementById("demo1").innerHTML = points;
+    }
+  </pre>
+  <hr>
+
+  <h2>무작위 순서로 배열 정렬</h2>
+  <pre>
+    var points = [40, 100, 1, 5, 25, 10];
+    points.sort(function(a,b){return 0.5 - Math.random()});
+  </pre>
+  <div id="demo2"></div>
+  <hr>
+
+  <h2>가장 높은 (또는 가장 낮은)배열 값 찾기</h2>
+  <p>배열에 최대 또는 최소값을 찾는 기본 제공 함수는 없습니다.</p>
+  <p>그러나 배열을 정렬 한 후에는 인덱스를 사용하여 가장 높은값과 가장낮은 값을 얻을 수 있습니다.</p>
+  <p>오름차순 정렬</p>
+  <pre>
+    var points = [40, 100, 1, 5, 25, 10];
+    points.sort(function(a, b){return a - b});
+    points[0]은 가장 작은 숫자
+    points[length - 1]은 가장 큰 숫자
+  </pre>
+  <p>내림차순 정렬</p>
+  <pre>
+    var points = [40, 100, 1, 5, 25, 10];
+    points.sort(function(a, b){return b - a});
+    points[0]은 가장 큰 숫자
+    points[length - 1]은 가장 작은 숫자
+  </pre>
+  <p class="yellow">가장 높은 (또는 가장 낮은)값을 찾고자 할때 전체 배열을 정렬하는 것은 매우 비효율적인 방법입니다.</p>
+  <hr>
+
+
+  <h2>배열에서 Math.max() method 사용</h2>
+  <p>Math.max.apply를 사용하여 배열에서 가장 높은숫자를 찾을 수 있습니다.</p>
+  <pre>
+    var points = [40, 100, 1, 5, 25, 10];
+
+    function myArrayMax(arr) {
+      return Math.max.apply(null, arr);
+    }
+
+    myArrayMax(points);
+  </pre>
+  <p>Math.max.apply([1,2,3])은 Math.max(1,2,3)과 같습니다.</p>
+  <hr>
+
+  <h2>배열에서 Math.min() 사용</h2>
+  <p>Math.min.apply를 사용하여 배열에서 가장 낮은 수를 찾을 수 있습니다.</p>
+  <pre>
+    var points = [40, 100, 1, 5, 25, 10];
+
+    function myArrayMin(arr) {
+      return Math.min.apply(null, arr);
+    }
+    
+    myArrayMin(points);
+  </pre>
+  <p>Math.min.apply([1,2,3])은 Math.min(1,2,3)과 같습니다.</p>
+  <hr>
+
+  <h2>나의 최소 / 최대 JavaScript 방법</h2>
+  <p>가장 빠른 해결책은 "집에서 만든" 방법을 사용하는 것입니다.</p>
+  <p>이 함수는 각 값을 발견 된 가장 높은 값과 비교하는 배열을 반복합니다.</p>
+  <pre>
+    예) 최대 찾기
+    function myArrayMax(arr) {
+      var len = arr.length;
+      var max = -Infinity;
+      while (len--) {
+        if(arr[len] > max) {
+          max = arr[len];
+        }
+      }
+      return max;
+    }
+  </pre>
+  <p>이 함수는 각 값을 찾은 가장 낮은 값과 비교하는 배열을 반복합니다.</p>
+  <pre>
+    예) 최소 찾기
+    function myArrayMin(arr) {
+      var len = arr.length;
+      var min = Infinity;
+      while(len--) {
+        if(arr[len] < min) {
+          min = arr[len];
+        }
+      }
+    }
+  </pre>
+  <hr>
+
+  <h2>객체 배열 정렬</h2>
+  <p>자바스크립트 배열은 종종 객체를 포함합니다.</p>
+  <pre>
+    var cars = [
+      {type:"Volvo", year: 2016},
+      {type:"Saab", year: 2001},
+      {type:"BMW", year: 2010}
+    ]
+  </pre>
+  <p>객체에 다른 데이터 유형의 속성이 있더라고 sort() method를 사용하여 배열을 정렬 할 수 있습니다.</p>
+  <p>해결 방법은 속성 값을 비교하는 비교 함수를 작성하는 것입니다.</p>
+  <pre>
+    cars.sort(function(a,b){return a.year - b.year});
+  </pre>
+  <p>문자열 속성 비교는 좀 더 복잡합니다.</p>
+  <pre>
+    cars.sort(function(a,b) {
+      var x = a.type.toLowerCase();
+      var y = b.type.toLowerCase();
+      if(x < y) {return -1;}
+      if(x > y) {return 1;}
+      return 0;
+    });
+  </pre>
+
+</body>
+</html>
+<script src="main.js"></script>
