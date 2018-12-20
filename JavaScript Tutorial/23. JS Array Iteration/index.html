@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript Array Iteration Methods</h1>
+  <hr>
+
+  <p>배열 반복 메소드는 모든 배열 항목에서 작동합니다.</p>
+  <hr>
+
+  <h2>Array.forEach()</h2>
+  <p>forEach() 메서드는 각 배열 요소에 대해 한번씩 함수 (콜백 함수)를 호출합니다.</p>
+  <pre>
+    var txt = "";
+    var numbers = [45, 4, 9, 16, 25];
+    numbers.forEach(myFunction);
+    function myFunction(value, index, array) {
+      txt = txt + value + "<br/>";
+    }
+  </pre>
+  <p>이 함수는 3개의 인수를 취합니다.</p>
+  <ol class="green">
+    <li>항목 값</li>
+    <li>항목 index</li>
+    <li>배열 자체</li>
+  </ol>
+  <p>위의 예에서는 value 매개변수만 사용합니다. 이 예제는 다음과 같이 다시 작성할 수 있습니다.</p>
+  <pre>
+    var txt = "";
+    var numbers = [45, 4, 9, 16, 25];
+    numbers.forEach(myFunction);
+    function myFunction(value) {
+      txt = txt + value + "<br/>";
+    }
+  </pre>
+  <div id="demo1"></div>
+  <p class="green">Array.forEach()는 IE 8 이하를 제외한 모든 브라우저에서 지원합니다.</p>
+  <hr>
+
+  <h2>Array.map()</h2>
+  <p>map() method는 각 배열 요소에 대해 함수를 수행하여 새 배열을 만듭니다.</p>
+  <p>map() method는 값 없이 배열요소의 기능을 실행하지 않습니다.</p>
+  <p>map() method는 원래 배열을 변경하지 않습니다.</p>
+  <p>이 예제에서는 각 배열 값에 2를 곱합니다.</p>
+  <pre>
+    var numbers1 = [45, 4, 9, 16, 25];
+    var numbers2 = numbers1.map(myFunction);
+
+    function myFunction(value, index, array) {
+      return value * 2;
+    }
+  </pre>
+  <p>이 함수는 3개의 인수를 취합니다.</p>
+  <ol class="green">
+    <li>항목 값</li>
+    <li>항목 index</li>
+    <li>배열 자체</li>
+  </ol>
+  <p>콜백 함수가 value 매개변수만 사용하면 index 및 array 매개변수를 생략할 수 있습니다.</p>
+  <pre>
+    var numbers1 = [45, 4, 9, 16, 25];
+    var numbers2 = numbers1.map(myFunction);
+
+    function myFunction(value) {
+      return value * 2;
+    }
+  </pre>
+  <div id="demo2"></div>
+  <div id="demo3"></div>
+  <p class="green">Array.map()는 IE 8 이하를 제외한 모든 브라우저에서 지원합니다.</p>
+  <hr>
+
+  <h2>Array.filter()</h2>
+  <p>filter() method는 테스트를 통과하는 배열 요소를 사용하여 새 배열을 만듭니다.</p>
+  <p>이 예제에서는 값이 18보다 큰 요소로 새 배열을 만듭니다.</p>
+  <pre>
+    var numbers = [45, 4, 9 ,16, 25];
+    var over18 = numbers.filter(myFunction);
+
+    function myFunction(value, index, array) {
+      return value > 18;
+    }
+  </pre>
+  <p>이 함수는 3개의 인수를 취합니다.</p>
+  <ol class="green">
+    <li>항목 값</li>
+    <li>항목 index</li>
+    <li>배열 자체</li>
+  </ol>
+  <p>콜백 함수가 value 매개변수만 사용하면 index 및 array 매개변수를 사용하지 않으므로 생략할 수 있습니다.</p>
+  <pre>
+    var numbers = [45, 4, 9, 16, 25];
+    var over18 = numbers.filter(myFunction);
+
+    function myFunction(value) {
+      return value > 18;
+    }
+  </pre>
+  <div id="demo4"></div>
+  <p class="green">Array.filter()는 IE 8 이하를 제외한 모든 브라우저에서 지원합니다.</p>
+
+  <h2>Array.reduce()</h2>
+  <p>reduce() method는 각 배열 요소에서 하나의 값을 생성(감소) 하는 함수를 실행합니다.</p>
+  <p>redece() method는 배열의 왼쪽에서 오른쪽으로 작동합니다.</p>
+  <p class="yellow">redece() method는 원래 배열을 축소하지 않습니다.</p>
+  <p>이 예제에서는 배열의 모든 숫자의 합계를 찾습니다.</p>
+  <pre>
+    var numbers1 = [45, 4, 9, 16, 25];
+    var sum = numbers1.reduce(myFunction);
+
+    function myFunction(total, value, index, array) {
+      return total + value;
+    }
+  </pre>
+  <p>이 함수는 4개의 인수를 취합니다.</p>
+  <ol class="green">
+    <li>합계(초기 값 / 이전에 반환 된 값)</li>
+    <li>항목 값</li>
+    <li>항목 index</li>
+    <li>배열 자체</li>
+  </ol>
+  <p>위의 예제에서는 index및 array매개변수를 사용하지 않습니다. 다음과 같이 다시 작성할 수 있습니다.</p>
+  <pre>
+    var numbers1 = [45, 4, 9, 16, 25];
+    var sum = numbers1.reduce(myFunction);
+
+    function myFunction(total, value) {
+      return total + value;
+    }
+  </pre>
+  <div id="demo5"></div>
+  <p>redece() method는 초기값을 받아 들일 수 있다.</p>
+  <pre>
+    var numbers1 = [45, 4, 9, 16, 25];
+    var sum = numbers1.reduce(myFunction, 100);
+    
+    function myFunction(total, value) {
+      return total + value;
+    }
+  </pre>
+  <p class="green">Array.reduce()는 IE 8 이하를 제외한 모든 브라우저에서 지원합니다.</p>
+  <hr>
+
+  <h2>Array.reduceRight()</h2>
+  <p>reduceRight() method는 각 배열 요소에서 하나의 값을 생성(감소) 하는 함수를 실행합니다.</p>
+  <p>reduceRight() method는 배열의 오른쪽에서 왼쪽으로 작동합니다. reduce()를 참조하십시오.</p>
+  <p class="yellow">reduceRight() method는 원래 배열을 축소하지 않습니다.</p>
+  <p>이 예제는 배열의 모든 숫자의 합계를 찾습니다.</p>
+  <pre>
+    var numbers1 = [45, 4, 9, 16, 25];
+    var sum = numbers1.reduceRight(myFunction);
+
+    function myFunction(total, value, index, array) {
+      return total + value;
+    }
+  </pre>
+  <p>이 함수는 4개의 인수를 취합니다.</p>
+  <ol class="green">
+    <li>합계(초기 값 / 이전에 반환 된 값)</li>
+    <li>항목 값</li>
+    <li>항목 index</li>
+    <li>배열 자체</li>
+  </ol>
+  <p>위의 예제에서는 index및 array매개변수를 사용하지 않습니다. 다음과 같이 다시 작성할 수 있습니다.</p>
+  <pre>
+    var numbers1 = [45, 4, 9, 16, 25];
+    var sum = numbers1.reduceRight(myFunction);
+
+    function myFunction(total, value) {
+      return total + value;
+    }
+  </pre>
+  <div id="demo6"></div>
+  <p class="green">Array.reduceRight()는 IE 8 이하를 제외한 모든 브라우저에서 지원합니다.</p>
+  <hr>
+
+  <h2>Array.every()</h2>
+  <p>every() method는 모든 배열 값이 테스트를 통과하는지 합니다.</p>
+  <p>다음 예제는 모든 배열값이 18 보다 큰지 확인합니다.</p>
+  <pre>
+    var numbers = [45, 4, 9, 16, 25];
+    var allOver18 = numbers.every(myFunction);
+
+    function myFunction(value, index, array) {
+      return value > 18;
+    }
+  </pre>
+  <p>이 함수는 3개의 인수를 취합니다.</p>
+  <ol class="green">
+    <li>항목 값</li>
+    <li>항목 index</li>
+    <li>배열 자체</li>
+  </ol>
+  <p>콜백 함수가 첫 번째 매개변수 (value)만 사용하면 다른 매개변수는 생략 될 수 있습니다.</p>
+  <pre>
+    var numbers = [45, 4, 9, 16, 25];
+    var allOver18 = numbers.every(myFunction);
+
+    function myFunction(value) {
+      return value > 18;
+    }
+  </pre>
+  <div id="demo7"></div>
+  <p>검사가 끝난 후 ture || false를 return 합니다.</p>
+  <p class="green">Array.every()는 IE 8 이하를 제외한 모든 브라우저에서 지원합니다.</p>
+  <hr>
+
+
+  <h2>Array.some()</h2>
+  <p>some() method는 일부 배열값이 테스트를 통과하는지 확인합니다.</p>
+  <p>이 예제는 일부 배열값이 18보다 큰지 확인합니다.</p>
+  <p>하나라도 큰게 있다면 true를 내뱉습니다.</p>
+  <pre>
+    var numbers = [45, 4, 9, 16, 25];
+    var someOver18 = numbers.some(myFunction);
+
+    function myFunction(value, index, array) {
+      return value > 18;
+    }
+  </pre>
+  <div id="demo8"></div>
+  <p class="green">Array.some()는 IE 8 이하를 제외한 모든 브라우저에서 지원합니다.</p>
+  <hr>
+
+  <h2>Array.indexOf()</h2>
+  <p>배열에서 요소 값을 검색하고 그 위치를 반환합니다.</p>
+  <p class="yellow">참고 : 첫 번째 항목의 위치는 0 이고 두번쨰 항목의 위치는 1입니다.</p>
+  <pre>
+    "Apple"항목에 대한 배열 검색
+    var fruits = ["Apple", "Orange", "Apple", "Mango"];
+    var a = fruits.indexOf("Apple");
+  </pre>
+  <p class="green">Array.indexOf()는 IE 8 이하를 제외한 모든 브라우저에서 지원합니다.</p>
+  <p>array.indexOf(item, start) 1. 어떤걸 찾을거냐 2. 어디서 시작할거냐</p>
+  <p>Array.indexOf()는 항목이 없으면 -1을 반환합니다.</p>
+  <p>항목이 두번 이상 나타나는 경우 첫 번쨰 항목의 위치를 반환합니다.</p>
+  <hr>
+
+  <h2>Array.lastIndexOf()</h2>
+  <p>Array.lastIndexOf()는 Array.indexOf()와 같지만 배열의 끝에서 부터 검색합니다.</p>
+  <pre>
+    "Apple"항목에 대한 배열 검색 :
+    var fruits = ["Apple", "Orange", "Apple", "Mango"];
+    var a = fruits.lastIndexOf("Apple");
+  </pre>
+  <p class="green">Array.lastIndexOf()는 IE 8 이하를 제외한 모든 브라우저에서 지원합니다.</p>
+  <p>indexOf()랑 문법이 같다.</p>
+  <hr>
+
+  <h2>Array.find()</h2>
+  <p>find() method는 테스트 함수를 전달하는 첫번째 배열 요소의 값을 반환합니다.</p>
+  <p>이 예제에서는 18보다 큰 첫 번째 요소를 찾거나 (값을 반환합니다.)</p>
+  <pre>
+    var numbers = [4, 9, 16, 25, 29];
+    var first = numbers.find(myFunction);
+
+    function myFunction(value, index, array) {
+      return value > 18;
+    }
+  </pre>
+  <p class="green">Array.find()는 IE 8 이하를 제외한 모든 브라우저에서 지원합니다.</p>
+
+  <h2>Array.find()</h2>
+  <p>findIndex() method는 테스트 함수를 전달하는 첫 번째 배열 요소의 인덱스를 반환합니다.</p>
+  <p>이 예에서는 18보다 큰 첫 번째 요소의 인덱스를 찾습니다.</p>
+  <pre>
+    var numbers = [4, 9, 16, 25, 29];
+    var first = numbers.findIndex(myFunction);
+
+    function myFunction(value, index, array) {
+      return value > 18;
+    }
+  </pre>
+  
+
+
+
+
+
+
+
+
+</body>
+</html>
+<script src="main.js"></script>
