@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  
+</head>
+<body>
+  <h1>JavaScript Date Formats</h1>
+  <hr>
+
+  <h2>JavaScript 날짜 입력</h2>
+  <p>일반적으로 다음 세 가지 유형의 JavaScript 날짜 입력 형식이 있습니다.</p>
+  <table>
+    <tr>
+      <th>유형</th>
+      <th>예</th>
+    </tr>
+    <tr>
+      <td>ISO 날짜</td>
+      <td>"2015-03-25"(국제 표준)</td>
+    </tr>
+    <tr>
+      <td>짧은 날짜</td>
+      <td>'03/25/2015'</td>
+    </tr>
+    <tr>
+      <td>긴 날짜</td>
+      <td>'2015 년 3 월 25 일'또는 '2015 년 3 월 25 일'</td>
+    </tr>
+  </table>
+  <p class="yellow">ISO 형식은 JavaScript에서 엄격한 표준을 따릅니다.</p>
+  <p class="yellow">다른 형식은 잘 정의되어 있지 않으며 브라우저 별로 다를 수 있습니다.</p>
+  <hr>
+
+  <h2>자바스크립트 날짜 출력</h2>
+  <p>입력 형식과 관계 없이 JavaScript는 전체 텍스트 문자열 형식으로 날짜를 출력합니다.</p>
+  <div id="demo1"></div>
+  <hr>
+
+  <h2>JavaScript ISO 날짜</h2>
+  <p>ISO 8601은 날짜와 시간 표현을 위한 국제 표준입니다.</p>
+  <p>ISO 8601 구문 (YYYY-MM-DD)도 기본 JavaScript 날짜 형식입니다.</p>
+  <pre>
+    var d = new Date("2015-03-25");
+  </pre>
+  <div id="demo2"></div>
+  <p class="yellow">계산 된 날짜는 귀하의 시간대를 기준으로 합니다. <br/> 시간대에 따라 위의 결과는 3월 24일과 3월 25일 사이에 달라집니다.</p>
+  <hr>
+  
+  <h2>ISO 날짜 (년 and 월)</h2>
+  <p>ISO 날짜는 요일(YYYY-MM)을 지정하지 않고 작성할 수 있습니다.</p>
+  <pre>
+    var d = new Date("2015-03");
+  </pre>
+  <div id="demo3"></div>
+  <hr>
+
+  <h2>ISO 날짜 (만년)</h2>
+  <p>ISO 날짜는 월 및 일(YYYY)업이 작성할 수 있습니다.</p>
+  <pre>
+    var d = new Date("2015");
+  </pre>
+  <div id="demo4"></div>
+  <hr>
+
+  <h2>시간대</h2>
+  <p>시간대를 지정하지 않고 날짜를 설정할 때 JavaScript는 브라우저의 시간대를 사용합니다.</p>
+  <p>날짜를 가져올 때 시간대를 지정하지 않으면 결과가 브라우저의 시간대로 변환됩니다.</p>
+  <p>다시 말해: GMT (그리니치 표준시)로 날짜 / 시간을 만들면 사용자가 미국 중서부를 탐색하면 날짜 / 시간이 CDT(중앙 미국 일광 절약 시간)로 변환됩니다.</p>
+  <hr>
+
+  <h2>JavaSCript 짧은 날짜</h2>
+  <p>간단한 날짜는 다음과 같이 "MM/DD/YYYY"구문으로 작성됩니다.</p>
+  <pre>
+    var d = new Date("03/25/2015");
+  </pre>
+  <div id="demo5"></div>
+  <hr>
+
+  <h2>경고!</h2>
+  <pre>
+    var d = new Date("2015-3-25");
+
+    var d = new Date("2015/03/25");
+
+    var d = new Date("25-03-2015");
+    사용을 권하지 않습니다.
+  </pre>
+
+  <h2>자바스크립트 긴 날짜</h2>
+  <p>긴 날짜는 다음과 같이 "MMM DD YYYY"구문으로 작성되는 경우가 가장 많습니다.</p>
+  <pre>
+    var d = new Date("Mar 25 2015");
+  </pre>
+  <hr>
+
+  <h2>날짜 입력 - 파싱 날짜</h2>
+  <p>유효한 날짜 문자열이 있는 경우 Date.parse() method를 사용하여 밀리초로 변환 할 수 있습니다.</p>
+  <p>Date.parse()는 날짜와 1970 년 1월 1일 사이의 밀리초 수를 반환합니다.</p>
+  <pre>
+    var msec = Date.parse("March 21, 2012");
+    document.getElementById("demo").innerHTML = msec;
+  </pre>
+  <p>그런다음 밀리초 수를 사용하여 날짜 객체로 변환 할수 있습니다.</p>
+  <pre>
+    var msec = Date.parse("March 21, 2012");
+    var d = new Date(msec);
+    document.getElementById("demo").innerHTML = d;
+  </pre>
+</body>
+</html>
+<script src="main.js"></script>
