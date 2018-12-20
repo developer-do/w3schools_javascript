@@ -14,5 +14,4 @@ console.log(getRndInteger(20, 25));
 function getRndInteger2(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
 console.log(getRndInteger2(30, 35));
