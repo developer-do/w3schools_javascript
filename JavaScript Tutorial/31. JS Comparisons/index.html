@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript 비교 및 논리 연산자</h1>
+  <hr>
+
+  <p>비교 및 논리 연산자는 true 또는 false를 테스트 하는 데 사용됩니다.</p>
+  <hr>
+
+  <h2>비교 연산자</h2>
+  <p>비교 연산자는 변수 또는 값의 동일성 또는 차이를 결정하기 위해 논리 문에서 사용됩니다.</p>
+  <p>주어진 x = 5, 아래 표는 비교 연산자를 설명합니다.</p>
+  <p class="yellow">x = 5;</p>
+  <pre>
+    == 
+    x == 8    // returns false
+    x == 5    // returns true
+    x == "%"  // retunrs true
+
+    ===
+    x === 5   // returns true
+    x === "5" // returns false
+
+    !=
+    x != 8    // returns true
+
+    !==
+    x !== 5   // returns false
+    x !== "5" // returns true
+    x !== 8   // returns true
+
+    >
+    x > 8     // returns false
+    
+    <
+    x < 8     // returns true
+
+    >=
+    x >= 8    // returns false
+
+    <=
+    x <= 8    // returns true
+  </pre>
+  <hr>
+
+  <h2>그것을 어떻게 사용할 수 있는가?</h2>
+  <p>비교 연산자는 조건문에서 값을 비교하고 결과에 따라 조치를 취할 때 사용할 수 있습니다.</p>
+  <pre>
+    if(age < 18) text = "Too young";
+  </pre>
+  <hr>
+
+  <h2>논리 연산자</h2>
+  <p>논리연산자는 변수 또는 값 사이의 논리를 결정하는 데 사용됩니다.</p>
+  <p>주어진 x = 6 및 y = 3아래의 표는 논리 연산자를 설명합니다.</p>
+  <p class="yellow">x = 6, y = 3;</p>
+  <pre>
+    &&
+    (x < 10 && y > 1) is true
+
+    ||
+    (x == 5 || y == 5) is false
+
+    !
+    !(x == y) is true
+  </pre>
+  <hr>
+
+  <h2>조건부 3항 연산자</h2>
+  <p>또한 JavaScript에는 조건에 따라 변수에 값을 할당하는 조건부 연산자가 포함되어 있습니다.</p>
+  <h3>문법</h3>
+  <p>variablename = (condition) ? value1:value2</p>
+  <pre>
+    var voteable = (age < 18) ? "Too young":"Old enough";
+  </pre>
+  <p>변수 age가 18보다 작으면 voteable 변수의 값이 "너무 젊음"이 됩니다. 그렇지 않으면 voteable의 값이 "Old enough"가 됩니다.</p>
+  <hr>
+
+  <h2>다른 유형 비교</h2>
+  <p>서로 다른 유형의 데이터를 비교하면 예기치 않은 결과가 발생할 수 있습니다.</p>
+  <p>문자열을 숫자와 비교할 때 JavaScript는 비교를 수행 할 때 문자열을 숫자로 변환합니다. 빈 문자열은 0으로 변환됩니다. 숫자가 아닌 문자열은 항상 false인 NaN으로 변환됩니다.</p>
+
+  <pre>
+    2 < 12      // true
+
+    2 < "12"    // true
+
+    2 < "John"  // false
+
+    2 > "John"  // false
+
+    2 == "John" // false
+
+    "2" < "12"  // false
+
+    "2" > "12"  // true
+
+    "2" == "12" // false
+  </pre>
+
+  <p>두 문자열을 비교할 때 "2"는 "12" 보다 커야합니다.(알파벳 순으로) 1이 2보다 작기 때문입니다.</p>
+  <p>적절한 결과를 얻으려면 변수를 비교하기 전에 적절한 유형으로 변환해야 합니다.</p>
+  <pre>
+    age = Number(age);
+    if(isNaN(age)) {
+      voteable = "Input is not a number";
+    } else {
+      voteable = (age < 18) ? "Too young" : "Old enough";
+    }
+  </pre>
+
+
+</body>
+</html>
+<script src="main.js"></script>
