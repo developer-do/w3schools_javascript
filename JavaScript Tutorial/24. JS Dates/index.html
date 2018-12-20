@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript Date Object</h1>
+  <hr>
+
+  <h2>JavaScript Date output</h2>
+  <p>기본적으로 JavaScript는 브라우저 시간대를 사용하고 날짜를 전체 텍스트 문자열로 표시합니다.</p>
+  <hr>
+
+  <h2>날짜 개체 만들기</h2>
+  <p>Date객체는 new Date() 생성자로 만들어 집니다.</p>
+  <p>new Date object를 만드는 방법에는 4가지가 있습니다.</p>
+  <ol>
+    <li>new Date()</li>
+    <li>new Date(year, month, day, hours, minutes, seconds, milliseconds)</li>
+    <li>new Date(milliseconds)</li>
+    <li>new Date(date string)</li>
+  </ol>
+  <hr>
+
+  <h2>new Date()</h2>
+  <p>new Date() 현재 날짜와 시간으로 new Date object를 만듭니다.</p>
+  <pre>
+    var d = new Date();
+  </pre>
+  <p class="yellow">Date object는 정적입니다. 컴퓨터 시간은 똑딱 거리지만 Date object는 그렇지 않습니다.</p>
+  <hr>
+
+  <h2>new Date( year, month, ... )</h2>
+  <p>new Date( year, month, ...) 지정된 날짜와 시간으로 새 날짜 객체를 만듭니다.</p>
+  <p>7개의 숫자는 년, 월, 일, 시간, 분, 초, 밀리초를 순서대로 지정합니다.</p>
+  <pre>
+    var d = new Date(2018, 11, 24, 10, 33, 30, 0);
+  </pre>
+  <p class="yellow">자바스크립트는 0에서 11까지 월을 계산합니다.</p>
+  <p class="yellow">1월은 0입니다. 12월은 11입니다.</p>
+  <p>년, 월, 일, 시, 분, 초를 나타내는 6자리 숫자</p>
+  <pre>
+    var d = new Date(2018, 11, 24, 10, 33, 30);
+  </pre>
+  <p>5개의 숫자는 년, 월, 일, 시간 및 분을 지정합니다.</p>
+  <pre>
+    var d = new Date(2018, 11, 24, 10, 33);
+  </pre>
+  <p>4개의 숫자는 년, 월, 일, 시간을 지정합니다.</p>
+  <pre>
+    var d = new Date(2018, 11, 24, 10);
+  </pre>
+  <p>3개의 숫자는 년, 월, 일을 지정합니다.</p>
+  <pre>
+    var d = new Date(2018, 11, 24);
+  </pre>
+  <p>2개의 숫자는 년, 월을 지정합니다.</p>
+  <pre>
+    var d = new Date(2018, 11);
+  </pre>
+  <p>1개의 숫자는 년도 하나만을 지정합니다.</p>
+  <pre>
+    var d = new Date(2018);
+  </pre>
+  <hr>
+
+  <h2>이전 세기</h2>
+  <p>한 자리와 두 자리 연도는 19xx로 해석됩니다.</p>
+  <pre>
+    var d = new Date(99, 11, 24);
+    var d = new Date(9, 11, 24);
+  </pre>
+  <hr>
+
+  <h2>new Date(dateString)</h2>
+  <p>new Date(dateString)는 날짜 문자열에서 새 날짜 객체를 만듭니다.</p>
+  <pre>
+    var d = new Date("October 13, 2014 11: 13:00");
+  </pre>
+  <hr>
+
+  <h2>JavaScript 저장 날 짜 밀리초</h2>
+  <p>JavaScript는 1970년 1월 1일 00:00:00UTC (Universal Time Coordinated) 이후로 밀리 초 단위로 날짜를 저장합니다.</p>
+  <p class="yellow">제로 시간은 1970 년 1 월 1 일 00:00:00 UTC입니다.</p>
+  <p>이제 시간은 : 1970 년 1 월 1 일을 지난 밀리 초 1545294821977 밀리 초 입니다.</p>
+  <hr>
+
+  <h2>new Date(milliseconds)는 0 시간에 밀리초를 더해서 new Date() 객체를 만듭니다.</h2>
+  <pre>
+    var d = new Date(0);
+  </pre>
+  <p class="yellow">86400000밀리초는 하루입니다.</p>
+  <hr>
+
+  <h2>Date method</h2>
+  <p>Date객체가 만들어지면 여러 method를 사용하여 작업할 수 있습니다.</p>
+  <p>Date method를 사용하면 현지 시간 또는 UTC(유니버셜 또는 GMT)시간을  사용하여 연도, 월, 일, 시간, 분, 초 및 밀리초의 날짜 개체를 가져오고 설정할 수 있습니다.</p>
+  <hr>
+
+  <h2>Date 표시</h2>
+  <p>JavaScript는 전체 텍스트 문자열 형식으로 날짜를 출력합니다.(기본값)</p>
+  <pre>
+    var a = new Date();
+    document.getElementById("demo1").innerHTML = a;
+
+    위와 아래 코드는 서로 같다.
+
+    var d = new Date();
+    document.getElementById("demo").innerHTML = d.toString();
+  </pre>
+  <div id="demo1"></div>
+  <p>toUTCString() method는 UTC 문자열 (날짜 표시 기준)에 날짜를 변환합니다.</p>  
+  <pre>
+    var d = new Date();
+    document.getElementById("demo").innerHTML = d.toUTCString();
+  </pre>
+  <div id="demo2"></div>
+  <p>toDateString()은 읽기 쉬운 형식으로 날짜를 변환합니다.</p>
+  <pre>
+    var d = new Date();
+    document.getElementById("demo3").innerHTML = d.toDateString();
+  </pre>
+  <div id="demo3"></div>
+
+
+
+
+
+
+</body>
+</html>
+<script src="main.js"></script>
