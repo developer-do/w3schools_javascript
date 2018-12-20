@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript Set Date Methods</h1>
+  <hr>
+
+  <p>날짜 설정 메서드를 사용하면 Date object의 날짜 값(년, 월, 일, 시간, 분, 초, 밀리 초)을 설정할 수 있습니다.</p>
+  <hr>
+
+  <h2>날짜 메소드 설정</h2>
+  <p>날짜 설정 메소드는 날짜의 일부를 설정하는 데 사용됩니다.</p>
+  <hr>
+
+  <h2>setFullYear() method</h2>
+  <p>serFullYear() method는 Date 객체의 연도를 설정합니다.</p>
+  <pre>
+    var d = new Date();
+    d.setFullYear(2020);
+    document.getElementById("demo").innerHTML = d;
+  </pre>
+  <div id="demo"></div>
+  <p>serFullYear() method는 선택적으로 월과 일을 설정할 수 있습니다.</p>
+  <pre>
+    var d = new Date();
+    d.setFullYear(2020, 11, 3);
+    document.getElementById("demo1").innerHTML = d;
+  </pre>
+  <div id="demo1"></div>
+  <hr>
+
+  <h2>setMonth() method</h2>
+  <p>setMonth() method는 달(0~11)을 설정합니다.</p>
+  <pre>
+    var d = new Date();
+    d.setMonth(1);
+    document.getElementById("demo2").innerHTML = d;
+  </pre>
+  <div id="demo2"></div>
+  <hr>
+  
+  <h2>setDate() method</h2>
+  <p>setDate() method는 날짜 개체(1~31)의 일을 설정합니다.</p>
+  <pre>
+    var d = new Date();
+    d.setDate(20);
+    document.getElementById("demo3").innerHTML = d;
+  </pre>
+  <div id="demo3"></div>
+  
+  <p>setDate() method를 사용하여 날짜에 day를 추가할 수 있습니다.</p>
+  <pre>
+    var d = new Date();
+    d.setDate(d.getDate() + 50);
+    document.getElementById("demo4").innerHTML = d;
+  </pre>
+  <div id="demo4"></div>
+  <p class="yellow">날짜를 추가하거나 월 또는 연도를 이동하면 변경사항은 Date 객체에 의해 자동으로 처리됩니다.</p>
+  <hr>
+
+  <h2>setHours() method</h2>
+  <p>setHours() method는 날짜의 숫자(0~23)의 시간을 설정합니다.</p>
+  <pre>
+    var d = new Date();
+    d.setHours(22);
+    document.getElementById("demo5").innerHTML = d;
+  </pre>
+  <div id="demo5"></div>
+  <hr>
+
+  <h2>setMinutes() method</h2>
+  <p>setMinutes() method는 Date의 분을 숫자(0~59)로 설정합니다.</p>
+  <pre>
+    var d = new Date();
+    d.setMinutes(30);
+    document.getElementById("demo6").innerHTML = d;
+  </pre>
+  <div id="demo6"></div>
+  <hr>
+
+  <h2>setSeconds() method</h2>
+  <p>setSeconds() method는 Date의 초를 숫자(0~59)로 설정합니다.</p>
+  <pre>
+    var d = new Date();
+    d.setSeconds(30);
+    document.getElementById("demo7").innerHTML = d;
+  </pre>
+  <div id="demo7"></div>
+  <hr>
+
+  <h2>날짜 비교</h2>
+  <p>날짜를 쉽게 비교할 수 있습니다.</p>
+  <p>다음 예제에서는 오늘 날짜를 2100년 1월 14일과 비교합니다.</p>
+  <pre>
+    var today, someday, text;
+    today = new Date();
+    someday = new Date();
+    someday.setFullYear(2100, 0, 14);
+
+    if(someday > today) {
+      text = "Today is before January 14, 2100.";
+    } else {
+      text = "Today is after January 14, 2100.";
+    }
+    document.getElementById("demo8").innerHTML = text;
+  </pre>
+  <div id="demo8"></div>
+  <p class="yellow">자바스크립트는 0에서 11까지 월을 계산합니다 1월은 0입니다. 12월은 11입니다.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+<script src="main.js"></script>
