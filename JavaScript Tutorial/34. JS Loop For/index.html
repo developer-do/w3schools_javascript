@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript For Loop</h1>
+  <hr>
+
+  <p>루프는 여러번 코드 블록을 실행할 수 있습니다.</p>
+  <hr>
+
+  <h2>자바스크립트 루프</h2>
+  <p>동일한 코드를 반복해서 실행하고 싶을 때마다 매번 다른 값을 사용하여 루프를 작성하면 편리합니다.</p>
+  <p>배열을 사용하여 작업 할 때 다음과 같은 경우가 종종 있습니다</p>
+  <pre>
+    text += cars[0] + "< br >"; 
+    text += cars[1] + "< br >"; 
+    text += cars[2] + "< br >"; 
+    text += cars[3] + "< br >"; 
+    text += cars[4] + "< br >"; 
+    text += cars[5] + "< br >";
+    
+    위의 코드 대신
+
+    var i;
+    for(i = 0; i < cars.length; i++){
+      text += cars[i] + "<br/>";
+    }
+  </pre>
+  <hr>
+
+  <h2>다른 종류의 루프</h2>
+  <p>JavaScript는 다양한 종류의 루프를 지원합니다.</p>
+  <ol class="green">
+    <li>for - 여러번 코드 블록을 반복합니다.</li>
+    <li>for/in - 객체의 속성을 통해 반복합니다.</li>
+    <li>while - 지정된 조건이 true인 동안코드 블록을 반복합니다.</li>
+    <li>do/while - 또한 지정된 조건이 참일 때 코드 블록을 반복합니다.</li>
+  </ol>
+  <hr>
+
+  <h2>For 루프</h2>
+  <p>for 루프의 구문은 다음과 같습니다.</p>
+  <pre>
+    for(statement 1; statement 2; statement 3) {
+      // code block to be executed
+    }
+  </pre>
+
+  <p>statement 1은 코드 블록을 실행하기 전에 한번 실행됩니다.</p>
+  <p>statement 2는 코드 블록을 실행하기 위한 조건을 정의합니다.</p>
+  <p>statement 3은 코드 블록이 실행 된 후 매번 실행됩니다.</p>
+  <pre>
+    for (var i = 0; i < 5; i++) {
+      text += "The number is " + i + "< br >";
+    }
+  </pre>
+  <p>위의 예에서 다음을 읽을 수 있습니다.</p>
+  <p>statement 1은 루프가 시작되기 전에 변수를 설정합니다 (var i = 0;)</p>
+  <p>statement 2는 루프 실행 조건을 정의합니다. (i는 5보다 작아야 합니다.)</p>
+  <p>statement 3은 루프의 코드 블록이 실행될 때마다 값 (i++)을 증가시킵니다.</p>
+  <hr>
+
+  <h2>statement1</h2>
+  <p>일반적으로 statement 1을 사용하여 루프에서 사용된 변수를 초기화 합니다.</p>
+  <p>항상 그런것은 아니지만 자바스크립는 상관하지 않습니다. statement 1은 선택 사항입니다.</p>
+  <p>statement 1에서 많은 값을 시작할 수 있습니다.</p>
+  <pre>
+    for (i = 0, len = cars.length, text = ""; i < len; i++) {
+      text += cars[i] + "< br >";
+    }
+  </pre>
+  <p>statement 1이 시작되기 전에 값이 설정되는 경우처럼 statement 1을 생략할 수 있습니다.</p>
+  <pre>
+    var i = 2;
+    var len = vars.length;
+    var text = "";
+    for (; i < len; i++) {
+      text += cars[i] + "< br >";
+    }
+  </pre>
+  <hr>
+
+  <h2>statement2</h2>
+  <p>statement2는 초기 변수의 조건을 평가하는 데 종종 사용됩니다.</p>
+  <p>항상 그런것은 아니지만 자바스크립트는 상관하지 않습니다. statement2는 선택사항입니다.</p>
+  <p>statement2가 true를 반환하면 루프가 다시 시작되고 false를 반환하면 루프가 끝납니다.</p>
+  <p class="yellow">statement2를 생략하면 루프 내에서 휴식을 제공해야 합니다. 그렇지 않으면 루프가 끝나지 않습니다. 그러면 브라우저가 다운됩니다.</p>
+  <hr>
+
+  <h2>statement3</h2>
+  <p>종종 statement3은 초기 변수의 값을 증가시킵니다.</p>
+  <p>이것은 항상 그런것은 아니며 JavaScript는 신경쓰지 않으면 statement3은 선택사항 입니다.</p>
+  <p>statement3은 음수증가(i--), 양수 증가(i = i + 15)또는 그 밖의 모든 작업을 수행 할 수 있습니다.</p>
+  <p>statement3은 루프내에서 값을 증가시킬 때와 같이 생략 할 수도 있습니다.</p>
+  <pre>
+    var i = 0;
+    var len = cars.length;
+    for (; i < len;){
+      text += cars[i] + "< br >";
+      i++;
+    }
+  </pre>
+  <hr>
+
+  <h2>For / in 루프</h2>
+  <p>JavaScript for / in문은 객체의 속성을 반복합니다.</p>
+  <pre>
+    var person = { fname:"John", lname:"Doe", age: 25 };
+
+    var text = "";
+    var x;
+    for(x in person) {
+      text += person[x];
+    }
+  </pre>
+
+
+</body>
+</html>
+<script src="main.js"></script>
