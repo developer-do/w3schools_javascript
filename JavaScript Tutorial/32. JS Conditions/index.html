@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript if else else if</h1>
+  <hr>
+
+  <p>조건문은 조건에 따라 다른 동작을 수행하는데 사용됩니다.</p>
+  <hr>
+
+  <h2>조건문</h2>
+  <p>코드를 작성할 때 자주 다른 결정에 대해 다른 작업을 수행하려고 합니다.</p>
+  <p>코드에서 조건문을 사용하여 이를 수행 할 수 있습니다.</p>
+  <p>자바스크립트에는 다음과 같은 조건문이 있습니다.</p>
+  <ul>
+    <li>if - 지정된 조건이 참인 경우 실행할 코드 블록을 지정</li>
+    <li>else - if의 조건이 거짓인 경우 실행할 코드블록을 지정하십시오.</li>
+    <li>else if - if의 조건이 거짓이고 다른조건으로 실행할 코드 블록을 지정</li>
+    <li>사용 스위치를 코드의 많은 다른 블록을 지정하기 위해 실행합니다.</li>
+  </ul>
+  <hr>
+
+  <h2>if 문</h2>
+  <p>조건이 참인 경우 실행할 JavaScript 코드 블록을 지정하려면 if문을 사용하십시오.</p>
+  <pre>
+    통사론
+
+    if(condition) {
+      // block of code to be executed if the condition is true
+    }
+  </pre>
+  <p class="yellow">소문자일 경우 주의 하십시오. 대문자 (If 또는 IF)는 JavaScript 오류를 생성합니다.</p>
+  <pre>
+    시간이 18:00 미만이면 "좋은 하루" 인사말을 만드십시오.
+    if(hour < 18) {
+      greeting = "Good day";
+    }
+  </pre>
+  <hr>
+
+
+  <h2>else 문</h2>
+  <p>if 조건이 거짓인 경우 코드블록이 실행되도록 지정 블록에 다른 설명을 사용하십시오.</p>
+  <pre>
+    통사론
+
+    if(condition) {
+      // block of code to be executed if the condition is true
+    } else {
+      // block of code to be executed if the condition is false
+    }
+  </pre>
+  <pre>
+    시간이 18 시간 미만이면 "좋은 하루" 인사말을 만들고, 그렇지 않은경우 "즐거운 저녁"인사말을 만듭니다.
+    if(hour < 18) {
+      greeting = "Good day";
+    } else {
+      greetion = "Good evening";
+    }
+  </pre>
+  <hr>
+
+  <h2>else if 문</h2>
+  <p>첫 번째 조건이 거짓인 경우 다른 조건을 사용하여 새 조건을 지정하십시오.</p>
+  <pre>
+    통사론
+
+    if(condition1) {
+      // block of code to be executed if condition1 is true
+    } else if(condition2) {
+      // block of code to be executed if the confition1 is false and condition2 is true
+    } else {
+      // block of code to be executed if the condition1 is false and condition2 is false
+    }
+  </pre>
+
+  <pre>
+    시간이 10:00 미만인 경우 "Good morning"인사말을 작성하고 그렇지 않은 경우 20:00 미만인 경우 "Good day"인사말을 작성하고, 그렇지 않은 경우 "Good evening"을 작성하십시오.
+
+    if(time < 10) {
+      greeting = "Good morning";
+    } else if (time < 20) {
+      greeting = "Good day";
+    } else {
+      greetion = "Good evening";
+    }
+  </pre>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+<script src="main.js"></script>
