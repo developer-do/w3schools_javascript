@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript Type Conversions</h1>
+  <hr>
+
+  <p>Number()는 Number로 변환되고, String()은 String으로 변환되며, Boolean()은 boolean으로 변환됩니다.</p>
+  <hr>
+
+  <h2>JavaScript 데이터 유형</h2>
+  <p>JavaScript에는 값을 포함 할 수 있는 5가지 데이터 유형이 있습니다.</p>
+  <ol class="green">
+    <li>String</li>
+    <li>number</li>
+    <li>boolean</li>
+    <li>object</li>
+    <li>function</li>
+  </ol>
+  <p>객체 유형에는 3가지가 있습니다.</p>
+  <ol class="green">
+    <li>Object</li>
+    <li>Date</li>
+    <li>Array</li>
+  </ol>
+  <p>값을 포함 할 수 없는 두가지 데이터 유형은 다음과 같습니다.</p>
+  <ol class="green">
+    <li>null</li>
+    <li>undefined</li>
+  </ol>
+  <hr>
+
+  <h2>연산자 유형</h2>
+  <p>typeof 연산자를 사용하여 JavaScript 변수의 데이터 유형을 찾을 수 있습니다.</p>
+  <pre>
+    typeof "John"                 // Returns "string"
+    typeof 3.14                   // Returns "number"
+    typeof NaN                    // Returns "number"
+    typeof false                  // Returns "boolean"
+    typeof [1,2,3,4]              // Returns "object"
+    typeof {name:'John', age:34}  // Returns "object"
+    typeof new Date()             // Returns "object"
+    typeof function () {}         // Returns "function"
+    typeof myCar                  // Returns "undefined" *
+    typeof null                   // Returns "object"
+  </pre>
+  <p>준수 하십시오.</p>
+  <ol class="green">
+    <li>NaN의 데이터 유형은 숫자입니다.</li>
+    <li>배열의 데이터 유형은 object입니다.</li>
+    <li>날짜의 데이터 유형은 object입니다.</li>
+    <li>null의 데이터 형은 object입니다.</li>
+    <li>정의되지 않은 변수의 데이터 유형도 undefined 입니다.</li>
+    <li>값이 할당되지 않은 변수의 데이터 유형도 undefined입니다.</li>
+  </ol>
+  <p>typeof를 사용하여 JavaScript 객체가 배열(또는 날짜)인지 판단 할 수 없습니다.</p>
+  <hr>
+
+  <h2>typeof의 Date Type</h2>
+  <p>typeof 연산자는 변수가 아닙니다. 그것은 교환원 입니다. 연산자(+ - * /)에는 데이터 유형이 없습니다.</p>
+  <p>그러나 typeof 연산자는 항상 문자열(피 연산자 유형 포함)을 반환합니다.</p>
+  <hr>
+
+  <h2>constructor 속성</h2>
+  <p>constructor 속성은 모든 자바스크립트 변수의 생성자 함수를 반환합니다.</p>
+  <pre>
+    "John".constructor                // Returns function String()  {[native code]}
+    (3.14).constructor                // Returns function Number()  {[native code]}
+    false.constructor                 // Returns function Boolean() {[native code]}
+    [1,2,3,4].constructor             // Returns function Array()   {[native code]}
+    {name:'John',age:34}.constructor  // Returns function Object()  {[native code]}
+    new Date().constructor            // Returns function Date()    {[native code]}
+    function () {}.constructor        // Returns function Function(){[native code]}
+  </pre>
+  <p>생성자 속성을 검사하여 객체가 Array인지 여부를 확인할 수 있씁니다. ("Array"라는 단어 포함)</p>
+  <pre>
+    function isArray(myArray) {
+      return myArray.constructor.toString().indexOf("Array") > -1;
+    }
+  </pre>
+  <p>또는 객체가 Array함수인지 쉽게 확인할 수 있습니다.</p>
+  <pre>
+    function isArray(myArray) {
+      return myArray.constructor === Array;
+    }
+  </pre>
+  <p>위와 같은 방식으로 객체가 Date함수인지 확인할 수 있습니다.</p>
+  <pre>
+    function isDate(myDate) {
+      return myDate.constructor.toString().indexOf("Date") > -1;
+    }
+
+    function isDate(myDate) {
+      return myDate.constructor === Date;
+    }
+  </pre>
+  <hr>
+
+  <h2>자바스크립트 유형 변환</h2>
+  <p>JavaScript 변수는 새 변수 및 다른 데이터 유형으로 변환 할 수 있습니다.</p>
+  <ul class="green">
+    <li>자바스크립트 함수 사용</li>
+    <li>JavaScript자체에 의해 자동으로 변환</li>
+  </ul>
+  <hr>
+
+  <h2>숫자를 문자열로 변환</h2>
+  <p>전역 method String()은 숫자를 문자열로 변환 할 수 있습니다.</p>
+  <p>숫자, 리터럴, 변수 또는 표현식의 모든 유형에 사용할 수 있습니다.</p>
+  <pre>
+    String(x);        // returns a string from a number variable x
+    String(123)       // returns a string from a number literal 123
+    String(100 + 23)  // returns a string from a number from an expression
+  </pre>
+  <p>Number method toString()도 동일합니다.</p>
+  <pre>
+    x.toString();
+    (123).toString();
+    (100 + 23).toString();
+  </pre>
+  <p>Number Methods 장에서는 숫자를 문자열로 변환하는 데 사용할 수 있는 더 많은 메소드를 찾을 수 있습니다.</p>
+  <hr>
+
+
+  <h2>boolean을 string로 변환</h2>
+  <p>전역 메소드 String()은 boolean을 string로 변환할 수 있습니다.</p>
+  <pre>
+    String(false);    // returns "false"
+    String(true);     // returns "true"
+  </pre>
+  <p>toString() method도 마찬가지입니다.</p>
+  <pre>
+    false.toString();
+    true.toString();
+  </pre>
+  <hr>
+
+
+  <h2>Date를 String로 변환</h2>
+  <p>전역 메소드 String()은 날짜를 문자열로 변환 할 수 있습니다.</p>
+  <pre>
+    String(Date())  // returns "Thu Jul 17 2014 15:38:19 GMT+0200 (W. Europe Daylight Time)"
+  </pre>
+  <p>toString() 메소드도 동일합니다.</p>
+  <pre>
+    Date().toString()  // returns "Thu Jul 17 2014 15:38:19 GMT+0200 (W. Europe Daylight Time)"
+  </pre>
+  <hr>
+
+  <h2>문자열을 숫자로 변환</h2>
+  <p>전역 method인 Number()는 문자열을 숫자로 변환 할 수 있습니다.</p>
+  <p>숫자가 들어있는 문자열(예: "3.14")은 숫자(예: 3.14)로 변환됩니다.</p>
+  <p>빈 문자열은 0으로 변환됩니다.</p>
+  <p>다른 것은 NaN(숫자가 아님)으로 변환됩니다.</p>
+  <pre>
+    Number("3.14")    // returns 3.14
+    Number(" ")       // returns 0 
+    Number("")        // returns 0
+    Number("99 88")   // returns NaN
+  </pre>
+  <hr>
+
+  <h2>단한 + 연산자</h2>
+  <p>단항 + 연산자는 숫자에 변수를 변환 할 수 있습니다.</p>
+  <pre>
+    var y = "5";  // y is a String
+    var x = + y;  // x is a number
+  </pre>
+  <p>변수를 변환 할 수 없으면 여전히 숫자가 되지만 값은 NaN(숫자가 아님) 입니다.</p>
+  <pre>
+    var y = "John";
+    var x = + y;
+  </pre>
+  <hr>
+
+  <h2>boolean을 숫자로 변환</h2>
+  <p>전역 method인 number()는 boolean을 숫자로 변환 할 수도 있습니다.</p>
+  <pre>
+    Number(false);    // 0
+    Number(true);     // 1
+  </pre>
+  <hr>
+
+  <h2>Date를 숫자로 변환</h2>
+  <p>전역 method인 number()는 Date를 숫자로 변환 할 수도 있습니다.</p>
+  <pre>
+    d = new Date();
+    Number(d);
+  </pre>
+  <p>date method의 getTime() method도 동일합니다.</p>
+  <pre>
+    d = new Date();
+    dd = d.getTime();
+  </pre>
+  <hr>
+
+
+  <h2>자동 유형 변환</h2>
+  <p>JavaScript가 "잘못된" 데이터 유형으로 작동하려고 하면 "올바른" 유형으로 변환하려고 시도합니다.</p>
+  <p>결과가 항상 기대한 것은 아닙니다.</p>
+  <pre>
+    5 + null      // returns 5        왜냐하면 null이 숫자로 변환되면 0이 됨
+    "5" + null    // returns "5null"  왜냐하면 null이 문자로 변환되면 "null"이 됨
+    "5" + 2       // returns "52"     왜냐하면 2가 문자로 변환되면 "2"가 됨
+    "5" - 2       // returns 3        왜냐하면 "5"가 숫자로 변환되면 5가 됨
+    "5" * "2"     // returns 10       왜냐하면 "5" 그리고 "2"가 숫자로 변환되면 5 와 2가 되서
+  </pre>
+  <hr>
+
+  <h2>자동 문자열 변환</h2>
+  <p>JavaScript는 객체 또는 변수를 "출력"하려고하면 자동으로 변수의 toString() 함수를 호출합니다.</p>
+  <pre>
+    document.getElementById("demo").innerHTML = myVar;
+
+    // if myVar = {name:"Fjohn"}  // toString converts to "[object Object]"
+    // if myVar = [1,2,3,4]       // toString converts to "1,2,3,4"
+    // if myVar = new Date()      // toString converts to "Fri Jul 18 2014 09:08:55 GMT+0200"
+  </pre>
+  <p>숫자와 불린도 변환되지만 이것은 잘 보이지 않습니다.</p>
+  <pre>
+    // if myVar = 123             // toString converts to "123"
+    // if myVar = true            // toString converts to "true"
+    // if myVar = false           // toString converts to "false"
+  </pre>
+</body>
+</html>
+<script src="main.js"></script>
