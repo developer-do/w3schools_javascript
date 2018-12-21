@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript 오류 - try catch 및 throw</h1>
+  <hr>
+
+  <p>try 문을 사용하면 오류 코드 블록을 테스트 할 수 있습니다.</p>
+  <p>catch 문을 사용하면 오류를 처리 할 수 있습니다.</p>
+  <p>throw 문은 사용자 정의 오류를 만들 수 있습니다.</p>
+  <p>finally 문을 사용하면 결과에 관계없이, try 및 catch 후 코드를 실행 할 수 있습니다.</p>
+  <hr>
+
+  <h2>오류가 발생합니다!</h2>
+  <p>JavaScript 코드를 실행할 때 오류가 발생할 수 있습니다.</p>
+  <p>오류는 프로그래머가 작성한 코딩 오류, 잘못된 입력으로 인한 오류 및 기타 예측할 수 없는 것들이 될 수 있습니다.</p>
+  <pre>
+    이 예에서는 의도적으로 오류를 생성하는 adddlert라는 경고를 작성했습니다.
+
+    try {
+      adddlert("Welcome guest!");
+    }
+    catch(err) {
+      document.getElementById("demo").innerHTML = err.message;
+    }
+  </pre>
+  <div id="demo"></div>
+  <p class="yellow">JavaScript는 adddlert를 오류로 처리하고 이를 처리하기 위해 catch 코드를 실행합니다.</p>
+  <hr>
+
+  <h2>JavaScript try and catch</h2>
+  <p>try의 문장은 내가 그것을 실행하는 동안 오류를 테스트 할 코드 블록을 정의 할 수 있습니다.</p>
+  <p>catch문을 사용하면 try block에서 오류가 발생할 경우 실행할 코드 블록을 정의할 수 있음</p>
+  <p>try 및 catch 는 JavaScript에서는 쌍으로 제공합니다.</p>
+  <pre>
+    try {
+      Block of code to try
+    }
+    catch(err) {
+      Block of code to handle errors
+    }
+  </pre>
+  <hr>
+
+  <h2>자바스크립트 오류 발생</h2>
+  <p>오류가 발생하면 JavaScript가 정상적으로 중지되고 오류 메시지가 생성됩니다.</p>
+  <p>기술적인 용어는 다음과 같습니다. JavaScript에서 예외를 발생시킴(오류 발생)</p>
+  <p class="yellow">JavaScript는 이름과 메시지의 두가지 속성을 가진 Error 객체를 실제로 만듭니다.</p>
+  <hr>
+
+  <h2>throw 문</h2>
+  <p>throw 문을 사용하면 사용자 지정 오류를 만들 수 있습니다.</p>
+  <p>기술적으로 말하면 예외를 적용 할 수 있다(오류를 발생)</p>
+  <p>예외는 자바스크립트 String, number, boolean 또는 object일 수 있습니다.</p>
+  <pre>
+    throw "Too big";      // throw a text
+    throw 500;            // throw a number
+  </pre>
+  <p>당신이 사용하는 경우 try 와 catch를 함께 사용하면 프로그램 흐름을 제어하고 사용자 정의 오류 메시지를 생성할 수 있다.</p>
+  <hr>
+
+  <h2>입력 검증 예제</h2>
+  <p>이 예는 입력을 검사합니다. 값이 틀리면 예외(err)가 발생합니다.</p>
+  <p>예외 (err)가 catch 문에 의해 잡히고 사용자 정의 오류 메시지가 표시 됩니다.</p>
+
+  <input id="demo1" type="text">
+  <button type="button" onclick="myFunction()">Test Input</button>
+  <p id="p01"></p>
+  <pre>
+    function myFunction() {
+      var message, x;
+      message = document.getElementById("p01");
+      message.innerHTML = "";
+      x = document.getElementById("demo").value;
+      try { 
+        if(x == "") throw "empty";
+        if(isNaN(x)) throw "not a number";
+        x = Number(x);
+        if(x < 5) throw "too low";
+        if(x > 10) throw "too high";
+      }
+      catch(err) {
+        message.innerHTML = "Input is " + err;
+      }
+    }
+  </pre>
+  <hr>
+
+  <h2>HTML 유효성 검사</h2>
+  <p>위 코드는 예제일 뿐입니다.</p>
+  <p>최신 브라우저는 HTML 속성에 정의 된 사전 정의 된 유효성 검사 규칠을 사용하여 JavaScript와 내장 된 HTMl 유효성 검사를 조합하여 사용합니다.</p>
+  <pre>
+    < input type="text" id="demo" type="number" min="5" max="10" step="1" >
+  </pre>
+  <hr>
+
+  <h2>finally 문</h2>
+  <p>finally 문을 사용하면 결과에 관계 없이, 시도 및 캐치 후, 코드를 실행 할 수 있습니다.</p>
+  <pre>
+    try {
+      Block of code to try
+    }
+    catch(err) {
+      Block of code to handle errors
+    }
+    finally {
+      Block of code to be executed regardless of the try / catch result
+    }
+  </pre>
+  <input id="demo2" type="text">
+  <button type="button" onclick="myFunction2()">Test Input</button>
+  <p id="p02"></p>
+
+  <pre>
+    예
+
+    function myFunction() {
+      var message, x;
+      message = document.getElementById("p01");
+      message.innerHTML = "";
+      x = document.getElementById("demo2").value;
+      try { 
+        if(x == "") throw "empty";
+        if(isNaN(x)) throw "not a number";
+        x = Number(x);
+        if(x < 5) throw "too low";
+        if(x > 10) throw "too high";
+      }
+      catch(err) {
+        message.innerHTML = "Input is " + err;
+      }
+      finally {
+        document.getElementById("demo2").value = "finally";
+      }
+    }
+  </pre>
+  <hr>
+
+  <h2>error 객체</h2>
+  <p>JavaScript 에는 오류가 발생할 때 오류 정보를 제공하는 오류 객체가 내장되어 있습니다.</p>
+  <p>오류 객체는 이름과 메시지라는 두 가지 유용한 속성을 제공합니다.</p>
+  <hr>
+
+  <h2>error 객체 속성</h2>
+  <table>
+    <tr>
+      <th>property</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>오류 이름을 설정하거나 반환합니다.</td>
+    </tr>
+    <tr>
+      <td>message</td>
+      <td>오류 메시지 (문자열)를 설정하거나 반환합니다.</td>
+    </tr>
+  </table>
+  <hr>
+
+  <h2>error name value</h2>
+  <p>오류 이름 등록 정보에서 6개의 다른 리턴값을 리턴 할 수 있습니다.</p>
+
+  <table>
+    <tr>
+      <th>Error Name</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>EvalError</td>
+      <td>eval() 함수에서 오류가 발생했습니다.</td>
+    </tr>
+    <tr>
+      <td>RangeError</td>
+      <td>숫자 "범위를 벗어났습니다." 가 발생했습니다.</td>
+    </tr>
+    <tr>
+      <td>ReferenceError</td>
+      <td>잘못된 참조가 발생했습니다.</td>
+    </tr>
+    <tr>
+      <td>SyntaxError</td>
+      <td>구문 오류가 발생했습니다.</td>
+    </tr>
+    <tr>
+      <td>TypeError</td>
+      <td>유형 오류가 발생했습니다.</td>
+    </tr>
+    <tr>
+      <td>URIError</td>
+      <td>encodeURI() 오류가 발생했습니다.</td>
+    </tr>
+  </table>
+  <p>여섯가지 다른 값은 아래에 설명되어 있습니다.</p>
+  <hr>
+
+  <h2>EvalError(평가 오류)</h2>
+  <p>EvalError은 eval() 함수에 대한 오류를 나타냅니다.</p>
+  <p class="red">최신 버전의 JavaScript는 EvalError를 발생시키지 않습니다. 대신 SyntaxError를 사용하십시오.</p>
+  <hr>
+
+  <h2>RangeError(범위 오류)</h2>
+  <p>RangeError 에러는 유효한 값의 범위를 벗어나는 숫자를 사용하는 경우 발생합니다.</p>
+  <p>예 : 숫자의 유효 자릿수를 500으로 설정할 수 없습니다.</p>
+  <pre>
+    var num = 1;
+    try {
+      num.toPrecision(500);     // 숫자는 500개의 유효숫자를 가질 수 없습니다.
+    }
+    catch(err) {
+      document.getElementById("demo").innerHTML = err.name;
+    }
+  </pre>
+  <hr>
+
+  <h2>ReferenceError(참조 오류)</h2>
+  <p>ReferenceError 에러는 (참조)선언되지 않은 변수를 사용하는 경우 발생합니다.</p>
+  <pre>
+    var x;
+    try {
+      x = y + 1;      // y를 참조(사용)할 수 없음
+    }
+    catch(err) {
+      document.getElementById("demo").innerHTML = err.name;
+    }
+  </pre>
+  <hr>
+
+  <h2>SyntaxError(구문 오류)</h2>
+  <p>SyntaxError 에러는 구문 오류 코드를 평가하려고 하면 발생합니다.</p>
+  <pre>
+    try {
+      eval("alert('Hello)");    //      '를 놓치면 오류가 발생
+    }
+    catch(err) {
+      document.getElementById("demo").innerHTML = err.name;
+    }
+  </pre>
+
+  <hr>
+
+  <h2>TypeError(형식 오류)</h2>
+  <p>TypeError 에러는 유형의 범위를 벗어나는 값을 사용하는 경우 발생합니다.</p>
+  <pre>
+    var num = 1;
+    try {
+      num.toUpperCase();      //  숫자를 대문자로 변환 할 수 없음
+    }
+    catch(err) {
+      document.getElementById("demo").innerHTML = err.name;
+    }
+  </pre>
+  <hr>
+
+  <h2>URIError(Uniform Resource Identifier 오류)</h2>
+  <p>URIError 에러는 URI기능에 잘못된 문자를 사용하는 경우 발생합니다.</p>
+  <pre>
+    try {
+      decodeURI("%%%");       // URI를 디코딩 할 수 없음
+    }
+    catch(err) {
+      document.getElementById("demo").innerHTML = err.name;
+    }
+  </pre>
+
+  <hr>
+
+  <h2>비표준 에러 객체 속성</h2>
+  <p class="red">
+    Mozilla와 Microsoft는 몇가지 비표준 오류 객체 속성을 정의합니다.<br/>
+    <br/><br/>
+    fileName(mozilla)<br/>
+    lineNumber(mozilla)<br/>
+    columnNumber(mozilla)<br/>
+    stack(mozilla)<br/>
+    description(Microsoft)<br/>
+    number(Microsoft)<br/>
+    <br/>
+    공개 웹 사이트에서는 이러한 속성을 사용하지 마십시오. 모든 브라우저에서 작동하지는 않습니다.
+  </p>
+
+
+
+
+
+
+
+
+</body>
+</html>
+<script src="main.js"></script>
