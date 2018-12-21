@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript scope</h1>
+  <hr>
+
+  <p>범위는 변수의 접근 가능성 (가시성)을 결정합니다.</p>
+  <hr>
+
+  <h2>JavaScript 함수 범위</h2>
+  <p>JavaScript에는 두 가지 유형의 범위가 있습니다.</p>
+  <ul>
+    <li>local scope</li>
+    <li>global scope</li>
+  </ul>
+  <p>JavaScript에는 기능 범위가 있습니다. 각 기능은 새로운 범위를 만듭니다.</p>
+  <p>범위는 이러한 변수의 접근 가능성(가시성)을 결정합니다.</p>
+  <p>함수 내에서 정의된 변수는 함수 외부에서 접근할 수 없습니다.</p>
+  <hr>
+
+  <h2>지역 JavaScript 변수</h2>
+  <p>JavaScript 함수 내에서 선언된 변수는 함수의 LOCAL이 됩니다.</p>
+  <p>지역 변수는 function scope를 가집니다. 함수 내에서만 접근할 수 있습니다.</p>
+  <pre>
+    // code here can NOT use carName
+
+    function myFunction(){
+      var carName = "Volvo";
+
+      // code here CAN use carName
+    }
+  </pre>
+  <p>지역 변수는 함수 내부에서만 인식 되기 때문에 같은 이름의 변수를 다른 함수에서 사용할 수 있습니다.</p>
+  <p>로컬 변수는 함수가 시작될 때 만들어지며 함수가 완료되면 삭제됩니다.</p>
+  <hr>
+
+  <h2>전역 JavaScript 변수</h2>
+  <p>함수 밖에서 선언 된 변수는 GLOBAL이 됩니다.</p>
+  <p>글로벌 변수는 global scope를 가집니다. 웹페이지의 모든 스크립트와 기능에 접근할 수 있습니다.</p>
+  <pre>
+    var carName = "Volvo";
+
+    // code here can use carName
+
+    function myFunction(){
+      
+      // code here can alse use carName
+
+    }
+  </pre>
+  <hr>
+
+  <h2>JavaScript 변수</h2>
+  <p>JavaScript에서는 객체와 함수도 변수 입니다.</p>
+  <p class="yellow">범위는 코드의 다른 부분에서 변수, 객체 및 함수의 접근 가능성을 결정합니다.</p>
+  <hr>
+
+  <h2>자동 GLOBAL</h2>
+  <p>선언되지 않은 변수에 값을 할당하면 변수가 자동으로 GLOBAL 변수가 됩니다.</p>
+  <p>이 코드 예제는 값이 함수 내에 할당 된 경우에도 전역 변수 carName을 선언합니다.</p>
+  <pre>
+    myFunction();
+
+    // code here can use carName
+
+    function myFunction(){
+      carName = "Volvo";
+    }
+  </pre>
+  <hr>
+
+  <h2>use Strict</h2>
+  <p>최신의 모든 브라우저는 "Strict Mode"에서 JavaScript를 실행할 수 있도록 지원합니다.</p>
+  <p>Strict 모드 사용방법은 자습서 뒷부분에서 설명합니다.</p>
+  <p class="red">전역변수는 "use strict"에서 자동으로 생성되지 않습니다.</p>
+  <hr>
+
+  <h2>HTML의 전역변수</h2>
+  <p>JavaScript를 사용하면 전역볌위가 완벽한 JavaScript환경입니다.</p>
+  <p>HTML에서 전역 볌위는 window object입니다. 모든 전역변수는 window object에 속합니다.</p>
+  <pre>
+    var carName = "Volvo";
+
+    // code here can use window.carName
+  </pre>
+
+  <hr>
+
+  <h2>경고</h2>
+  <p class="red">
+    의도하지 않는 한 전역 변수를 작성하지 마십시오.<br>
+    <br>
+    전역변수 (또는 함수)는 윈도우 변수(또는 함수)를 덮어 쓸 수 있습니다.<br>
+    window object를 포함한 모든 함수는 전역 변수 및 함수를 덮어 쓸 수 있습니다.
+  </p>
+  <hr>
+
+  <h2>JavaScript 변수의 수명</h2>
+  <p>JavaScript 변수의 수명은 선언 될 때 시작됩니다.</p>
+  <p>함수가 완료 되면 지역변수가 삭제됩니다.</p>
+  <p>웹 브라우저에서 전역 변수는 브라우저 창 (또는 탭)을 닫을 때 삭제되지만 같은 창에 로드 된 새 페이지에서는 계속 사용 할 수 있습니다.</p>
+  <hr>
+
+  <h2>함수 Arguments</h2>
+  <p>함수 arguments (parameters)는 함수 내에서 로컬변수로 작동합니다.</p>
+
+
+</body>
+</html>
+<script src="main.js"></script>
