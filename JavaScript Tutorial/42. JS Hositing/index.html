@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+  
+</head>
+<body>
+  <h1>JavaScript Hoisting</h1>
+  <hr>
+
+  <p>Hoisting은 선언을 맨 위로 이동시키는 JavaScript의 기본 동작입니다.</p>
+  <hr>
+
+  <h2>JavaScript 선언은 나열 됩니다.</h2>
+  <p>JavaScript에서는 변수를 사용한 후에 선언 할 수 있습니다.</p>
+  <p>다시 말해서, 변수는 선언되기 전에 사용 될 수 있습니다.</p>
+  <p>예 1은 예2와 동일한 결과를 제공합니다.</p>
+  <pre>
+    예제 1
+
+    x = 5;  // Assign 5 to x
+
+    elem = document.getElementById("demo");   // Find an element
+    elem.innerHTML = x;                       // Display x in the element
+
+    var x;  // Declare x
+
+    예제 2
+
+    var x;  // Declare x
+    x = 5;  // Assign 5 to x
+
+    elem = document.getElementById("demo1"); // Find an element
+    elem.innerHTML = x;                   // Display x in the element
+  </pre>
+  <div id="demo"></div>
+  <div id="demo1"></div>
+  <p>이를 이해하려면 "Hoisting(호이스팅)"이라는 용어를 이해해야 합니다.</p>
+  <p>Hoisting은 모든 선언을 현재 범위의 맨 위로 이동하는 JavaScript의 기본 동작입니다.(현재 스크립트 또는 현재 함수의 맨 위까지 이동합니다.)</p>
+  <hr>
+
+  <h2>let 및 const 키워드</h2>
+  <p class="yellow">
+    let 또는 const로 선언된 변수 및 상수는 올리지 않습니다!<br/>
+    Js Let / Const 에서 let과 const에 대해 더 읽어보자.
+  </p>
+  <hr>
+
+  <h2>JavaScript 초기화는 호이스트가 아닙니다.</h2>
+  <p>JavaScript는 초기화가 아닌 선언만 호이스팅합니다.</p>
+  <p>예제 1은 예제 2와 동일한 결과를 제공하지 않습니다.</p>
+  <pre>
+    예제 1
+
+    var x = 5;  // Initialize x
+    var y = 7;  // Initialize y
+
+    elem = document.getElementById("demo2");  // Find an element
+    elem.innerHTML = x + " " + y;             // Display x and y
+
+    예제 2
+
+    var x = 5;  // Initialize x
+
+    elem = document.getElementById("demo3");  // Find an element
+    elem.innerHTML = x + " " + y;             // Display x and y
+
+    var y = 7;  // Initialize y
+  </pre>
+  <div id="demo2"></div>
+  <div id="demo3"></div>
+  <p>마지막 예제에서 y가 정의되지 않았습니까?</p>
+  <p>이것은 선언(var y)이 초기화 (= 7)가 아닌 위쪽으로 끌어올리지기 때문입니다. </p>
+  <p>hoisting으로 인해 y는 사용되기 전에 선언되었지만 초기화가 수행되지 않기 때문에 y값은 정의되지 않습니다.</p>
+  <p>예제 2는 다음과 같이 작성합니다.</p>
+  <pre>
+    var x = 5;  // Initialize x
+    var y;      // Declare y
+
+    elem = document.getElementById("demo4");  // Find an element
+    elem.innerHTML = x + " " + y;
+
+    y = 7;      // Assign 7 to y
+  </pre>
+  <div id="demo4"></div>
+  <hr>
+
+  <h2>변수를 맨 위에 선언하십시오!</h2>
+  <p>Hoisting은 (많은 개발자에게) 알려지지 않거나 간과 한 JavaScript의 동작입니다.</p>
+  <p>개발자가 호이스팅을 이해하지 못하면 프로그램에 버그(오류)가 있을 수 있습니다.</p>
+  <p>버그를 피하려면 항상 모든 범위의 시작 부분에 모든 변수를 선언하십시오.</p>
+  <p>이것이 자바스클비트가 코드를 해석하는 방식이므로 항상 좋은 규칙입니다.</p>
+  <p class="yellow">엄격 모드의 JavaScript는 선언되지 않은 변수를 사용할 수 없습니다. 다음장에서 "use strict"를 공부합니다.</p>
+
+
+
+
+
+
+</body>
+</html>
+<script src="main.js"></script>

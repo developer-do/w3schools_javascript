@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript Use Strict</h1>
+  <hr>
+  
+  <p>"use strict"; 는 JavaScript 코드가 "엄격 모드"에서 실행되어야 함을 규정한다. </p>
+  <hr>
+
+  <h2>"use strict" 지침</h2>
+  <p>"strict use"지시문은 ECMAScript 버전 5에서 새로 추가되었습니다.</p>
+  <p>이것은 진술이 아니며 리터럴 표현식이며 이전 버전의 JavaScript에서는 무시 됩니다.</p>
+  <p>"use strict"는 코드가 "엄격 모드"로 실행되어야 함을 나타내기 위한 것입니다.</p>
+  <p>엄격 모드에서는 예를들어 선언되지 않은 변수를 사용할 수 없습니다.</p>
+  <p>모든 최신 브라우저는 IE9 이하를 제외하고 "use strict"를 지원합니다.</p>
+
+  <p class="yellow">
+    모든 프로그램에서 엄격모드를 사용 할 수 있습니다. 선언되지 않은 변수를 사용하지 못하도록 하는 등 더 깔끔한 코드를 작성하는 데 도움이 됩니다.
+    <br/><br/>
+    "use strict"는 단지 문자열이므로 IE 9는 이해하지 못하더라도 오류를 던지지 않습니다.
+  </p>
+  <hr>
+
+  <h2>엄격모드 선언</h2>
+  <p>엄격모드는 스크립트나 함수의 시작 부분에 "use strict"를 추가하여 선언합니다.</p>
+  <p>스크립트 시작 부분에 선언되어 전역범위를 갖습니다.(스크립트의 모든 코드는 엄격 모드로 실행됩니다.)</p>
+  <pre>
+    'use strict';
+    x = 3.14;   // This willl cause an error because x is not declared
+    // 에러 이유 x 가 선언되지 않았기 때문이다.
+  </pre>
+  <br/>
+  <pre>
+    'use strict';
+    myFunction();
+
+    function myFunction() {
+      y = 3.14;   // This will also cause an error because y is not declared
+    }
+    // 에러 이유 y 가 선언되지 않았기 때문이다.
+  </pre>
+  <p>함수 내에서 선언되면 로컬 범위가 있습니다(함수 내부의 코드만 엄격모드에 있습니다.)</p>
+  <pre>
+    x = 3.14;
+    myFunction();
+
+    function myFunction(){
+      "use strict";
+      y = 3.14;     // This will cause an error (이 경우 에러가 발생함)
+    }
+  </pre>
+  <hr>
+
+  <h2>"use strict"; 통사론</h2>
+  <p>엄격 모드 선언을 위한 구문은 이전 버전의 JavaScript와 호환되도록 설계되었습니다.</p>
+  <p>JavaScript 프로그램에서 숫자 리터럴 (4 + 5;)또는 문자열 리터럴 ("John Doe";)을 컴파일 하면 부작용이 없습니다. 단순히 존재하지 않는 변수로 컴파일 되고 종료됩니다.</p>
+  <p>그래서 "use strict"; 그것의 의미를 "이해"하는 새로운 컴파일러에만 중요합니다.</p>
+  <hr>
+
+  <h2>왜 엄격한 모드입니까 ?</h2>
+  <p>strict 모드를 사용하면 "안전한" JavaScript를 더 쉽게 작성할 수 있습니다.</p>
+  <p>엄격한 모드는 이전에 허용 된 "잘못된 구문"을 실제 오류를 변경합니다.</p>
+  <p>예를 들어, 일반적인 JavaScript에서는 변수 이름을 잘못 입력하면 새로운 전역 변수가 만들어집니다. 엄격 모드에서는 실수로 전역 변수를 만들 수 없으므로 오류가 발생합니다.</p>
+  <p>일반적인 JavaScript에서는 개발자가 쓰기 권한이 없는 속성에 값을 할당하는 오류 피드백을받지 못합니다.</p>
+  <p>엄격 모드에서 쓰기 권한이 없는 속성, 가져오기 전용 속성, 존재하지 않는 속성, 존재하지 않는 변수 또는 존재하지 않는 객체에 대한 할당은 오류를 발생시킵니다.</p>
+  <hr>
+
+  <h2>엄격모드에서 허용되지 않음</h2>
+  <p>변수를 선언하지 않고 사용하는 것은 허용되지 않습니다.</p>
+  <pre>
+    "use strict";
+    x = 3.14;   // This will cause an error
+  </pre>
+  <p class="yellow">객체도 변수입니다.</p>
+  <p>선언하지 않고 객체를 사용하는 것은 허용되지 않습니다.</p>
+  <pre>
+    "use strict";
+    x = { p1:10, p2: 20 };  // This will cause an error
+  </pre>
+  <p>변수 또는 객체 삭제는 허용되지 않습니다.</p>
+  <pre>
+    "use strict";
+    var x = 3.14;
+    delete x;     // This will cause an error
+  </pre>
+  <p>함수 삭제는 허용되지 않습니다.</p>
+  <pre>
+    "use strict";
+    function x(p1, p2) {};
+    delete x;     // This will cause an error
+  </pre>
+  <p>매개변수 이름을 복제하는 것은 허용되지 않습니다.</p>
+  <pre>
+    "use strict";
+    function x(p1, p1) {};    // This will cause an error
+  </pre>
+  <p>8진 숫자 리터럴은 허용되지 않습니다.</p>
+  <pre>
+    "use strict";
+    var x = 010;      // This will cause an error
+  </pre>
+  <p>8 진수 이스케이프 문자는 허용되지 않습니다.</p>
+  <pre>
+    "use strict";
+    var x = "\010";   // This will cause an error
+  </pre>
+  <p>일기 전용 속성에 쓰는 것은 허용되지 않습니다.</p>
+  <pre>
+    "use strict";
+    var obj = {};
+    Object.defineProperty(obj, "x", {value:0, writable:false});
+    obj.x = 3.14;   // This will cause an error
+  </pre>
+  <p>get 전용 속성에 쓰는 것은 허용되지 않습니다.</p>
+  <pre>
+    "use strict";
+    var obj = {get x() {return 0}};
+    obj.x = 3.14;   // This will cause an error
+  </pre>
+  <p>삭제할 수 없는 속성 삭제는 허용되지 않습니다.</p>
+  <pre>
+    "use strict";
+    delete Object.prototype;    // This will cause an error
+  </pre>
+  <p>문자열 "eval"은 변수로 사용할 수 없습니다.</p>
+  <pre>
+    "use strict";
+    var eval = 3.14;    // This will cause an error
+  </pre>
+  <p>문자열 "arguments"는 변수로 사용할 수 없습니다.</p>  
+  <pre>
+    "use strict";
+    var arguments = 3.14;   // This will cause an error
+  </pre>
+  <p>with문은 사용할 수 없습니다.</p>
+  <pre>
+    "use strict";
+    with (Math) {x = cos(2)}; // This will cause an error
+  </pre>
+  <p>보안산의 이류로 eval()은 호출 된 범위에서 변수를 만들 수 없습니다.</p>
+  <pre>
+    "use strict";
+    eval ("var x = 2");
+    alert(X);   // This will cause an error
+  </pre>
+  <p>f()와 같은 함수 호출에서 이 값은 전역 객체였습니다. 엄격 모드 에서는 이제 정의되지 않았습니다.</p>
+  <hr>
+
+  <h2>미래의 증명!</h2>
+  <p>향후 자밧츠크립트 버전 용으로 예약된 키워드는 엄격모드에서 변수 이름으로 사용할 수 없습니다.</p>
+  <p>아래의 리스트와 같습니다.</p>
+  <ul>
+    <li>implements</li>
+    <li>interface</li>
+    <li>let</li>
+    <li>package</li>
+    <li>private</li>
+    <li>protected</li>
+    <li>public</li>
+    <li>static</li>
+    <li>yield</li>
+  </ul>
+  <pre>
+    "use strict";
+    var public = 1500;    // This will cause an error
+  </pre>
+  <p class="red">
+    조심해!<br/>
+    "use strict" 지시문은 스크립트 또는 함수의 시작부분에서만 인식됩니다.
+  </p>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+<script src="main.js"></script>
