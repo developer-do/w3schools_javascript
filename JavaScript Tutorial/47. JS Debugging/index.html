@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript Debugging</h1>
+  <hr>
+
+  <p>새로운 컴퓨터 코드를 작성할 때마다 오류가 발생할 수 있습니다.</p>
+  <hr>
+
+  <h2>code debugging</h2>
+  <p>프로그래밍 코드에는 구문 오류 또는 논리 오류가 포함 될 수 있습니다.</p>
+  <p>이러한 오류의 대부분은 진단하기가 어렵습니다.</p>
+  <p>프로그래밍 코드에 오류가 있는 경우 아무일도 일어나지 않는 경우가 많습니다. 오류 메시지가 없으므로 오류를 검색 할 위치를 알 수 없습니다.</p>
+  <p>프로그래밍 코드에서 오류를 찾고 수정하는 것을 코드 디버깅이라고 합니다.</p>
+  <hr>
+
+  <h2>JavaScript debuggers</h2>
+  <p>디버깅은 쉽지 않습니다. 다행이도 모든 최신 브라우저에는 JavaScript 디버거가 내장되어 있습니다.</p>
+  <p>내장 된 디버거는 켜고 끌 수 있어 사용자에게 오류를 보고합니다.</p>
+  <p>디버거를 사용하면 중단 점(코드 실행을 중지 할 수있는 위치)을 설정하고 코드가 실행되는 동안 변수를 검사 할 수도 있습니다.</p>
+  <p>일반적으로 그렇지 ㅇ낳으면 이 페이지 하단의 단계를 따르고, 브라우저에서 F12키를 사용하여 디버깅을 활성화 하고 디버거 메뉴에서 "console"을 선택하십시오.</p>
+  <hr>
+
+  <h2>console.log() method</h2>
+  <p>브라우저가 디버깅을 지원하면 console.log()를 사용하여 디버거 창에 JavaScript값을 표시할 수 있습니다.</p>
+  <pre>
+      a = 5;
+      b = 6;
+      c = a + b;
+      console.log(c);
+  </pre>
+  <hr>
+
+  <p>중단 점 설정</p>
+  <p>디버거 창에서 JavaScript 코드에 중단점을 설정할 수 있습니다.</p>
+  <p>각 중단점에서 JavaScript는 실행을 중지하고 JavaScript값을 검사 할 수 있습니다.</p>
+  <p>값을 검사 한 후 코드 실행을 재개 할 수 있습니다.(일반적으로 재생 버튼)</p>
+  <hr>
+
+  <h2>디버거 키워드</h2>
+  <p>디버거 키워드는 자바스크립트의 실행 및 호출 (가능한 경우) 디버깅 기능을 중지합니다.</p>
+  <p>이것은 디버거에서 중단 점을 설정한느 것과 같은 기능을 합니다.</p>
+  <p>사용할 수 있는 디버깅이 없으면 디버거 문은 아무 효과가 없습니다.</p>
+  <p>디버거가 켜져 있으면 이 코드는 세 번째 줄을 실행하기 전에 실행이 중지됩니다.</p>
+  <pre>
+    var x = 15 * 5;
+    debugger;
+    document.getElementById("demo").innerHTML = x;
+  </pre>
+  <div id="demo"></div>
+</body>
+</html>
+<script src="main.js"></script>
