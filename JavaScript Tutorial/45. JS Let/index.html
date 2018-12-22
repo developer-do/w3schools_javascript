@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript Let</h1>
+  <hr>
+
+  <h2>ECMAScript 2015</h2>
+  <p>ES2015에서는 let과 const라는 두 가지 중요한 새 JavaScript키워드를 도입했습니다.</p>
+  <p>이 두 키워드는 JavaScript에서 Block Scope 변수 및 상수를 제공합니다.</p>
+  <p>ES2015 이전에는 JavaScript의 범위가 global scope와 function scope의 두가지 유형밖에 없었습니다.</p>
+  <hr>
+
+  <h2>Global Scope</h2>
+  <p>전역으로 선언된 변수(모든 기능 외부에 있음)는 전역 범위를 가지고 있다.</p>
+  <pre>
+    var carName = "Volvo";
+
+    // code here can use carName
+
+    function myFunction() {
+      // code here can alse use carName
+    }
+  </pre>
+  <p>Global variable은 JavaScript 프로그램의 어느 곳에서나 접근 할 수 있습니다.</p>
+  <hr>
+
+  <h2>function scope</h2>
+  <p>local로 선언된 변수에는 기능범위(함수 내)가 있다.</p>
+  <pre>
+    // code here can NOT use carName
+
+    function myFunction(){
+      var carName = "Volvo";
+      // code here CAN use carName
+    }
+
+    // code here can NOT use carName
+  </pre>
+  <p>locar 변수는 선언된 함수 내에서만 접근할 수 있습니다.</p>
+  <hr>
+  
+  <h2>JavaScript block scope</h2>
+  <p>var 키워드로 선언된 변수는 블록범위를 가질 수 없습니다.</p>
+  <p>{} 블록 내에서 선언된 변수는 블록 외부에서 접근 할 수 있습니다.</p>
+  <pre>
+    {
+      var x = 2;
+    }
+    // x CAN be used here
+  </pre>
+  <p>ES2015 이전에는 JavaScript에 Block Scope가 없었습니다.</p>
+  <p>let 키워드로 선언된 변수는 블록범위를 가질 수 있습니다.</p>
+  <p>블록 {} 안에 선언 된 변수는 블록 외부에서 접근할 수 없습니다.</p>
+  <pre>
+    {
+      let x = 2;
+    }
+    // x can NOT be used here
+  </pre>
+  <hr>
+  
+  <h2>변수 재 선언</h2>
+  <p>var 키워드를 사용하여 변수를 다시 선언하면 문제가 발생할 수 있습니다.</p>
+  <p>블록 내에서 변수를 다시 선언하면 해당 변수가 블록 외부에서 재 선언됩니다.</p>
+  <pre>
+    var x = 10;
+    // Here x is 10
+    {
+      var x = 2;
+      // Here x is 2
+    }
+    // Here x is 2
+  </pre>
+  <p>let 키워드를 사용하여 변수를 다시 선언하면 이 문제를 해결할 수 있습니다.</p>
+  <p>블록 내에서 변수를 다시 선언해도 블록 외부의 변수는 다시 선언되지 않습니다.</p>
+  <pre>
+    var x = 10;
+    // Here x is 10
+    {
+      let x = 2;
+      // Here x is 2
+    }
+    // Here x is 10
+  </pre>
+  <hr>
+
+
+  <h2>브라우저 지원</h2>
+  <p>Internet Explorer 11 이하에서는 let 키워드가 완전히 지원되지 않습니다.</p>
+  <p>다음 표에서는 let 키워드를 완전히 지원하는 첫 번째 브라우저 버전을 정의합니다.</p>
+  <p><a href="https://www.w3schools.com/js/js_let.asp">여기 링크를 클릭해서 브라우저 지원을 확인해보세요.</a></p>
+  <hr>
+
+  <h2>루프 범위</h2>
+  <p>루프에서 var 사용하기</p>
+  <pre>
+    var i = 5;
+    for(var i = 0; i < 10; i++) {
+      // some statements
+    }
+    // Here i is 10
+  </pre>
+  <p>루프에서 let 사용하기</p>
+  <pre>
+    let i = 5;
+    for(let i = 0; i < 10; i++) {
+      // some statements
+    }
+    // Here i is 10
+  </pre>
+  <p>첫 번째 예제에서 var를 사용하면 루프에서 선언 된 변수가 루프 외부에서 변수를 다시 선언합니다.</p>
+  <p>두 번쨰 예제에서 let을 사용하면 루프에서 선언된 변수가 루프 외부의 변수를 다시 선언하지 않습니다.</p>
+  <p>let 이 루프에서 i 변수를 선언하는 데 사용되면 i 변수는 루프내에서만 볼 수 있습니다.</p>
+  <hr>
+
+  <h2>function scope</h2>
+  <p>var 및 let으로 선언 된 변수는 함수 내에서 선언 될 때 매우 유사합니다.</p>
+  <p>let, var 둘다 Function Scope입니다.</p>
+  <pre>
+    function myFunction() {
+      var carName = "Volvo";    // Function Scope
+    }
+
+    function myFunction() {
+      let carName = "Volvo";    // Function Scope
+    }
+  </pre>
+  <hr>
+  
+  <h2>Global Scope</h2>
+  <p>var 및 let으로 선언 된 변수는 블록 외부에서 선언 될때 매우 유사합니다.</p>
+  <p>var, let 둘다 Global Scope 입니다.</p>
+  <pre>
+    var x = 2;  // Global Scope
+    let x = 2;  // Global Scope
+  </pre>
+  <hr>
+
+  <h2>HTML의 전역변수</h2>
+  <p>JavaScript를 사용하면 전역 범위가 JavaScript</p>
+  <p>HTML에서 전역범위는 window object입니다.</p>
+  <p>var 키워드로 정의된 전역변수는 윈도우 객체에 속합니다.</p>
+  <pre>
+    var carName = "Volvo";
+    // code here can use window.carName;
+  </pre>
+  <p>let 키워드로 정의 된 전역변수는 윈도우 객체에 속하지 않습니다.</p>
+  <pre>
+    let carName = "Volvo";
+    // code here can not use window.carName
+  </pre>
+  <hr>
+
+  <h2>재 선언</h2>
+  <p>var를 사용하여 JavaScript 변수를 다시 선언하는 것은 프로그램의 어느 위치에서나 허용됩니다.</p>
+  <pre>
+    var x = 2;
+    // Now x is 2
+    var x = 3;
+    // Now x is 3
+  </pre>
+  <p>동일한 범위 또는 동일한 블록에서 let을 사용하여 var 변수를 다시 선언하는 것은 허용되지 않습니다.</p>
+  <pre>
+    var x = 2;  // Allowed
+    let x = 3;  // Not allowed
+
+    {
+      var x = 4;  // Allowed
+      let x = 5;  // Not allowed
+    }
+  </pre>
+  <p>동일한 범위 또는 동일한 블록에서 let을 사용하여 let 변수를 다시 선언하는 것은 허용되지 않습니다.</p>
+  <pre>
+    let x = 2;  // Allowed
+    let x = 3;  // Not allowed
+
+    {
+      let x = 4;  // Allowed
+      let x = 5;  // Not allowed
+    }
+  </pre>
+  <p>let 변수를 동일한 범위 또는 동일한 블록에서 var로 다시 선언한느 것은 허용되지 않습니다.</p>
+  <pre>
+    let x = 2;  // Allowed
+    var x = 3;  // Not allowed
+
+    {
+      let x = 4;  // Allowed
+      var x = 5;  // Not allowed
+    }
+  </pre>
+  <p>let은 다른 범위 또는 다른 블록에서 변수를 다시 선언하는 것은 허용됩니다.</p>
+  <pre>
+    let x = 2;  // Allowed
+    {
+      let x = 3;  // Allowed
+    }
+    {
+      let x = 4;  // Allowed
+    }
+  </pre>
+  <hr>
+
+  <h2>Hoisting</h2>
+  <p>var 로 정의된 변수는 맨 위에 올립니다.</p>
+  <p>선언되기 전에 변수를 사용할 수 있습니다.</p>
+  <pre>
+    // you CAN use carName here
+    var carName;
+  </pre>
+  <p>let으로 정의된 변수는 맨 위에 올리지 않습니다.</p>
+  <p>변수가 선언되기 전에 let변수를 사용하면 Reference Error가 됩니다.</p>
+  <p>block시작부터 변수가 선언될 때까지는 변수는 "시각적 데드존" 에 있다.</p>
+  <pre>
+    // you can NOT use carName here
+    let carName;
+  </pre>
+
+
+
+
+
+
+</body>
+</html>
+<script src="main.js"></script>
