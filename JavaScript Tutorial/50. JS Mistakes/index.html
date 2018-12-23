@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript 일반적인 실수</h1>
+  <hr>
+  
+  <p>이 장에서는 일반적인 JavaScript 오류를 지적합니다.</p>
+  <hr>
+  
+  <h2>실수로 할당 연산자 사용</h2>
+  <p>if문의 비교연산자(==) 대신 프로그래머가실수로 대입 연산자(=)를 사용하면 JavaScript 프로그램에서 예기치 않은 결과가 발생할 수 있습니다.</p>
+  <p>이 if문은 x 가 10과 같지 않으므로 예상대로 false를 반환합니다.</p>
+  <pre>
+    var x = 0;
+    if (x == 10) // return false
+  </pre>
+  <p>이 if문은 10이 참이므로 true를 반환합니다.</p>
+  <pre>
+    var x = 0;
+    if(x = 10)  // return true
+  </pre>
+  <p>이 if문은 0이 거짓이므로 false를 반환합니다.</p>
+  <pre>
+    var x = 0;
+    if(x = 0)   // return false
+  </pre>
+  <p class="yellow">할당은 항상 할당 값을 반환합니다.</p>
+  <hr>
+
+  <h2>예상되는 느슨한 비교</h2>
+  <p>엄격한 비교가 아닌 보통의 비교에서 데이터 유형은 중요하지 않습니다. 이 if문은 true를 반환합니다.</p>
+  <pre>
+    var x = 10;
+    var y = "10";
+    if (x == y)   // return true
+  </pre>
+  <p>엄격한 비교에서 데이터 유형은 중요합니다. 이 if문은 false를 반환합니다.</p>
+  <pre>
+    var x = 10;
+    var y = "10";
+    if(x === y)   // return false;
+  </pre>
+  <p>switch문이 엄격한 비교를 사용한다는 사실을 잊어버리는 것은 흔한 실수입니다.</p>
+  <p>이 사례 스위치는 alert를 표시합니다.</p>
+  <pre>
+    var x = 10;
+    switch(x) {
+      case 10: alert("Hello");
+    }
+  </pre>
+  <p>이 사례 스위치는 경고를 표시하지 않습니다.</p>
+  <pre>
+    var x = 10;
+    switch(x) {
+      case "10": alert("Hello");
+    }
+  </pre>
+  <hr>
+
+
+  <h2>혼란스러운 추가 및 연결</h2>
+  <p>덧셈은 숫자를 더해주는 역할입니다.</p>
+  <p>연결은 문자열을 연결해주는 역할입니다.</p>
+  <p>자바스크립트에서 두가지 연산 모두 같은 + 연산자를 사용합니다.</p>
+  <p>이 때문에 번호를 숫자로 추가하면 숫자를 문자열로 추가 할 때와 다른 결과가 발생합니다.</p>
+  <pre>
+    var x = 10 + 5;     // the result in x is 15
+    var x = 10 + "5";   // the result in x is "105"
+  </pre>
+  <p>두 개의 변수를 추가 할 때 결과를 예측하는 것이 어려울 수 있습니다.</p>
+  <pre>
+    var x = 10;
+    var y = 5;
+    var z = x + y;    // the result in z is 15
+
+    var x = 10;
+    var y = "5";
+    var z = x + y;    // the result in z is "105"
+  </pre>
+  <hr>
+
+  <h2>오해의 floats</h2>
+  <p>JavaScript의 모든 숫자는 64비트 부동소수점 숫자(Floats)로 저장됩니다.</p>
+  <p>JavaScript를 포함한 모든 프로그래밍 언어는 정확한 부동소수점 값으로 인해 어려움을 겪습니다.</p>
+  <pre>
+    var x = 0.1;
+    var y = 0.2;
+    var z = x + y;    // the result in z will not be 0.3
+  </pre>
+  <p>위의 문제를 해결하려면 다음곽 ㅏㅌ이 곱셈 및 나눗셈을 수행하는 것이 좋습니다.</p>
+  <pre>
+    var z = (x * 10 + y * 10) / 10;   // z will be 0.3
+  </pre>
+  <hr>
+
+  <h2>JavaScript 문자열 깨기</h2>
+  <p>JavaScript를 사용하면 문장을 두줄로 나눌수 있습니다.</p>
+  <pre>
+    var x = 
+    "Hello World!";
+  </pre>
+  <p>그러나 문자열의 중간에 있는 명령문을 깨는 것은 작동하지 않습니다.</p>
+  <pre>
+    var x = "Hello
+    World";
+  </pre>
+  <p>문자열에서 명령문을 분리해야하는 경우 "백슬래시(\)"를 사용해야 합니다.</p>
+  <pre>
+    var x = "Hello \
+    World!";
+  </pre>
+
+  <hr>
+
+  <h2>세미콜론의 잘못된 배치</h2>
+  <p>잘못 배치 된 세미콜론 대문에 이 코드 블록은 x의 값에 관계없이 실행됩니다.</p>
+  <pre>
+    if (x == 19);
+    {
+      // code block
+    }
+  </pre>
+  <hr>
+
+  <h2>return문 위반</h2>
+  <p>줄의 끝에서 자동으로 문을 닫는것은 기본 JavaScript의 동작이다.</p>
+  <p>이러한 이유로, 이 두 가지 예는 동일한 결과를 반환할 것입니다.</p>
+  <pre>
+    예제 1
+
+    function myFunction(a) {
+      var power = 10
+      return a * power
+    }
+
+    예제 2
+
+    function myFunction(a) {
+      var power = 10
+      return a * power;
+    }
+  </pre>
+  <p>JavaScript를 사용하면 문장을 두 줄로 나눌 수 있습니다.</p>
+  <p>이 때문에 예제 3도 같은 결과를 반환합니다.</p>
+  <pre>
+    예제 3
+
+    function myFunction(a) {
+      var
+      power = 10;
+      return a * power;
+    }
+  </pre>
+  <p>그러나 다음과 같이 두 줄의 return 문을 중단하면 ?</p>
+  <pre>
+    예제 4
+    funcrion myFunction(a) {
+      var
+      power = 10;
+      return
+      a * power;
+    }
+  </pre>
+  <p>이 함수는 undefined를 반환합니다.</p>
+  <p>왜 ? JavaScript는 다음과 같은 의미로 생각하기 때문입니다.</p>
+  <pre>
+    JavaScript 가 보는 시점 예제 4
+
+    function myFunction(a) {
+      var
+      power = 10;
+      return;
+      a * power;
+    }
+  </pre>
+  <hr>
+
+  <h2>설명</h2>
+  <p>명령문이 다음과 같이 불완전한 경우</p>
+  <pre>
+    var
+  </pre>
+  <p>JavaScript는 다음 줄을 읽음으로써 명령문을 완료하려고 시도합니다.</p>
+  <pre>
+    power = 10;
+  </pre>
+  <p>그러나 이 진술이 완료되었으므로:</p>
+  <pre>
+    return
+  </pre>
+  <p>JAvaScript는 다음과 같이 자동으로 닫습니다.</p>
+  <pre>
+    return;
+  </pre>
+  <p>JavaScript에서는 세미콜론을 사용하는 문을 닫는 것이 선택사항이므로 이 문제가 발생합니다.</p>
+  <p>JavaScript는 완전한 문장이기 때문에 줄 끝의 return 문을 닫습니다.</p>
+  <p class="red">절대 return문을 어기지 말고 잘 써야합니다.</p>
+  <hr>
+
+  <h2>명명된 인덱스를 사용하여 배열에 접근</h2>
+  <p>많은 프로그래밍 언어는 명명된 인덱스를 사용하여 배열을 지원합니다.</p>
+  <p>명명된 인덱스가 있는 배열을 연관 배열(또는 해시)이라고합니다.</p>
+  <p>JavaScript는 명명된 인덱스가 있는 배열을 지원하지 않습니다.</p>
+  <p>JavaScript에서 array는 번호가 매겨진 index를 사용합니다.</p>
+  <pre>
+    var person = [];
+    person[0] = "John";
+    person[1] = "Doe";
+    person[2] = 46;
+    var x = person.length;    // person.length will return 3
+    var y = person[0];        // person[0] will return "John";
+  </pre>
+  <p>JavaScript에서 객체는 명명된 색인을 사용합니다.</p>
+  <p>명명된 index를 사용하면 배열에 엑세스 할 때 JavaScript가 배열을 표준 객체로 다시 정의합니다.</p>
+  <p>자동 재정의가 끝나면 배열 메서드와 속성에 의해 정의되지 않거나 잘못된 결과가 생성됩니다.</p>
+  <pre>
+    var person = [];
+    person["firstName"] = "John";
+    person["lastName"] = "Doe";
+    person["age"] = 46;
+    var x = person.length;    // person.length will return 0
+    var y = person[0];        // person[0] will return undefined
+  </pre>
+  <hr>
+
+  <h2>쉼표로 정의 끝내기</h2>
+  <p>ECMAScript 5에서는 객체 및 배열 정의의 후행 쉼표가 적합합니다.</p>
+  <pre>
+    객체 예제:
+    person = {firstName: "John", lastName:"Doe", age: 46,};
+
+    배열 예제:
+    points = [40, 100, 1, 5, 25, 10,];
+  </pre>
+  <p class="red">
+    경고!!<br>
+    IE 8이 중단됩니다.<br>
+    JSON에서는 쉼표를 사용할 수 없습니다.
+  </p>
+  <pre>
+    JSON:
+    person = {"firstName":"John", "lastName":"Doe", "age":46};
+
+    JSON:
+    points = [40, 100, 1, 5, 25, 10];
+  </pre>
+  <hr>
+
+  <h2>undefined는 null이 아닙니다.</h2>
+  <p>JavaScirpt 객체, 변수, 속성 및 메서드는 정의하지 않을 수 있습니다.</p>
+  <p>또한 빈 JavaScript 객체의 값은 null일 수있습니다.</p>
+  <p>이렇게 하면 객체가 비어 있는지 테스트 하기가 다소 어려워 질 수 있습니다.</p>
+  <p>유형이 정의되지 않았는지 테스트 하여 객체가 존재하는지 테스트 할 수 있습니다.</p>
+  <pre>
+    if(typeof myObj === "undefined")
+  </pre>
+  <p>그러나 객체가 정의되지 않은 경우 오류가 발생하므로 객체가 null 인지 테스트 할 수 업습니다.</p>
+  <pre>
+    잘못된 것
+    if(myObj === null)
+  </pre>
+  <p>이 문제를 해결하려면 객체가 null이 아니고 undefined가 아닌지 확인해야합니다.</p>
+  <p>그러나 이것은 여전히 오류를 던질 수 있습니다.</p>
+  <pre>
+    잘못된
+    if (myObj !== null && typeof myObj !== "undefined")
+  </pre>
+  <p>이 때문에 null이 아닌지 테스트하기 전에 undefined가 아닌지 테스트 해야합니다.</p>
+  <pre>
+    옳은
+    if (typeof myObj !== "undefined" && myObj !== null)
+  </pre>
+  <hr>
+
+  <h2>block범위 예상</h2>
+  <p>JavaScript는 각 코드 블록에 대해 새 범위를 만들지 않습니다.</p>
+  <p>많은 프로그래밍 언어에서는 JavaScript에서는 그렇지 않습니다.</p>
+  <p>이 코드는 i(10)의 값을 표시하며, 루프 블록의 아웃사이드도 표시한다.</p>
+  <pre>
+    for(var i = 0; i < 10; i++) {
+      // some code
+    }
+    return i;
+  </pre>
+
+
+
+</body>
+</html>
+<script src="main.js"></script>
