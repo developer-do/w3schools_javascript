@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript Best Practice</h1>
+  <hr>
+
+  <p>전역변수를 피하고, new 객체를 피하고, == 평가 피하고, eval() 피하기</p>
+  <hr>
+
+  <h2>전역 변수 피하기</h2>
+  <p>전역변수의 사용을 최소화 하십시오.</p>
+  <p>여기에는 모든 데이터 유형 객체 및 함수가 포함됩니다.</p>
+  <p>전역 변수 및 함수는 다른 스크립트로 덮어 쓸 수 있습니다.</p>
+  <p>대신 로컬 변수를 사용하고 클로저 함수를 배웁니다.</p>
+  <hr>
+
+  <h2>항상 지역변수 선언</h2>
+  <p>함수에서 사용되는 모든 변수는 local 변수로 선언해야 합니다.</p>
+  <p>지역변수는 var 키워드로 선언해야 하며, 그렇지 않으면 전역 변수가 된다.</p>
+  <p>엄격 모드는 선언되지 않은 변수를 허용하지 않습니다.</p>
+  <hr>
+
+  <h2>상단에 선언하기</h2>
+  <p>모든 선언은 각 스크립트 또는 함수의 맨 위에 두는 것이 좋은 코딩방법입니다.</p>
+  <p>이것은</p>
+  <ul>
+    <li>더 꺠끗한 코드 제공</li>
+    <li>지역 변수를 찾을 수 있는 단일 장소 제공</li>
+    <li>원하지 않는 (함축 된) 전역변수를 쉽게 방지 할 수 있음</li>
+    <li>원치 않ㄴ느 재 선언 가능성 감소</li>
+  </ul>
+  <pre>
+    // Declare at the beginning
+    var firstName, lastName, price, discount, fullPrice;
+
+    // Use later
+    firstName = "John";
+    lastName = "Doe";
+
+    price = 19.90;
+    discount = 0.10;
+
+    fullPrice = price * 100 / discount;
+  </pre>
+  <p>이것은 루프 변수에도 적용됩니다.</p>
+  <pre>
+    // Declare at the beginning
+    var i;
+
+    // Use later
+    for (i = 0; i < 5; i++) {
+      
+    }
+  </pre>
+  <p class="yellow">기본적으로 JavaScript는 모든 선언을 맨 위로 이동합니다.</p>
+  <hr>
+
+  <h2>변수 초기화</h2>
+  <p>변수를 선언 할 때 변수를 초기화 하는 것이 좋습니다.</p>
+  <p>이것은:</p>
+  <ul>
+    <li>더 깨끗한 코드 제공</li>
+    <li>변수를 초기화하는 단일 장소 제공</li>
+    <li>정의되지 않은 값 피하기</li>
+  </ul>
+  <pre>
+    // Declare and initiate at the beginning
+    var firstName = "",
+    lastName = "",
+    price = 0,
+    discount = 0,
+    fillprice = 0,
+    myArray = [],
+    myObject = {};
+  </pre>
+  <p class="yellow">변수 초기화는 의도 한 용도(및 의도된 데이터 유형)에 대한 아이디어를 제공합니다.</p>
+  <hr>
+  
+  <h2>숫자, 문자열 또는 Boolean 객체 선언 안함</h2>
+  <p>숫자, 문자열 또는 Boolean은 항상 원시 값으로 취급하십시오. 객체가 아닙니다.</p>
+  <p>이러한 유형을 객체로 선언하면 실행속도가 느려지고 불쾌한 부작용이 나타납니다.</p>
+
+  <pre>
+    var x = "John";
+    var y = new String("John");
+    (x === y) // is false because x is a string and y is an object.
+
+    var x = new String("John");
+    var y = new String("John");
+    (x == y)  // is false because you cannot compare objects.
+  </pre>
+  <hr>
+
+  <h2>new object 사용 안함</h2>
+  <ul>
+    <li>new Object() 대신 {}를 사용하십시오.</li>
+    <li>new String() 대신 ""을 사용하십시오.</li>
+    <li>new Number() 대신 0을 사용하십시오.</li>
+    <li>new Boolean() 대신 false를 사용하십시오.</li>
+    <li>new Array() 대신 []을 사용하십시오.</li>
+    <li>new RegExp() 대신 /()/를 사용하십시오.</li>
+    <li>new Function() 대신 function(){}을 사용하십시오.</li>
+  </ul>
+  <pre>
+    var x1 = {};           // new object
+    var x2 = "";           // new primitive string
+    var x3 = 0;            // new primitive number
+    var x4 = false;        // new primitive boolean
+    var x5 = [];           // new array object
+    var x6 = /()/;         // new regexp object
+    var x7 = function(){}; // new function object
+  </pre>
+  <hr>
+
+  <h2>자동 유형 변환 주의</h2>
+  <p>숫자가 우연히 문자열이나 NaN(숫자가 아님)으로 변환 될 수 있습니다.</p>
+  <p>JavaScript는 느슨하게 입력됩니다. 변수는 다른 데이터 유형을 포함할 수 있으며 변수는 데이터 유형을 변경할 수 있습니다.</p>
+  <pre>
+    var x = "Hello";  // typeof x is a string
+    x = 5;            // changes typeof x to a number
+  </pre>
+  <p>수학 연산을 수행 할 때 JavaScript는 숫자를 문자열로 변환 할 수 있습니다.</p>
+  <pre>
+    var x = 5 + 7;       // x.valueOf() is 12,  typeof x is a number
+    var x = 5 + "7";     // x.valueOf() is 57,  typeof x is a string
+    var x = "5" + 7;     // x.valueOf() is 57,  typeof x is a string
+    var x = 5 - 7;       // x.valueOf() is -2,  typeof x is a number
+    var x = 5 - "7";     // x.valueOf() is -2,  typeof x is a number
+    var x = "5" - 7;     // x.valueOf() is -2,  typeof x is a number
+    var x = 5 - "x";     // x.valueOf() is NaN, typeof x is a number
+  </pre>
+  <p>문자열에서 문자열을 빼면 오류는 발생하지 않지만 NaN(숫자가 아님)을 반환시킵니다.</p>
+  <pre>
+    "Hello" - "Dolly"   // returns NaN
+  </pre>
+  <hr>
+
+  <h2>=== 비교 사용</h2>
+  <p>== 비교 연산자는 항상 비교하기 전에 (일치하는 유형으로) 변환합니다.</p>
+  <p>=== 연산자는 값과 유형을 비교합니다.</p>
+  <pre>
+    0 == "";    // true
+    1 == "1";   // true
+    1 == true   // true
+
+    0 === ""    // false
+    1 === "1"   // false
+    1 === true  // false
+  </pre>
+
+  <hr>
+
+  <h2>매개변수 기본값 사용</h2>
+  <p>누락된 인수로 함수를 호출하면 누락된 인수의 값이 undefined로 설정됩니다.</p>
+  <p>정의되지 않은 값은 코드를 손상시킬 수 있습니다. 인수에 기본값을 할당하는 것이 좋은 습관입니다.</p>
+  <pre>
+    function myFunction(x, y) {
+      if(y === undefined) {
+        y = 0;
+      }
+      return x * y;
+    }
+  </pre>
+  <p>ECMAScript2015는 함수 호출에서 기본 매개변수를 허용합니다.</p>
+  <pre>
+    function (a = 1, b = 1) { // function code }
+  </pre>
+  <p>함수 매개변수에서 ㅎ변수 및 인수에 대해 자세히 읽어보자</p>
+
+  <hr>
+
+  <h2>default값으로 switch 종료하기</h2>
+  <p>default가 필요없다고 해도 항상 switch문을 default값으로 종료하십시오.</p>
+  <pre>
+    switch (new Date().getDay()) {
+      case 0:
+        day = "Sunday";
+        break;
+      case 1:
+        day = "Monday";
+        break;
+      case 2:
+        day = "Tuesday";
+        break;
+      case 3:
+        day = "Wednesday";
+        break;
+      case 4:
+        day = "Thursday";
+        break;
+      case 5:
+        day = "Friday";
+        break;
+      case 6:
+        day = "Saturday";
+        break;
+      default:
+        day = "Unknown";
+    }
+  </pre>
+
+
+
+
+</body>
+</html>
+<script src="main.js"></script>
