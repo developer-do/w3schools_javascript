@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>ECMAScript 6 - ECMAScript 2015</h1>
+  <hr>
+
+  <h2>ECMAScript 6 이란 무엇입니까 ?</h2>
+  <p>ECMAScript 6은 ES6 및 ECMAScript 2015라고도 합니다.</p>
+  <p>어떤 사람들은 JavaScript 6이라고 부릅니다.</p>
+  <p>이 장에서는 ES6의 새로운 기능을 소개합니다.</p>
+  <ul class="green">
+    <li>JavaScript let</li>
+    <li>JavaScript const</li>
+    <li>Exponentiation (지수 계산 - **)</li>
+    <li>Default parameter values</li>
+    <li>Array.find()</li>
+    <li>Array.findIndex()</li>
+  </ul>
+  <hr>
+
+  <h2>JavaScript</h2>
+  <p>let 문을 사용하면 블록 범위의 변수를 선언 할 수 있습니다.</p>
+  <pre>
+    var x = 10;
+    // Here x is 10
+    { 
+      let x = 2;
+      // Here x is 2
+    }
+    // Here x is 10
+  </pre>
+  <hr>
+
+  <h2>JavaScript const</h2>
+  <p>CONST 문을 사용하면 상수(상수 값을 가진 자바 스크립트 변수)를 선언 할 수 있습니다.</p>
+  <p>상수는 값을 변경할 수 없다는 점을 제외하면 let 변수와 유사합니다.</p>
+  <pre>
+    var x = 10;
+    // Here x is 10
+    { 
+      const x = 2;
+      // Here x is 2
+    }
+    // Here x is 10
+  </pre>
+  <hr>
+
+  <h2>지수 연산자</h2>
+  <p>지수 연산자(**)는 첫 번째 피연산자를 두 번째 피연산자의 전력까지 상승시킨다.</p>
+  <pre>
+    var x = 5;
+    var z = x ** 2;   // result is 25
+  </pre>
+  <hr>
+
+  <h2>default parameter value</h2>
+  <p>ES6에서는 함수 매개변수가 기본 값을 가질 수 있습니다.</p>
+  <pre>
+    function myFunction(x, y = 10) {
+      // y is 10 if not passed or undefined
+      return x + y;
+    }
+    myFunction(5);
+  </pre>
+  <hr>
+
+  <h2>Array.find()</h2>
+  <p>find() method는 테스트 함수를 전달하는 첫 번째 배열 요소의 값을 반환합니다.</p>
+  <p>이 예제에서는 18 보다 큰 첫번째 요소를 찾거나 값을 반환합니다.</p>
+  <pre>
+    var numbers = [4, 9, 16, 25, 29];
+    var first = numbers.find(function(value){
+      return value > 18;
+    });
+  </pre>
+  <p>이 함수는 3개의 인수를 취합니다.</p>
+  <ul class="green">
+    <li>항목 value</li>
+    <li>항목 index</li>
+    <li>array</li>
+  </ul>
+  <hr>
+
+  <h2>Array.findIndex()</h2>
+  <p>findIndex() method는 테스트 함수를 전달하는 첫 번쨰 배열 요소의 인덱스를 반환합니다.</p>
+  <p>이 예에서는 18보다 큰 첫 번째 요소의 인덱스를 찾습니다.</p>
+  <pre>
+    var numbers = [4, 9, 16, 25, 29];
+    var first = numbers.findIndex(function(value){
+      return value > 18;
+    });
+  </pre>
+  <p>이 함수는 3개의 인수를 취합니다.</p>
+  <ul class="green">
+    <li>항목 value</li>
+    <li>항목 index</li>
+    <li>array</li>
+  </ul>
+  <hr>
+
+  <h2>new number property</h2>
+  <p>ES6는 Number 객체에 다음 속성을 추가했습니다.</p>
+  <ul class="green">
+    <li>EPSILON</li>
+    <li>MIN_SAFE_INTEGER</li>
+    <li>MAX_SAFE_INTEGER</li>
+  </ul>
+  <pre>
+    var x = Number.EPSILON;
+    console.log(x);
+
+    var x = Number.MIN_SAFE_INTEGER;
+    console.log(x);
+
+    var x = Number.MAX_SAFE_INTEGER;
+    console.log(x);
+  </pre>
+  <hr>
+
+
+  <h2>Number.isInteger() method</h2>
+  <p>Number.isInteger() 인수가 정수의 경우 메소드는 true를 돌려줍니다.</p>
+  <pre>
+    Number.isInteger(10);     // returns true
+    Number.isInteger(10.5);   // returns false
+  </pre>
+  <hr>
+
+  <h2>Number.isSafeInteger() method</h2>
+  <p>안전한 정수는 정확히 이중 정밀도로 나타낼 수 있는 정수다.</p>
+  <p>Number.isSafeInteger() 인수가 안전한 정수의 경우 method는 true를 돌려줍니다.</p>
+  <pre>
+    Number.isSafeInteger(10);    // returns true
+    Number.isSafeInteger(12345678901234567890);  // returns false
+  </pre>
+  <p class="yellow">
+      안전한 정수는 - (2 53 - 1)에서 + (2 53 -1)까지의 정수입니다.<br> 
+      이것은 안전합니다 : 9007199254740991. 이것은 안전하지 않습니다 : 9007199254740992.
+  </p>
+  <hr>
+
+  <h2>새로운 global method</h2>
+  <p>ES6는 또한 2개의 새로운 글로벌 Number method를 추가했습니다.</p>
+  <ul class="green">
+    <li>isFinite()</li>
+    <li>isNaN</li>
+  </ul>
+  <hr>
+
+  <h2>isFinite() method</h2>
+  <p>인수가 Infinity 또는 NaN인 경우 전역 isFinite() method는 false를 반환합니다.</p>
+  <p>그렇지 않은 경우는 true를 돌려줍니다.</p>
+  <pre>
+    isFinite(10/0);     // returns false
+    isFinite(10/1);     // returns true
+  </pre>
+  <hr>
+
+  <h2>isNaN() method</h2>
+  <p>인수가 NaN인 경우 전역 isNaN() method는 true를 반환힙니다</p>
+  <p>그렇지 않으면 false를 반환합니다.</p>
+  <pre>
+    isNaN("Hello");   // returns true
+  </pre>
+  <hr>
+
+  <h2>화살표 기능</h2>
+  <p>화살표 함수는 함수 표현식을 작성하기 위한 간단한 구문을 허용합니다.</p>
+  <p>function 키워드 return키워드 {}는 필요없습니다.</p>
+  <pre>
+    // ES5
+    var x = function(x, y) {
+      return x * y;
+    }
+
+    // ES6
+    const xx = (x, y) => x * y;
+  </pre>
+  <p>화살표 기능에는 고유의 기능이 없다. 그들은 객체 방법을 정의하는 데는 적합하지 않다.</p>
+  <p>화살표 기능은 작동하지 않는다. 그것들은 사용되기 전에 정의되어 있어야 한다.</p>
+  <p>const를 사용하는 것은 var를 사용하는 것보다 안전합니다. 왜냐하면 함수 표현식은 항상 상수 값이기 때문입니다.</p>
+  <p>함수가 단일 명령문인 경우에만 return 키워드와 {}를 생략할 수 있습니다. 이 때문에 항상 그들을 지키는 것은 좋은 습관 일 수 있습니다.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+<script src="main.js"></script>
