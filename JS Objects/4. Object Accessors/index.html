@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript Object Accessors</h1>
+  <hr>
+  <h2>JavaScript Accssors (getters 및 setters)</h2>
+  <p>ECMAScript 5(2009)는 getter 및 setter를 소개했습니다.</p>
+  <p>getter 및 setter을 사용하면 Object Accessors(conputed Properties)를 정의할 수 있씁니다.</p>
+  <hr>
+
+  <h2>JavaScript getter (Get Keyword)</h2>
+  <p>이 예제는 language property의 value를 얻기 위해 lang 속성을 이용한다.</p>
+  <pre>
+    // Create an object:
+    var person = {
+      firstName : "John",
+      lastName  : "Doe",
+      language  : "en",
+      get lang() {
+        return this.language;
+      }
+    }
+  </pre>
+  <hr>
+
+  <h2>JavaScript Setter (Set Keyword)</h2>
+  <p>이 예에서는 language property의 value를 설정하기위해 set property를 사용합니다.</p>
+  <pre>
+    var person = {
+      firstName : "John",
+      lastName  : "Doe",
+      language  : "",
+      set lang(lang) {
+        this.language = lang;
+      }
+    }
+
+    person.lang = "en";
+  </pre>
+  <hr>
+
+  <h2>JavaScript function || Getter?</h2>
+  <p>이 두 예제의 차이점은 무었입니까?</p>
+  <pre>
+    예제 1
+    var person = {
+      firstName: "John",
+      lastName : "Doe",
+      fullName : function() {
+        return this.firstName + " " + this.lastName;
+      }
+    };
+    --------------------------------------------------------
+
+    예제 2
+    var person = {
+      firstName: "John",
+      lastName : "Doe",
+      get fullName() {
+        return this.firstName + " " + this.lastName;
+      }
+    };
+  </pre>
+  <p>예제 1 : fullName을 함수로 접근합니다. => person.fullName()</p>
+  <p>예제 2 : fullName에 속성으로 접근합니다. => person.fullName</p>
+  <hr>
+
+  <h2>Data Quality</h2>
+  <p>JavaScript는 getter 및 setter를 사용할 때 더 나은 데이터 품질을 보장 할 수 있습니다.</p>
+  <p>이 예제에서 lang property를 사용하면 language 속성의 값을 대문자로 반환합니다.</p>
+  <pre>
+    var person = {
+      firstName: "John",
+      lastName : "Doe",
+      language : "en",
+      get lang() {
+        return this.language.toUpperCase();
+      }
+    };
+  </pre>
+  <p>이 예에서 lang property를 사용하면 다음과 같은 language property에 대문자 값을 저장하십시오.</p>
+  <pre>
+    var person = {
+      firstName: "John",
+      lastName : "Doe",
+      language : "",
+      set lang(lang) {
+        this.language = lang.toUpperCase();
+      }
+    };
+  </pre>
+  <hr>
+
+  <h2>why using getters and setters?</h2>
+  <ul class="green">
+    <li>단순한 구문을 제공합니다.</li>
+    <li>property와 method에 대해 동일한 구문을 사용할 수 있습니다.</li>
+    <li>더 나은 데이터 품질을 확보 할 수 있습니다.</li>
+    <li>비하인드 스토리를 만드는 데 유용합니다.</li>
+  </ul>
+  <hr>
+
+  <h2>A Counter Example</h2>
+  <pre>
+    var obj = {
+      counter : 0,
+      get reset() {
+        this.counter = 0;
+      },
+      get increment() {
+        this.counter++;
+      },
+      get decrement() {
+        this.counter--;
+      },
+      set add(value) {
+        this.counter += value;
+      },
+      set subtract(value) {
+        this.counter -= value;
+      }
+    }
+  </pre>
+  <hr>
+
+  <h2>Object.defineProperty()</h2>
+  <p>Object.defineProperty() method를 사용하여 Getters 및 Setters 를 추가 할 수도 있습니다.</p>
+  <pre>
+    // Define object
+    var obj2 = {counter : 0};
+    // Define setters
+    Object.defineProperty(obj2, "reset", {
+      get: function () {
+        this.counter = 0;
+      }
+    });
+    Object.defineProperty(obj2, "increment", {
+      get: function () {
+        this.counter++
+      }
+    });
+    Object.defineProperty(obj2, "decrement", {
+      get: function () {
+        this.counter--;
+      }
+    });
+    Object.defineProperty(obj2, "add", {
+      set: function (value) {
+        this.counter += value;
+      }
+    });
+    Object.defineProperty(obj2, "subtract", {
+      set: function (value) {
+        this.counter -= value;
+      }
+    });
+    obj2.reset;
+    obj2.add = 5;
+    obj2.subtract = 1;
+    obj2.increment;
+    obj2.decrement;
+    console.log(obj2);
+  </pre>
+</body>
+</html>
+<script src="main.js"></script>
