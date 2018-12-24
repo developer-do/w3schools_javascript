@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript Object</h1>
+  <hr>
+
+  <p class="yellow">JavaScript에서는 객체가 왕이됩니다. 객체를 이해하면 JavaScript를 이해할 수 있습니다.</p>
+  <hr>
+
+  <p>JavaScript에서는 거의 모든 것이 "객체"입니다.</p>
+  <ul>
+    <li>boolean은 object 일 수 있습니다.(new 키워드로 정의 된 경우)</li>
+    <li>number은 객체가 될 수 있습니다.(new 키워드로 정의 된 경우)</li>
+    <li>문자열은 객체가 될 수 있습니다. (new 키워드로 정의 된 경우)</li>
+    <li>날짜는 항상 객체입니다.</li>
+    <li>수학은 항상 객체입니다.</li>
+    <li>정규표현식은 항상 객체입니다.</li>
+    <li>배열은 항상 객체입니다.</li>
+    <li>함수는 항상 객체입니다.</li>
+    <li>객체는 항상 객체입니다.</li>
+  </ul>
+  <p>프리미티브를 제외한 모든 JavaScript 값은 객체입니다.</p>
+  <hr>
+
+  <h2>JavaScript 기본요소</h2>
+  <p>프리미티브 값은 어떤 property 또는 method이 없는 값이다.</p>
+  <p>기본 데이터 형식은 원시 값을 갖는 데이터이다.</p>
+  <p>JavaScript는 5가지 유형의 기본 데이터 유형을 정의합니다.</p>
+  <ol class="green">
+    <li>string</li>
+    <li>number</li>
+    <li>boolean</li>
+    <li>null</li>
+    <li>undefined</li>
+  </ol>
+  <p>원시값은 변경할 수 없습니다.</p>
+  <p class="yellow">x = 3.14이면 x의 값을 변경할 수 있습니다. 그러나 3.14의 값을 변경할 수는 없습니다.</p>
+  <table>
+    <tr>
+      <th>Value</th>
+      <th>Type</th>
+      <th>Comment</th>
+    </tr>
+    <tr>
+      <td>"Hello"</td>
+      <td>string</td>
+      <td>"Hello"는 항상 "Hello"입니다.</td>
+    </tr>
+    <tr>
+      <td>3.14</td>
+      <td>Number</td>
+      <td>3.14는 항상 3.14입니다.</td>
+    </tr>
+    <tr>
+      <td>true</td>
+      <td>boolean</td>
+      <td>true는 항상 true입니다.</td>
+    </tr>
+    <tr>
+      <td>flase</td>
+      <td>boolean</td>
+      <td>false는 항상 false입니다.</td>
+    </tr>
+    <tr>
+      <td>null</td>
+      <td>null(object)</td>
+      <td>null은 항상 null입니다.</td>
+    </tr>
+    <tr>
+      <td>undefined</td>
+      <td>undefined</td>
+      <td>undefined는 항상 undefined입니다.</td>
+    </tr>
+  </table>
+  <hr>
+
+  <h2>객체는 변수 입니다.</h2>
+  <p>JavaScript 변수는 단일 값을 포함 할 수 있습니다.</p>
+  <pre>
+    var person = "John Doe";
+  </pre>
+  <p>객체도 변수입니다. 그러나 객체에는 많은 값이 포함 될 수 있습니다.</p>
+  <p>값은 (이름 : 값)이 쌍입니다. (명 및 콜론으로 구분된 값)</p>
+  <pre>
+    var person = { firstName: "John", lastName: "Doe", age: 50, eyeColor: "blue" };
+  </pre>
+  <p class="yellow">JavaScript 객체는 명명된 값의 모음입니다.</p>
+  <hr>
+
+  <h2>객체 속성</h2>
+  <p>JavaScript 객체의 명명된 값을 속성이라고 합니다.</p>
+  <p>이름 값 쌍으로 작성된 객체는 다음과 유사합니다.</p>
+  <ul class="green">
+    <li>PHP의 연관 배열</li>
+    <li>파이썬 사전</li>
+    <li>C의 해시 테이블</li>
+    <li>Java의 해시 맵</li>
+    <li>루비와 펄의 해시</li>
+  </ul>
+  <hr>
+
+  <h2>객체 mehtod</h2>
+  <p>메서드는 객체에서 수행할 수 있는 작업입니다.</p>
+  <p>객체 속성은 프리미티브 값, 다른 객체 및 함수가 될 수 있습니다.</p>
+  <p>객체 method은 함수 정의를 포함하는 객체 속성이다</p>
+  <pre>
+    var person = {
+      firstName: "John",
+      lastName: "Doe",
+      age: 50,
+      eyeColor: blue,
+      fullName: function () {
+        return this.firstName + " " + this.lastName;
+      }
+    }
+  </pre>
+  <p class="yellow">JavaScript 객체는 property 및 method라고 하는 명명된 값의 컨테이너 입니다.</p>
+  <hr>
+  
+  <h2>JavaScript 객체 만들기</h2>
+  <p>JavaScript를 사용하면 자신만의 객체를 정의하고 작성할 수 있습니다.</p>
+  <p>새 객체를 만드는 방법에는 여러가지가 있습니다.</p>
+
+  <ul class="green">
+    <li>객체 리터럴을 사용하여 단일 객체를 정의하고 만듭니다.</li>
+    <li>키워드 new를 사용하여 단일 객체를 정의하고 만듭니다.</li>
+    <li>객체 생성자를 정의한 다음 생성 된 형식의 객체를 만듭니다.</li>
+  </ul>
+  <p class="yellow">ECMAScript 5에서는 Object.create() 함수를 사용하여 객체를 만들 수도 있습니다.</p>
+  <hr>
+
+  <h2>객체 리터럴 사용</h2>
+  <p>이것이 JavaScript 객체를 만드는 가장 쉬운 방법입니다.</p>
+  <p>객체 리터럴을 사용하면 하나의 명령문에서 객체를 정의하고 만들 수 있습니다.</p>
+  <p>객체 리터럴은 중괄호 {} 안에 name : value 쌍의 목록입니다.</p>
+  <p>다음 예제에서는 네 가지 속성으로 새 JavaScript 객체를 만듭니다.</p>
+  <pre>
+    var person = { firstName : "John", lastNaem : "Doe", age: 50, eyeColor:"blue"};
+  </pre>
+  <p>공백과 줄 바꿈은 중요하지 않습니다. 객체 정의는 여러 줄에 걸쳐 있을 수 있습니다.</p>
+  <pre>
+    var person = {
+      firstName: "John",
+      lastName: "Doe",
+      age: 50,
+      eyeColor: "blue"
+    };
+  </pre>
+  <hr>
+
+  <h2>JavaScript new 키워드 사용하기</h2>
+  <p>또한 다음 예제에서는 네가지 속성으로 새 JavaScript 객체를 만듭니다.</p>
+  <pre>
+    var person = new Object();
+    person.firstName = "john";
+    person.lastName = "Doe";
+    person.age = 50;
+    person.eyeColor = "blue";
+  </pre>
+  <p class="yellow">
+    위의 두 예제는 완전히 동일합니다. 새로운 Object()를 사용할 필요가 없습니다.<br>
+    단순석, 가독성 및 실행 속도를 위해 첫 번째 (객체 리터럴 메소드)를 사용하십시오.
+  </p>
+  <hr>
+
+  <h2>JavaScript 객체는 변경 가능합니다.</h2>
+  <p>객체는 변경할 수 있습니다. 값에 의해서가 아니라 참조로 처리됩니다.</p>
+  <p>person이 객체인 경우 다음 문은 person의 복사본을 만들지 않습니다.</p>
+  <pre>
+    var x = person; // This will not create a copy of person
+  </pre>
+  <p>객체 x는 person의 복사본이 아닙니다. 그것은 person 입니다. x와 person 모두 같은 대상입니다.</p>
+  <p>x와 person이 같은 대상이기 때문에 x에 대한 변경도 사람을 변화 시킬것이다.</p>
+  <pre>
+    var person = {firstName : "John", lastName: "Doe", age: 50, eyeColor: "blue"};
+    var x = person;
+    x.age = 10;
+  </pre>
+  <p class="yellow">참고: 자바스크립트 변수는 변경할 수 없습니다. 자바스크립트 객체만 변경 가능합니다.</p>
+</body>
+</html>
+<script src="main.js"></script>
