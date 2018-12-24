@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript Object Prototype</h1>
+  <hr>
+  <p>모든 JavaScript Object는 prototype에서 property와 method를 상속 받습니다.</p>
+  <hr>
+  
+  <p>이전 장에서는 객체 생성자를 사용하는 방법을 배웠습니다.</p>
+  <pre>
+    function Person (first, last, age, eyecolor) {
+      this.firstName = first;
+      this.lastName = last;
+      this.age = age;
+      this.eyeColor = eyecolor;
+    }
+
+    var myFather = new Person("John", "Doe", 50, "blue");
+    var myMother = new Person("Sally", "Rally", 48, "green");
+  </pre>
+  <p>또한 기존 객체 생성자에 새 속성을 추가 할 수 없다는 것도 알게 되었습니다.</p>
+  <pre>
+    추가할 수 없습니다.
+    Person.nationality = "English";
+  </pre>
+  <p>생성자에 새 속성을 추가하려면 생성자 함수에 추가해야합니다.</p>
+  <pre>
+    function Person(first, last, age, eyecolor) {
+      this.firstName = first;
+      this.lastName = last;
+      this.age = age;
+      this.eyeColor = eyecolor;
+      this.nationality = "English";
+      this.fullName = function() {
+        return this.firstName + " " + this.lastName;
+      }
+    }
+  </pre>
+  <hr>
+
+  <h2>prototype 상속</h2>
+  <p>모든 JavaScript 객체는 prototype에서 property와 method를 상속받습니다.</p>
+  <p>Date 객체는 Date.prototype에서 상속받습니다.</p>
+  <p>Array 객체는 Array.prototype에서 상속받습니다.</p>
+  <p>Person 객체는 Person.prototype에서 상속받습니다.</p>
+  <p>Object.prototype은 prototype 상속 chain의 맨 위에 있습니다.</p>
+  <p>Date Object, Array Object 및 Person Object는 Object.prototype에서 상속받습니다.</p>
+  <hr>
+
+  <h2>Object에 property 및 method 추가</h2>
+  <p>때로는 주어진 유형의 모든 기존 오브젝트에 새 property 또는 method를 추가하려고 합니다.</p>
+  <p>때로는 객체 생성자에 새 property 또는 method를 추가하려고 합니다.</p>
+  <hr>
+
+  <h2>Prototype property 사용</h2>
+  <p>JavaScript prototype property을 사용하면 객체 생성자에 새 property를 추가 할 수 있습니다.</p>
+  <pre>
+    function Person(first, last, age, eyecolor) {
+      this.firstName = first;
+      this.lastName = last;
+      this.age = age;
+      this.eyeColor = eyecolor;
+    }
+
+    Person.prototype.nationality = "English";
+  </pre>
+  <p>JavaScript prototype property를 사용하면 객체 생성자에 새 method를 추가 할 수도 있습니다.</p>
+  <pre>
+    Person.prototype.name = function() {
+      return this.firstName + " " + this.lastName;
+    };
+  </pre>
+  <p class="red">자신의 prototype만 수정 하십시오. 표준 JavaScript Object의 prototype을 수정하지 마십시오.</p>
+</body>
+</html>
+<script src="main.js"></script>
