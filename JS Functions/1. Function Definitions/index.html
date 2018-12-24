@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript Function Definitions</h1>
+  <hr>
+
+  <p>JavaScript 함수는 function keyword로 defined됩니다.</p>
+  <p>함수 선언이나 함수 식을 사용할 수 있다.</p>
+  <hr>
+
+  <h2>Function Declaration(함수 정의)</h2>
+  <p>이 듀토리얼 앞 부분에서, 함수는 다음 구문으로 선언 된다는 것을 배웠습니다.</p>
+  <pre>
+    function functionName(parameters) {
+      // code to be executed
+    }
+  </pre>
+  <p>선언 된 함수는 즉시 실행되지 않습니다. 그것들은 "나중에 사용하기 위해 저장"되어 나중에 호출 할 대 실행될 것 입니다.</p>
+  <pre>
+    function myFunction(a, b) {
+      return a * b;
+    }
+  </pre>
+  <p class="yellow">
+    세미콜론은 실행 가능한 JavaScript 문을 분리하는 데 사용됩니다.<br>
+    함수 선언은 실행문이 아니기 때문에 세미콜론으로 끝내느 것이 일반적이지 않습니다.
+  </p>
+  <hr>
+
+  <h2>함수 식</h2>
+  <p>JavaScript 함수는 표현식을 사용하여 정의할 수도 있습니다.</p>
+  <p>함수 표현식은 변수에 저장 될 수 있습니다.</p>
+  <pre>
+    var x = function (a, b) { return a * b };
+  </pre>
+  <p>함수 표현식을 변수에 저장 한 후에 함수로 사용할 수 있습니다.</p>
+  <pre>
+    var x = function (a, b) {
+      return a * b;
+    }
+    var z = x(4, 3);
+  </pre>
+  <p>위의 함수는 실제로는 익명 함수(이름이 없는 함수) 입니다.</p>
+  <p>변수에 저장된 함수에는 함수 이름이 필요하지 않습니다. 변수 이름을사용하여 항상 호출됩니다.</p>
+  <p class="yellow">위의 함수는 실행문에 포함되어 있기 때문에 세미콜론으로 끝납니다.</p>
+  <hr>
+
+  <h2>Function() 생성자</h2>
+  <p>앞의 예제에서 보았듯이 JavaScript 함수는 function 키워드로 정의됩니다.</p>
+  <p>함수는 Function()이라는 내장 JavaScript 함수 생성자를 사용하여 정의 할 수도 있습니다.</p>
+  <pre>
+    var myFunction = new Function("a", "b", "return a * b");
+    var x = myFunction(4, 5);
+  </pre>
+  <p>실제로 함수 생성자를 사용할 필요는 없습니다. 위의 예는 다음과 같은 내용을 작성합니다.</p>
+  <pre>
+    var myFunction = function(a, b) {return a * b};
+    var x = myFunction(4, 3);
+  </pre>
+  <p class="yellow">대부분의 경우 자바스크립트에서 new 키워드를 사용하지 않아도 됩니다.</p>
+  <hr>
+
+  <h2>Hoisting 기능</h2>
+  <p>Hoisting은 선언을 현재 범위의 맨 위로 이동시키는 JavaScript의 기본 동작입니다.</p>
+  <p>Hoistion은 변수 선언 및 함수 선언에 적용됩니다.</p>
+  <p>이 떄문에 JavaScript 함수는 선언되기 전에 호출 될 수 있습니다.</p>
+  <pre>
+    myFunction(5);
+
+    function myFunction(y) {
+      return y * y;
+    }
+  </pre>
+  <p>표현식을 사용하여 정의 된 함수는 올리지 않습니다.</p>
+  <hr>
+
+  <h2>자체 호출 함수</h2>
+  <p>함수 표현식을 "자체 호출" 할 수 있습니다.</p>
+  <p>자체 호출 표현식은 호출되지 않고 자동으로 호출 됩니다.</p>
+  <p>식에 ()가 붙으면 함수식이 자동으로 실행됩니다.</p>
+  <p>함수 선언을 자체 호출 할 수는 없습니다.</p>
+  <p>함수 주위에 괄호를 추가하여 함수 표현식임을 나타낼 수 있습니다.</p>
+  <pre>
+    (function(){
+      var x = "Hello";
+    })();
+  </pre>
+  <p>위의 함수는 실제로는 익명 자체 호출 함수입니다.</p>
+  <hr>
+
+  <h2>함수를 값으로 사용할 수 있습니다.</h2>
+  <p>JavaScript 함수를 값으로 사용할 수 있습니다.</p>
+  <pre>
+    function myFunc(a, b) {
+      return a * b;
+    }
+
+    var x = myFunc(4, 3);
+  </pre>
+  <p>식에서 JavaScript 함수를 사용할 수 있습니다.</p>
+  <pre>
+    function myFunc(a, b) {
+      return a * b;
+    }
+
+    var x = myFunc(4, 3) * 10;
+  </pre>
+  <hr>
+
+  <h2>함수는 객체입니다.</h2>
+  <p>JavaScript의 typeof연산자는 함수에 대해 "function"을 반환합니다.</p>
+  <p>그러나 JavaScript 함수는 객체로 가장 잘 설명될 수 있습니다.</p>
+  <p>JavaScript 함수에는 property와 method가 있습니다.</p>
+  <p>arguments.length 속성은 함수가 호출 될 때 받은 인수의 수를 반환힙니다.</p>
+  <pre>
+    function myFunction(a, b) {
+      return arguments.length;
+    }
+  </pre>
+  <p>toString() method는 함수를 문자열로 반환합니다.</p>
+  <pre>
+    function myFunction(a, b) {
+      return a * b;
+    }
+    var txt muFunction.toString();
+  </pre>
+  <p class="yellow">
+    객체의 속성으로 정의 된 함수를 객체에 대한 method라고 합니다.<br>
+    새 오브젝트를 작성하기 위해 설계된 함수를 오브젝트 생성자 라고 합니다.
+  </p>
+  <hr>
+
+  <h2>화살표 기능</h2>
+  <p>화살표 함수는 함수 표현식을 작성하기 위한 간단한 구문을 허용합니다.</p>
+  <p>function 키워드, return 키워드 및 중괄호는 필요 없습니다.</p>
+  <pre>
+    // ES5
+    var x = function(x , y){
+      return x * y;
+    }
+
+    // ES6
+    const x = (x , y) => x * y;
+  </pre>
+  <p>화살표 기능에는 고유의 기능이 없습니다. 그들은 object method를 정의하는 데는 적합하지 않습니다.</p>
+  <p>화살표 기능은 Hoistion가 작동하지 않습니다. 그래서 사용되기 전에 정의 되어야 합니다.</p>
+  <p>함수 표현식은 항상 상수 값이기 때문에 var 를 사용하는 것보다 안전하다.</p>
+  <p>함수가 단일 문이면 return 키워드와 중괄호를 생략할 수 있습니다. 이 때문에 항상 그들을 지키는 것은 좋은 습관 일 수 있습니다.</p>
+  <pre>
+    const x = (x , y) => {return x * y};
+  </pre>
+
+</body>
+</html>
+<script src="main.js"></script>
