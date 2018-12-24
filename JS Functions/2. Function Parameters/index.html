@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript Function Parameters</h1>
+  <hr>
+
+  <p>JavaScript함수는 매개변수 값을 검사하지 않습니다.</p>
+  <hr>
+
+  <h2>함수 매개 변수 및 인수</h2>
+  <p>이 튜토리얼의 앞 부분에서, 함수는 매개변수를 가질 수 있음을 알게 되었습니다.</p>
+  <pre>
+    function functionName (paramerter1, paramerter2, parameter3...) {
+      // code to be executed
+    }
+  </pre>
+  <p>함수 parameter는 함수 정의에 나열된 이름입니다.</p>
+  <p>함수 arguments는 함수에 전달 된 실제 값입니다.</p>
+  <hr>
+
+  <h2>매개 변수 규칙</h2>
+  <p>JavaScript 함수 정의는 parameter에 대한 데이터 유형을 지정하지 않습니다.</p>
+  <p>JavaScript 함수는 전달 된 arguments에 대해 유형 검사를 수행하지 않습니다.</p>
+  <p>JavaScript 함수는 받은 arguments의 수를 확인하지 않습니다.</p>
+  <hr>
+
+  <h2>매개 변수 기본 값</h2>
+  <p>함수가 누락된 인수(undefined)로 호출되는 경우 누락된 값은 undefined로 정의됩니다.</p>
+  <p>때로는 이것이 허용 가능하지만 때로는 매개 변수에 기본 값을 지정하는 것이 좋습니다.</p>
+  <pre>
+    function myFunction (x, y) {
+      if(y === undefined) {
+        y = 0;
+      }
+      if(x === undefined) {
+        x = 0;
+      }
+      return x + y;
+    }
+  </pre>
+  <p>ECMAScript 2015는 함수 호출에서 기본 매개변수를 허용합니다.</p>
+  <pre>
+    function (a = 1, b = 1) {
+      // function code
+    }
+  </pre>
+  <hr>
+
+  <h2>Arguments 객체</h2>
+  <p>JavaScript 함수에는 arguments 객체라는 기본 제공 객체가 있습니다.</p>
+  <p>arguments 객체는 함수가 호출 될 때 (호출 된) 사용 된 인수배열을 포함합니다.</p>
+  <p>이 방법을 사용하면 함수를 사용하여 숫자 목록에서 가장 높은 값을 찾을 수 있습니다.</p>
+  <pre>
+    x = findMax(1, 123, 500, 115, 44, 88);
+
+    function findMax() {
+      var i;
+      var max = -Infinity;
+      for(i = 0; i < arguments.length; i++) {
+        if(arguments[i] > max) {
+          amx = arguments[i];
+        }
+      }
+      return max;
+    }
+  </pre>
+  <p>또는 모든 입력값을 합산하는 함수를 만듭니다.</p>
+  <pre>
+    x = sumAll(1, 123, 500, 115, 44, 88);
+
+    function sumAll() {
+      var i;
+      var sum = 0;
+      for(i = 0; i < arguments.length; i++) {
+        sum += arguments[i];
+      }
+      return sum;
+    }
+  </pre>
+  <p class="yellow">너무 많은 arguments(선언된 것 이상)로 함수를 호출 하면 arguments 객체를 사용하여 이러한 인수에 연결할 수 있습니다.</p>
+  <hr>
+
+  <h2>인수는 값으로 전달됩니다.</h2>
+  <p>함수 호출에서 매개변수는 함수의 인수입니다.</p>
+  <p>JavaScript 인수는 value에 의해 전달됩니다. 함수는 인수의 위치가 아니라 값을 알 수 있습니다.</p>
+  <p>함수가 인수의 값을 변경하면 매개 변수의 원래 값은 변경되지 않습니다.</p>
+  <p>인수 변경은 함수 외부에 표시(반영)되지 않습니다.</p>
+  <hr>
+
+  <h2>객체는 참조로 전달됩니다.</h2>
+  <p>JavaScript에서 객체 참조는 값입니다.</p>
+  <p>이 때문에 객체는 참조로 전달되는 것처럼 동작합니다.</p>
+  <p>함수가 객체 속성을 변경하면 원래 값이 변경됩니다.</p>
+  <p>객체 속성에 대한 변경사항은 외부에 표시(반영)됩니다.</p>
+
+
+
+
+
+
+
+
+
+  
+
+</body>
+</html>
+<script src="main.js"></script>
