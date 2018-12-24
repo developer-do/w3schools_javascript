@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript 유효성 검사 API</h1>
+  <hr>
+
+  <h2>제약 조건 유효성 검사 DOM method</h2>
+  <table>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>checkValidity()</td>
+      <td>입력 요소에 유효한 데이터가 포함되어 있으면 true를 반환한다.</td>
+    </tr>
+    <tr>
+      <td>setCustomValidity()</td>
+      <td>입력 요소의 validationMessage 속성을 설정하십시오.</td>
+    </tr>
+  </table>
+  <hr>
+
+  <p>입력 필드에 유효하지 않은 데이터가 있으면 메시지를 표시하십시오.</p>
+  <input id="id1" type="number" min="100" max="300" required>
+  <button onclick="myFunction()">OK</button>
+  <p id="demo1"></p>
+  <pre>
+    function myFunction() {
+      var inpObj = document.getElementById("id1");
+      if(!inpObj.checkValidity()) {
+        document.getElementById("demo1").innerHTML = inpObj.validationMessage;
+      }
+    }
+  </pre>
+  <hr>
+
+  <h2>제약 조건 유효성 검사 DOM 속성</h2>
+  <table>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>validity</td>
+      <td>입력 요소의 유효성과 관련된 boolean 특성 포함</td>
+    </tr>
+    <tr>
+      <td>validationMessage</td>
+      <td>유효성이 거짓일 때 브라우저가 표시할 메시지 포함</td>
+    </tr>
+    <tr>
+      <td>willValidate</td>
+      <td>입력 요소의 유효성을 검사할지 여부를 표시한다.</td>
+    </tr>
+  </table>
+  <hr>
+
+  <h2>유효성 속성</h2>
+  <p>입력 요소의 validity 속성에는 데이터의 유효성과 관련된 여러 속성이 포함됩니다.</p>
+  <table>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>customError</td>
+      <td>사용자 지정 유효성 메시지가 설정된 경우 true로 설정하십시오.</td>
+    </tr>
+    <tr>
+      <td>patternMismatch</td>
+      <td>요소와 값이 패턴 속성과 일치하지 않는 경우 true로 설정하십시오.</td>
+    </tr>
+    <tr>
+      <td>rangeOverflow</td>
+      <td>요소의 값이 최대 속성보다 크면 true로 설정하십시오.</td>
+    </tr>
+    <tr>
+      <td>rangeUnderflow</td>
+      <td>요소의 값이 최소 속성보다 작으면 true로 설정하십시오.</td>
+    </tr>
+    <tr>
+      <td>stepMismatch</td>
+      <td>요소의 단계 특성에 따라 요소 값이 유효하지 않은 경우 true로 설정하십시오.</td>
+    </tr>
+    <tr>
+      <td>tooLong</td>
+      <td>요소의 값이 maxLength 특성을 초과하는 경우 true로 설정하십시오.</td>
+    </tr>
+    <tr>
+      <td>typeMismatch</td>
+      <td>요소 유형 특성에 따라 요소 값이 유효하지 않은 경우 true로 설정하십시오.</td>
+    </tr>
+    <tr>
+      <td>valueMissing</td>
+      <td>요소(필수 특성을 가진)에 값이 없는 경우 true로 설정하십시오.</td>
+    </tr>
+    <tr>
+      <td>valid</td>
+      <td>요소 값이 유효한 경우 true로 설정하십시오.</td>
+    </tr>
+  </table>
+  <hr>
+
+  <h2>예제들</h2>
+  <p>입력 필드의 숫자가 100보다 큰 경우(입력의 최대 속성) 메시지를 표시하십시오.</p>
+  <pre>
+    rangeOverflow 속성
+    <input id="id2" type="number" max="100">
+    <button onclick="myFunction2()">OK</button>
+
+    <p id="demo2"></p>
+
+    function myFunction2() {
+      var txt = "";
+      if (document.getElementById("id1").validity.rangeOverflow) {
+        txt = "Value too large";
+      }
+      document.getElementById("demo").innerHTML = txt;
+    }
+  </pre>
+  <p>입력 필드의 숫자가 100보다 작으면 (입력의 최소 속성) 메시지를 표시하십시오.</p>
+  <pre>
+    <input id="id3" type="number" min="100">
+    <button onclick="myFunction3()">OK</button>
+
+    <p id="demo3"></p>
+
+    function myFunction3() {
+      var txt = "";
+      if (document.getElementById("id1").validity.rangeUnderflow) {
+        txt = "Value too small";
+      }
+      document.getElementById("demo").innerHTML = txt;
+    }
+  </pre>
+</body>
+</html>
+<script src="main.js"></script>
