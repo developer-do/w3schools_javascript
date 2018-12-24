@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript Object Methods</h1>
+  <hr>
+  
+  <pre>
+    var person = {
+      firstName: "John",
+      lastName : "Doe",
+      id       : 5566,
+      fullName : function() {
+        return this.firstName + " " + this.lastName;
+      }
+    };
+  </pre>
+  <hr>
+
+  <h2>this keyword</h2>
+  <p>함수 정의에서 this는 함수의 "owner"를 참조합니다.</p>
+  <p>위의 예에서, this는 fullName 기능을 "소유"하는 사용자 객체입니다.</p>
+  <p>즉, this.firstName은 이 객체의 firstName property를 의미합니다.</p>
+  <hr>
+
+  <h2>JavaScript methods</h2>
+  <p>JavaScript method는 object에서 수행할 수 있는 액션입니다.</p>
+  <p>JavaScript method는 function definition를 포함하는 property 입니다.</p>
+  <pre>
+    var person = {
+      firstName : "John",
+      lastName  : "Doe",
+      age       : 50,
+      eyeColor  : "blue",
+      fullName  : function() {
+        return this.firstName + " " + this.lastName;
+      }
+    }
+  </pre>
+  <p class="yellow">method는 object property로 저장되는 function입니다.</p>
+  <hr>
+
+  <h2>Object method access</h2>
+  <p>다음 구문을 사용하여 object method에 접근 합니다.</p>
+  <pre>
+    obejctName.methodName()
+  </pre>
+  <p>일반적으로 fullName()은 person 객체의 한 method로 fullName은 property로 설명한다.</p>
+  <p>fullName property는 ()와 함께 호출 될 때 함수로서 실행됩니다.</p>
+  <p>이 예제는 person object에서 fullName() method에 access합니다.</p>
+  <pre>
+    name = person.fullName();
+  </pre>
+  <p>()없이 fullName property에 access하면 function definition이 return 됩니다.</p>
+  <pre>
+    name = person.fullName;
+  </pre>
+  <hr>
+
+  <h2>built-in method 사용하기</h2>
+  <p>이 예제에서는 String 객체의 toUpperCase() method를 사용하여 텍스트를 대문자로 변환합니다.</p>
+  <pre>
+    var message = "Hello world!";
+    var x = message.toUpperCase();
+  </pre>
+  <hr>
+
+  <h2>adding a method to an Object</h2>
+  <p>객체에 새로운 메소드를 추가 하는 것은 쉽습니다.</p>
+  <pre>
+    person.name = function() {
+      return this.firstName + " " + this.lastName;
+    }
+  </pre>
+
+
+
+
+
+
+
+
+</body>
+</html>
+<script src="main.js"></script>
