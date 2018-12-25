@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript Function call()</h1>
+  <hr>
+
+  <h2>method 재사용</h2>
+  <p>call() method를 사용하면 다른 객체에서 사용할 수 있는 방법을 작성할 수 있습니다.</p>
+  <hr>
+
+  <h2>모든 Function은 method입니다.</h2>
+  <p>JavaScript에서 모든 함수는 Object method입니다.</p>
+  <p>function이 JavaScript Object의 method가 아닌 경우 함수는 전역 객체의 함수입니다.</p>
+  <p>아래 예제는 firstName, lastName, fullName의 3가지 속성을 가진 객체를 생성합니다.</p>
+  <pre>
+    var person = {
+      firstName : "John",
+      lastName  : "Doe",
+      fullName  : function() {
+        return this.firstName + " " + this.lastName;
+      }
+    }
+    person.fullName();    // Will return "John Doe";
+  </pre>
+  <hr>
+
+  <h2>this keyword</h2>
+  <p>함수 정의에서 this는 함수의 "소유자"를 참조합니다.</p>
+  <p>위의 예에서, this는 fullName 함수를 "소유하는" person 객체를 가리킵니다.</p>
+  <p>즉 this.firstName은 이 객체의 firstName property를 의미합니다.</p>
+  <hr>
+
+  <h2>JavaScript call() method</h2>
+  <p>call() method 방법은 미리 정의된 자바스크립트 방법입니다.</p>
+  <p>소유자 객체를 인수로 사용하여 method를 호출하는데 사용 할 수 있습니다.</p>
+  <p class="yellow">call()을사용하면 객체는 다른 객체에 속하는 method를 사용할 수 있습니다.</p>
+  <p>이 예제에서는 eperson1에서 fullName method를 호출합니다.</p>
+  <hr>
+  <pre>
+    var person = {
+      fullName: function() {
+        return this.firstName + " " + this.lastName;
+      }
+    }
+
+    var person1 = {
+      firstName: "John",
+      lastName: "Doe"
+    };
+
+    var person2 = {
+      firstName: "Mary",
+      lastName: "Doe"
+    };
+    person.fullName.call(person1);
+  </pre>
+  <hr>
+
+  <h2>인수를 사용한 call() method</h2>
+  <p>call() method는 인수를 사용할 수 있습니다.</p>
+  <pre>
+    var per = {
+      fullName: function(city, country) {
+        return this.firstName + " " + this.lastName + "," + city + "," + country;
+      }
+    }
+    var pers = {
+      firstName: "John",
+      lastName: "Doe"
+    }
+    person.fullName.call(pers, "gangwondo", "Korea");
+  </pre>
+</body>
+</html>
+<script src="main.js"></script>
