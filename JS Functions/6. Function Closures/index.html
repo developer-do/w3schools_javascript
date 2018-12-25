@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript Closures</h1>
+  <hr>
+
+  <p>JavaScript 변수는 local 또는 global 범위에 속할 수 있습니다.</p>
+  <p>global 변수는 클로저를 사용하여 local(개인)으로 만들 수 있습니다.</p>
+  <hr>
+
+  <h2>전역변수</h2>
+  <p>함수는 다음과 같이 함수 내부에 정의된 모든 변수에 접근 할 수 있습니다.</p>
+  <pre>
+    function myFunction() {
+      var a = 4;
+      return a * a;
+    }
+  </pre>
+  <p>그러나 함수는 다음과 같이 함수 외부에서 정의 된 변수에 엑세스 할 수도 있습니다.</p>
+  <pre>
+    var a = 4;
+    function func2() {
+      return a * a;
+    }
+  </pre>
+  <p>마지막 예에서 a는 전역변수 입니다.</p>
+  <p>웹 페이지 에서 전역 변수는 윈도우 객체에 속합니다.</p>
+  <p>전역 변수는 페이지 (및 window)의 모든 스크립트에서 사용 및 변경 할 수 있습니다.</p>
+  <p>첫번째 예에서 a는 지역변수입니다.</p>
+  <p>로컬 변수는 정의된 함수 내에서만 사용할 수 있습니다. 다른 함수 및 다른 스크립팅 코드에서 숨겨집니다.</p>
+  <p>같은 이름의 전역변수와 지역변수는 서로 다른 변수입니다. 하나를 수정하면 다른 하나를 수정 하지 않습니다.</p>
+  <p class="yellow">var 키워드 없이 작성된 변수는 함수 내에 작성된 경우에도 항상 전역 변수입니다.</p>
+  <hr>
+
+  <h2>가변 수명</h2>
+  <p>응용 프로그램 (창 / 웹 페이지)이 살아있는 한 전역변수가 생깁니다.</p>
+  <p>지역변수의 수명은 짧습니다. 함수가 호출 될 때 만들어지며 함수가 끝나면 삭제됩니다.</p>
+  <hr>
+
+  <h2>counter 딜레마</h2>
+  <p>무언가 계산에 변수를 사용하고 이 카운터를 모든 함수에서 사용할 수 있기를 원한다고 가정 해보십시오</p>
+  <p>전역 변수와 함수를 사용하여 카운터를 늘릴 수 있습니다.</p>
+  <pre>
+    // Initiate counter
+    var counter = 0;
+
+    // Function to increment counter
+    function add() {
+      counter += 1;
+    }
+
+    // Call add() 3 times
+    add();
+    add();
+    add();
+
+    // The counter should now be 3
+  </pre>
+  <p>위의 솔루션에 문제가 있습니다. 페이지의 모든 코드는 add()를 호출하지 않고 카운터를 변경할 수 있습니다.</p>
+  <p>다른 코드에서 변경하지 못하도록 카운터는 add() 함수에 대해 로컬이어야 합니다.</p>
+  <pre>
+    // Initiate counter
+    var counter = 0;
+
+    // Function to increment counter
+    function add() {
+      var counter = 0;
+      counter += 1;
+    }
+
+    // Call add() 3 times
+    add();
+    add();
+    add();
+    
+    // The counter should now be 3. But it is 0
+  </pre>
+  <p>로컬 카운터 대신 글로벌 카운터를 표시하기 때문에 작동하지 않았습니다.</p>
+  <p>함수를 반환하여 전역 카운터를 제거하고 로컬 카운터에 액세스 할 수 있습니다.</p>
+  <pre>
+    // Function to increment counter
+    function add2() {
+      var counter = 0;
+      counter += 1;
+      return counter;
+    }
+
+    // Call add() 3 times
+    add2();
+    add2();
+    add2();
+
+    // The counter should now be 3. But it is 1.
+  </pre>
+  <p>함수를 호출 할 때마다 로컬 카운터를 재설정 하기 때문에 작동하지 않았습니다.</p>
+  <p>JavaScript 내부 함수는 클로저를 이용해 해결할 수 있습니다.</p>
+  <hr>
+
+  <h2>JavaScript 중첩 함수</h2>
+  <p>모든 기능은 전역 범위에 접근 할 수 있습니다.</p>
+  <p>실제로 JavaScript에서는 모든 함수가 "위의"범위에 접근 할 수 있습니다.</p>
+  <p>이 예제에서 내부 함수 plus()는 부모 함수의 counter 변수에 대한 접근 권한을 갖습니다.</p>
+  <pre>
+    function add3() {
+      var counter = 0;
+      function plus() {
+        counter += 1;
+      }
+      plus();
+      return counter;
+    }
+  </pre>
+  <p>이것은 우리가 외부에서 plus() 함수에 도달 할 수 있다면 counter 딜레마를 해결할 수 있습니다.</p>
+  <p>또한 counter = 0을 한 번만 실행하는 방법을 찾아야 합니다.</p>
+  <p>우리는 클로저가 필요합니다.</p>
+  <hr>
+
+  <h2>JavaScript closures</h2>
+  <p>자체 호출 함수를 기억합니까? 이 기능은 무엇입니까 ?</p>
+  <pre>
+    var add = (function(){
+      var counter = 0;
+      return function() {
+        counter += 1;
+        return counter;
+      }
+    })();
+  </pre>
+  <h2>위의 예제 설명</h2>
+  <p>변수 add에는 자체 호출 함수의 리턴값이 지정됩니다.</p>
+  <p>자체 호출 함수는 한 번만 실행됩니다. counter를 0으로 설정하고 함수 표현식을 반환합니다.</p>
+  <p>이 방법은 add가 함수가 됩니다. "원하는"부분은 그것이 상위 범위의 counter에 접근할 수 있다는 점 입니다.</p>
+  <p>이를 JavaScript 클로저 라고 합니다. 그것은 함수가 "개인"변수를 가질 수 있게 합니다.</p>
+  <p>counter은 이겸ㅇ 함수의 범위로 보호되며 추가 함수를 통해서면 변경 할 수 있습니다.</p>
+  <p class="yellow">클로저는 부모 함수가 닫힌 후에도 부모 범위에 액세스 하는 함수입니다.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+<script src="main.js"></script>
