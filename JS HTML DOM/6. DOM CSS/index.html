@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Page Title</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+	<h1>JavaScript HTML DOM - Changing CSS</h1>
+	<hr>
+	
+	<p>HTML DOM을 사용하면 JavaScript가 HTML 요소의 스타일을 변경 할 수 있습니다.</p>
+	<hr>
+
+	<h2>HTML 스타일 변경하기</h2>
+	<p>HTML요소의 스타일을 변경하려면 다음 구문을 사용하십시오.</p>
+	<pre>
+		document.getElementById("id").style.property = new style
+	</pre>
+	<p>다음 예제는 p 요소의 스타일을 변경합니다.</p>
+	<pre>
+		document.getElementById("p2").style.color = "blue";
+	</pre>
+	<p id="p2">파랑색 글씨</p>
+	<hr>
+
+	<h2>이벤트 사용</h2>
+	<p>HTML DOM을 사용하면 이벤트가 발생할 때 코드를 실핼할 수 있습니다.</p>
+	<p>HTML 요소에 "상황이 발생하면" 브라우저에서 이벤트를 생성합니다.</p>
+	<ul class="green">
+		<li>요소에 클릭되었습니다.</li>
+		<li>페이지가 로드되었습니다.</li>
+		<li>입력 필드가 변경되었습니다.</li>
+	</ul>
+	<p>이벤트에 대한 자세한 내용은 다음장에서 배웁니다.</p>
+	<p>이 예제는 사용자가 버튼을 클릭할 대 id = "id1"인 HTML요소의 스타일을 변경합니다.</p>
+	<pre> 
+		<button type="button" onclick="document.getElementById('id1').style.color = 'red'">
+			Click Me!</button>
+	</pre>
+</body>
+</html>
+<script src="main.js"></script>
