@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+  <style>
+    #container {
+      width: 400px;
+      height: 400px;
+      position: relative;
+      background: yellow;
+    }
+    #animate {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      background: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>JavaScript HTML DOM Animation</h1>
+  <hr>
+
+  <p>JavaScript를 사용하여 HTML 애니메이션을 만드는 법을 배웁니다.</p>
+  <hr>
+
+  <h2>기본 웹페이지</h2>
+  <p>JavaScript로 HTML 애니메이션을 만드는 방법을 설명하기 위해 간단한 웹페이지를 사용합니다.</p>
+  <pre>
+    <h1>My First JavaScript Animation</h1>
+    <div id="animation">Myanimation will go here</div>
+  </pre>
+  <hr>
+
+  <h2>애니메이션 컨테이너 만들기</h2>
+  <p>모든 애니메이션은 컨테이너 요소에 상대적이어야합니다.</p>
+  <pre>
+    <div id="container">
+      <div id="animate">My animation will go here</div>
+    </div>
+  </pre>
+  <hr>
+
+  <h2>요소 스타일 지정</h2>
+  <p>컨테이너의 요소는 style = "position: relative"로 작성해야합니다.</p>
+  <p>애니메이션의 요소는 style = "position: absolute"로 만들어야합니다.</p>
+  
+  <pre>
+    #container {
+      width: 400px;
+      height: 400px;
+      position: relative;
+      backgrouund: yellow;
+    }
+    #animate {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      background: red;
+    }
+  </pre>
+
+  <hr>
+
+  <h2>애니메이션 코드</h2>
+  <p>자바스크립트 애니베이션은 요소 스타일의 점진적 변경을 프로그래밍하여 수행됩니다.</p>
+  <p>변경 사항은 타이머에 의해 호출됩니다. 타이머 간경이 작으면 애니메이션이 연속적으로 보입니다.</p>
+  <p>기본코드는 다음과 같습니다.</p>
+  <pre>
+    var id = setInterval(frame, 5);
+
+    function frame() {
+      if(<!-- test for finished -->) {
+        clearInterval(id);
+      } else {
+        <!-- code to change the element style -->
+      }
+    }
+  </pre>
+  <hr>
+
+  <h2>JavaScript를 사용하여 애니메이션 만들기</h2>
+  <pre>
+    function myMove() {
+      var elem = document.getElementById("animate");
+      var pos = 0;
+      var id = setInterval(frame, 5);
+      function frame() {
+        if( pos === 350 ) {
+          clearInterval(id);
+        } else {
+          pos++;
+          elem.style.top = pos + "px";
+          elem.style.left = pos + "px";
+        }
+      }
+    }
+  </pre>
+
+</body>
+</html>
+<script src="main.js"></script>
