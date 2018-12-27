@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript HTML DOM Navigation</h1>
+  <hr>
+
+  <p>HTML DOM을 사용하면 노드 관계를 사용하여 노트 트리를 탐색할 수 있습니다.</p>
+  <hr>
+
+  <h2>W3C HTML DOM 표준에 따르면 HTML 문서의 모든 것이 노드입니다.</h2>
+  <ul class="green">
+    <li>전체 문서가 문서 노드입니다.</li>
+    <li>모든 HTML 요소는 요소 노드입니다.</li>
+    <li>HTML 요소 내부의 텍스트는 텍스트 노드입니다.</li>
+    <li>모든 HTML 속성은 속성 노드 입니다.(사용되지 않음)</li>
+    <li>모든 주석은 주석 노드 입니다.</li>
+  </ul>
+  <p><img src="pic_htmltree.gif" alt="htmltree"></p>
+  <p>HTML DOM을 사용하면 노드트리의 모든 노드에 JavaScript로 접근할 수 있습니다.</p>
+  <p>새 노드를 만들 수 있으며 모든 노드를 수정하거나 삭제할 수 있습니다.</p>
+  <hr>
+
+  <h2>노드 관계</h2>
+  <p>노드 트리의 노드는 서로 계층 관계를 갖습니다.</p>
+  <p>상위, 하위 및 형제라는 용어는 관계를 설명하는데 사용됩니다.</p>
+  <ul>
+    <li>노드 트리에서 최상위 노드는 root라고 부른다 (또는 node root)</li>
+    <li>모든노드에는 root를 제외한 정확히 하나의 상위 노드가 있다(상위 없음).</li>
+    <li>노드는 많은 아이들을 가질 수 있습니다.</li>
+    <li>형제는 동일한 부모를 가진 노드입니다.</li>
+  </ul>
+  <p><img src="K-002.png" alt=""></p>
+  <p>위의 HTML에서 다음을 읽을 수 있습니다.</p>
+  <ul class="green">
+    <li>html은 root node입니다.</li>
+    <li>html에는 부모가 없습니다.</li>
+    <li>html은 head및 body의 부모입니다.</li>
+    <li>head는 html의 첫번째 하위 항목입니다.</li>
+    <li>body는 html의 마지막 자식입니다.</li>
+  </ul>
+  <p>그리고</p>
+  <ul class="green">
+    <li>head에는 하나의 title 자식이 있습니다</li>
+    <li>title에는 하나의 자식 text node가 있씁니다. "DOM Tutorial"</li>
+    <li>body에는 두 개의 하위 항목이 있습니다. h1 및 p</li>
+    <li>h1에는 "DOM Lesson one"이라는 하나의 text node인 자식이 있습니다.</li>
+    <li>p에는 "Hello World!"이라는 하나의 text node인 자식가 있습니다.</li>
+    <li>h1 및 p는 형제입니다.</li>
+  </ul>
+  <hr>
+
+  <h2>노드 간 이동</h2>
+  <p>다음 노드 특성을 사용하여 JavaScript로 노드 사이를 탐색할 수 있습니다.</p>
+  <ul class="green">
+    <li>parentNode</li>
+    <li>childNodes[node number]</li>
+    <li>firstChild</li>
+    <li>lastChild</li>
+    <li>nextSibling</li>
+    <li>prevSibling</li>
+  </ul>
+  <hr>
+
+  <h2>하위 노드 및 노드 값</h2>
+  <p class="yellow">DOM 처리의 일반적인 오류는 요소 노드에 텍스트가 포함될 것으로 예상되는 것입니다.</p>
+  <pre>< title id="demo" >DOM Tutorial < /title ></pre>
+  <p>요소 노드 title에는 텍스트가 들어 있지 않습니다.</p>
+  <p>여기에는 "DOM Tutorial"값이 있는 text node가 있습니다.</p>
+  <p>텍스트 노드의 값은 노드의 innerHTML 속성을 통해 액세스 할 수 있습니다.</p>
+  <pre>
+    var myTitle = document.getElementById("demo").innerHTML;
+  </pre>
+  <p>innerHTML 속성은 접근하는 것은 첫 번째 자식의 nodeValue에 접근하는 것과 같습니다.</p>
+  <pre>
+    var myTitle = document.getElementById("demo").firstChild.nodeValue;
+  </pre>
+  <p>첫 번쨰 자식에 대한 접근은 다음과 같습니다.</p>
+  <pre>
+    var myTitle = document.getElementById("demo").childNodes[0].nodeValue;
+  </pre>
+  <p>다음 3번의 모든 예제는 h1요소의 텍스트를 가져와서 p 요소에 복사합니다.</p>
+  <pre>
+    <div id="wrap">
+      <h1 id="id01">My First Page</h1>
+      <p id="id02"></p>
+    </div>
+    document.getElementById("id02").innerHTML = document.getElementById("id01").innerHTML;
+  </pre>
+  <hr>
+
+
+  <h2>InnerHTML</h2>
+  <p>이 자습서에는 innerHTML 속성을 사용하여 HTML요소의 내용을 검색합니다.</p>
+  <p>그러나 위의 다른 방법을 배우는 것은 트리구조와 DOM 탐색을 이해하는 데 유용합니다.</p>
+  <hr>
+
+  <h2>DOM root node</h2>
+  <p>전체 문서에 대한 접근을 허용하는 두가지 특수 속성이 있습니다.</p>
+  <ul class="green">
+    <li>document.body - 문서의 본문</li>
+    <li>document.documentElement - 전체 문서</li>
+  </ul>
+  <pre>
+    console.log(document.body.innerHTML);
+    console.log(document.documentElement.innerHTML);
+  </pre>
+
+  <hr>
+
+  <h2>nodeName 속성</h2>
+  <p>nodeName 특성은 노드의 이름을 지정합니다.</p>
+  <ul class="green">
+    <li>nodeName은 읽기 전용입니다.</li>
+    <li>요소 노드의 nodeName은 태그 이름과 같습니다.</li>
+    <li>속성 노드의 nodeName은 속성 이름입니다.</li>
+    <li>텍스트 노드의 nodeName은 항상 #text입니다.</li>
+    <li>문서 노드의 nodeName은 항상 #document입니다.</li>
+  </ul>
+  <h1 id="id03">My First Page</h1>
+  <p id="id04"></p>
+  <pre>
+    document.getElementById("id03").innerHTML = document.getElementById("id04").nodeName;
+  </pre>
+  <p class="yellow">tip: nodeName은 항상 HTML 요소의 대문자 태그 이름을 포함합니다.</p>
+  <hr>
+
+  <h2>nodeValue 등록정보</h2>
+  <p>nodeValue 등록 정보는 노드 값을 지정합니다.</p>
+  <ul>
+    <li>element node에 대한 nodeValue가 null입니다.</li>
+    <li>text node의 nodeValue가 text 그 자체입니다.</li>
+    <li>attribute에 대한 nodeValue가 attribute 값 입니다.</li>
+  </ul>
+
+  <hr>
+
+
+  <h2>nodeType 특성</h2>
+  <p>nodeType 등록정보는 읽기 전용입니다. 노드의 유형을 리턴합니다.</p>
+  <pre>
+    document.getElementById("id02").innerHTML = document.getElementById("id01").nodeType;
+  </pre>
+  <p><a href="https://www.w3schools.com/js/js_htmldom_navigation.asp">nodeType등록 정보를 보시고싶으시면 여기를 클릭하시고 가장 아래쪽 문서를 확인해주세요.</a></p>
+
+
+
+
+
+
+
+
+</body>
+</html>
+<script src="main.js"></script>
