@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+  <style>
+    #mouseover {
+      background: red;
+      color: white;
+      padding: 8px 20px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>JavaScript HTML DOM Events</h1>
+  <hr>
+
+  <p>HTML DOM은 JavaScript가 HTML 이벤트에 반응하도록 허용합니다.</p>
+  <hr>
+
+  <h2>이벤트에 반응하기</h2>
+  <p>자바스크립트는 사용자가 HMTL 요소를 클릭 할 때와 같이 이벤트가 발생할 때 실행될 수 있습니다.</p>
+  <p>사용자가 요소를 클릭할 때 코드를 실행할려면 JavaScript 코드를 HTML 이벤트 속성에 추가하십시오.</p>
+  <pre>
+    onclick = JavaScript
+  </pre>
+  <p>HTML Events example</p>
+  <ul class="green">
+    <li>사용자가 마우스를클릭하면</li>
+    <li>웹 페이지가 로드되었을 때</li>
+    <li>이미지가 로드될 때</li>
+    <li>마우스가 요소 위로 움직일 때</li>
+    <li>입력필드가 변경되면</li>
+    <li>HTML 양식이 제출 되면</li>
+    <li>사용자가 키를 누를 때</li>
+  </ul>
+  <p>이 예제에서 h1 요소의 내용은 사용자가 클릭 할 때 변경합니다.</p>
+  <pre>
+    <h1 onclick="this.innerHTML = 'Ooops!'">Click on this text!</h1>
+  </pre>
+  <p>이 예제에서 함수는 이벤트 핸들러에서 호출됩니다.</p>
+  <pre>
+    <h1 onclick="changeText(this)">Click on this text!!!!!!!</h1>
+    function changeText(id) {
+      id.innerHTML = 'Ooops!!!!!!!!!!!!';
+    }
+  </pre>
+  <hr>
+
+  <h2>HTML 이벤트 속성</h2>
+  <p>HTML 요소에 이벤트를 지정하기 위해 이벤틋 속성을 사용할 수 있습니다.</p>
+  <pre>
+    <button onclick="displayDate()">Try it!~</button>
+    <div id="demo1"></div>
+  </pre>
+  <p>위의 예제에서 button을 클릭하면 displayDate()라는 함수가 실행됩니다.</p>
+  <hr>
+
+  <h2>HTML DOM을 사용하여 이벤트 할당</h2>
+  <p>HTML DOM을 사용하면 JavaScript를 사용하여 HTML 요소에 이벤트를 할당할 수 있습니다.</p>
+  <pre>
+    버튼 요소에 onclick 이벤트 할당
+    document.getElementById("myBtn").onclick = displayDate;
+  </pre>
+  <p>위 예제에서 displayDate라는 함수가 id가 "myBtn"인 HTML 요소에 지정됩니다.</p>
+  <p>버튼을 클릭하면 함수가 실행됩니다.</p>
+  <button id="myBtn">myBtn Click!</button>
+  <hr>
+
+  <h2>onload 및 onunload 이벤트</h2>
+  <p>onload 및 onunload이벤트는 사용자가 페이지에 들어가거나 페이지를 떠날 대 트리거 됩니다.</p>
+  <p>onload 이벤트는 방문자의 브라우저 유형과 브라우저 버전을 확인하고 정보를 기반으로 적절한 버전의 웹 페이지를 로드 하는데 사용할 수 있습니다.</p>
+  <p>onload및 onunload이벤트는 쿠키 처리에 사용될 수 있습니다.</p>
+  <pre>
+    body onload="checkCookies()"
+  </pre>
+  <hr>
+
+
+  <h2>onchange 이벤트</h2>
+  <p>onchange 이벤트는 종종 입력 필드의 유효성 검사와 함께 사용됩니다.</p>
+  <p>다음은 onchange 사용 방법의 예입니다. 사용자가 입력 필드의 내ㅛㅇ을 변경하면 upperCase()함수가 호출 됩니다.</p>
+  <pre>
+    <input type="text" id="fname" onchange="upperCase()">
+  </pre>
+
+  <hr>
+
+  <h2>onmouseover 및 onmouseout 이벤트</h2>
+  <p>onmouseover 및 nomouseout 이벤트는 사용자가 HTML 요소 위로 또는 HTML 요소 밖으로 마우스를 가져갈 대 함수를 트리거하는 데 사용할 수 있습니다.</p>
+  <div id="mouseover" onmouseover="mOver(this)" onmouseout="mOut(this)">mouseover!!</div>
+  <hr>
+
+  <h2>onmousedown, onmouseup 및 onclick 이벤트</h2>
+  <p>onmousedown, onmouseup 및 onclick 이벤트는 마우스 클릭의 모든 부분입니다. 먼저 마우스 버튼을 클릭하면 onmousedown이벤트가 트리가 된 다음에 마우스 버튼을 놓으면 onmouseup이벤트가 트리거 되고 마지막으로마우스 클릭이 완료되면 onclick 이벤트가 트리거 됩니다.</p>
+  <div id="onmouse" onmousedown="mDown(this)" onmouseup="mUp(this)">Thank You</div>
+</body>
+</html>
+<script src="main.js"></script>
