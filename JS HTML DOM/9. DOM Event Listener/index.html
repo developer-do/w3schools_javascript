@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+  <style>
+    #myDIV {
+      background-color: coral;
+      border: 1px solid;
+      padding: 50px;
+      color: white;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>JavaScript HTML DOM EventListener</h1>
+  <hr>
+
+  <h2>addEvnetListener() method</h2>
+  <pre>
+    사용자가 버튼을 클릭 할 때 발생하는 이벤트 리스너를 추가합니다.
+    document.getElementById("myBtn").addEventListener("click", displayDate);
+  </pre>
+  <button id="myBtn">click now date info!</button>
+  <div id="demo1"></div>
+  <p>addEventListener() method는 지정된 요소에 이벤트 처리기를 연결합니다.</p>
+  <p>addEventListener() method는 기존 이벤트 처리기를 덮어 쓰지 않고 요소에 이벤트 핸들러를 연결합니다.</p>
+  <p>하나의 요소에 많은 이벤트 핸들러를 추가 할 수 있습니다.</p>
+  <p>하나의 요소, 즉 두 번의 "클릭"이벤트에 동일한 유형의 많은 이벤트 핸들러를 추가 할 수 있습니다.</p>
+  <p>HTML 요소 뿐만아니라 모든 DOM 객체에 이벤트 리스너를 추가 할 수 있습니다. 즉 윈도우 객채</p>
+  <p>addEventListener() method를 사용할 때 JavaScript는 HTML 마크업과 분리되어 가독성을 높이고 HTML 마크업을 제어하지 않아도 이벤트 리스너를 추가 할 수 있습니다.</p>
+  <p>removeEventListener() method를 사용하여 쉽게 이벤트 리스너를 제거 할 수 있습니다.</p>
+  <hr>
+
+  <h2>통사론</h2>
+  <pre>
+    element.addEventListener(evnet, function, useCapture);
+  </pre>
+  <p>첫번째 매개변수는 이벤트 유형(click, mouseover 등등)입니다.</p>
+  <p>두번째 매개변수는 이벤트가 발생할 때 호출 할 함수입니다.</p>
+  <p>세번째 매개변수는 이벤트 버블링 또는 이벤트 캡처링을 사용할지 여부를 지정하는 boolean 값입니다. 이 매개변수는 선택적입니다.</p>
+  <p class="yellow">이벤트에 "on"접두어를 사용하지 않습니다. "onclick" 대신 "click"을 사용하십시오.</p>
+  <hr>
+
+  <h2>요소에 이벤트 처리기 추가</h2>
+  <pre>
+    사용자가 요소를 클릭하면 Alert "Hello World!"를 띄운다.
+    element.addEventListener("click", function(){ alert("Hello World!"); });
+  </pre>
+  <p>또한 외부에서 정의된 함수를 참조할수 있습니다.</p>
+  <pre>
+    element.addEventListener("click", myFunction());
+
+    function myFunction() {
+      alert("Hello World");
+    }
+  </pre>
+  <hr>
+
+  <h2>같은 요소에 많은 이벤트 처리기 추가</h2>
+  <p>addEventListener() method를 사용하면 기존 이벤트를 덮어쓰지 않고 동일한 요소에 많은 이벤트를 추가 할 수 있습니다.</p>
+  <pre>
+    element.addEventListener("click", myFunction);
+    element.addEventListener("click", mySecondFunction);
+  </pre>
+  <p>서로 다른 유형의 이벤트를 동일한 요소에 추가 할 수 있습니다.</p>
+  <pre>
+    element.addEventListener("mouseover", myFunction);
+    element.addEventListener("click", mySecondFunction);
+    element.addEventListener("mouseout", myThirdFunction);
+  </pre>
+  <hr>
+
+
+  <h2>창 객체에 이벤트 처리기 추가</h2>
+  <p>addEventListener() method를 사용하면 HTML 요소, HTML 문서, window object 또는 xmlHttpRequest 개체와 같은 이벤트를 지원하는 기타 객체와 같은 HTML DOM 객체에 이벤트 리스너를 추가 할 수 있습니다.</p>
+  <pre>
+    사용자가 창 크기를 조정할 때 발생하는 이벤트 리스너를 추가합니다.
+    window.addEventListener("resize", function(){
+      document.getElementById("demo").innerHTML = Math.floor(Math.random() * 200);
+    });
+  </pre>
+  <div id="demo"></div>
+
+  <hr>
+
+  <h2>전달 매개 변수</h2>
+  <p>매개 변수 값을 전달할 때 매개변수를 사용하여 지정된 함수를 호출하는 "익명함수"를 사용하십시오.</p>
+  <pre>
+    element.addEventListener("click", function(){ myFunction(p1, p2); });
+  </pre>
+  <button id="clickMe">click me!</button>
+  <div id="demo2"></div>
+  <hr>
+
+  <h2>이벤트 버블링 또는 이벤트 캡처링?</h2>
+  <p>HTML DOM 에서 버블링(bubbling) 및 캡처(capture)하는 두가지 방법으로 이벤트 전파가 가능합니다.</p>
+  <p>이벤트 전파는 이벤트가 발생할 때 요소 순서를 정의하는 방법입니다. div 요소 안에 p 요소가 있고 사용자가 p 요소를 클릭하면 어떤 요소의 "클릭"이벤트가 먼저 처리되야합니까?</p>
+  <p>버블링은 내부의 대부분의 요소 이벤트는 먼저 처리되며, 그 다음에는 외부: p요소의 클릭이벤트가 먼저 처리되고 나서 div 요소의 클릭이벤트가 처리된다.</p>
+  <p>캡쳐링은 대부분의 외부 요소 이벤트는 캡처 시 먼저 처리되고 그 다음에는 내부 div 요소의 클릭이벤트가 먼저 처리되며, 그 다음에는 p 요소의 클릭이벤트가 처리됩니다.</p>
+  <p>addEventListener() method를 사용하면 "useCapture" 매개변수를 사용하여 전파 유형을 지정할 수 있다.</p>
+  <pre>
+    통사론
+    addEventListener(evnet, function, useCapture);
+  </pre>
+  <p>기본값은 false입니다. 이 값은 버블 전파를 사용하며 값이 true로 설정되면 이벤트는 캡처 전파를 사용합니다.</p>
+  <pre>
+    document.getElementById("myP").addEventListener("click", myFunction, true);
+    document.getElementById("myDiv").addEventListener("click", myFunction, true);
+  </pre>
+  <hr>
+
+
+  <h2>removeEventListener() method</h2>
+  <p>removeEventListener() method는 addEventListener() method로 첨부 된 이벤트 핸들러를 제거합니다.</p>
+  <pre>
+    element.removeEventListener("mousemove", myFunction);
+  </pre>
+  <div id="myDIV">
+    <p>This div element has an onmousemove event handler that displays a random number every time you move your mouse inside this orange field.</p>
+    <p>Click the button to remove the div's event handler.</p>
+    <button onclick="removeHandler()" id="myBtn">Remove</button>
+    <button onclick="removeHandler1()" id="myBtn1">Create</button>
+  </div>
+
+  <p id="demo5"></p>
+
+  <script>
+  document.getElementById("myDIV").addEventListener("mousemove", myFunction);
+
+  function myFunction() {
+    document.getElementById("demo5").innerHTML = Math.random();
+  }
+
+  function removeHandler() {
+    document.getElementById("myDIV").removeEventListener("mousemove", myFunction);
+  }
+  function removeHandler1() {
+    document.getElementById("myDIV").addEventListener("mousemove", myFunction);
+  }
+  </script>
+  <hr>
+
+  <h2>나쁜 IE를 위해</h2>
+  <pre>
+    var x = document.getElementById("myBtn");
+
+    if(x.addEvnetListener) {
+      x.addEventListener("click", myFunction);
+    } else if(x.attachEvent) {
+      x.attachEvent("onclick", myFunction);
+    }
+  </pre>
+
+
+
+
+
+</body>
+</html>
+<script src="main.js"></script>
