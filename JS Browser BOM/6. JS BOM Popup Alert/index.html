@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript Popup Boxes</h1>
+  <hr>
+
+  <p>자바스크립트에는 경고 상자, 확인상자 및 프롬프트 상자라는 세 종류의 팝업 상자가 있습니다.</p>
+  <hr>
+
+  <h2>alert box</h2>
+  <p>사용자에게 정보가 전달되도록 하려면 경고 상자가 자주 사용됩니다.</p>
+  <p>경고 상자가 나타나면 사용자는 계속 진행하기 위해 "확인"을 클릭해야 합니다.</p>
+  <pre>
+    통사론
+    window.alert("sometext");
+  </pre>
+  <p>window.alert() method는 윈도우 접두사 없이 작성할 수 있습니다.</p>
+  <pre>
+    alert("I am an alert box!");
+  </pre>
+  <hr>
+
+  <h2>Confirm Box</h2>
+  <p>확인 상자는 사용자가 무언가를 확인하거나 수락하기를 원할 때 자주 사용됩니다.</p>
+  <p>확인 상자가 나타나면 사용자는 "확인"또는 "취소"를 클릭해야 계속할 수 있습니다.</p>
+  <p>사용자가 "확인"을 클릭하면 상자는 true를 반환합니다. 사용자가 "취소"를 클릭하면 상자는 false를 반환합니다.</p>
+  <pre>
+    통사론
+    window.confirm("sometext");
+  </pre>
+  <p>window.confirm() method는 윈도우 접두사 없이 작성 할 수 있습니다.</p>
+  <pre>
+    if(confirm("Press a button!")) {
+      txt = "You pressed OK!";
+    } else {
+      txt = "You pressed Cancel!";
+    }
+  </pre>
+  <p id="demo1"></p>
+  <hr>
+
+  <h2>prompt Box</h2>
+  <p>사용자가 페이지에 들어가기 전에 값을 입력하게 하려면 프롬프트 상자가 자주 사용됩니다.</p>
+  <p>프롬프트 상자가 나타나면 사용자는 입력 값을 입력 한 후 "확인" 또는 "취소"를 클릭해야 합니다.</p>
+  <p>사용자가 "확인"을 클릭하면 상자에 입력 된 값이 반환됩니다. 사용자가 "취소"를 클릭하면 상자는 null을 반환합니다.</p>
+  <pre>
+    통사론
+    window.prompt("sometext", "defaultText");
+  </pre>
+  <p>window.prompt() method는 윈도우 접두사 없이 작성 할 수 있습니다.</p>
+  <pre>
+    var person = prompt("Please enter your name", "Harry Potter");
+
+    if(person == null || person == "") {
+      txt = "User cancelled the prompt.";
+    } else {
+      txt = "Hello " + person + "! How are you today?";
+    }
+  </pre>
+  <hr>
+  <p id="demo2"></p>
+  <hr>
+
+  <h2>줄 바꿈</h2>
+  <p>팝업 상자 안에 줄 바꿈을 표시하려면 백슬래시 뒤에 문자 n을 사용하십시오.</p>
+  <pre>
+    alert("Hello\nHow are you?");
+  </pre>
+
+</body>
+</html>
+<script src="main.js"></script>
