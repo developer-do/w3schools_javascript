@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <link rel="stylesheet" href="../main.css">
+  <title>Document</title>
+</head>
+<body>
+  <h1>JavaScript HTML DOM Collections</h1>
+  <hr>
+
+  <h2>HTMLCollection 객체</h2>
+  <p>getElementsByTagName() method는 HTMLCollection 객체를 반환합니다.</p>
+  <p>HTMLCollection 객체는 HTML 요소의 배열과 같은 목록입니다.</p>
+  <p>다음 코드는 문서의 모든 p 요소를 선택합니다.</p>
+  <pre>
+    var x = document.getELementsByTagName("p");
+    collect의 element는 index number로 access할 수 있습니다.
+    두 번째 p 요소에 접근하려면 다음과 같이 작성할 수 있습니다.
+
+    y = x[1];
+  </pre>
+  <hr>
+
+  <h2>HTML HTMLCollection length</h2>
+  <p>length 속성은 HTMLCollection의 요소 수를 정의합니다.</p>
+  <pre>
+    var myCollection = document.getElementsByTagName("p");
+    document.getELementById("demo").innerHTML = myCollection.length;
+  </pre>
+  <div id="demo"></div>
+  <p>예제 설명</p>
+  <ol>
+    <li>모든 p 요소의 모음 만들기</li>
+    <li>컬렉션의 길이를 표시합니다.</li>
+  </ol>
+  <p>length 속성은 컬렉션의 요소를 반복할 때 유용합니다.</p>
+  <pre>
+    예
+    모든 p 요소의 배경색을 변경하십시오.
+
+    var collP = document.getElementsByTagName("p");
+    var i = 0;
+    for(i = 0; i < collP.length; i++) {
+      collP[i].style.background = "lightblue";
+      collP[i].style.color = "red";
+    }
+  </pre>
+  <p class="yellow">
+    HTMLCollection은 배열이 아닙니다!<br>
+    HTMLCollection은 배열처럼 보이지만 그렇지 않습니다.<br>
+    목록을 반복하면서 번호가 있는 요소를 참조할 수 있습니다. (배열과 동일)<br>
+    그러나 HTMLCollection에서는 valueOf(), pop(), push()또는 join() 과 같은 배열 method를 사용할 수 없습니다.
+  </p>
+</body>
+</html>
+<script src="main.js"></script>
