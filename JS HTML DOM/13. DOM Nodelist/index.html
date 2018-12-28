@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript HTML DOM Nodelist</h1>
+  <hr>
+
+  <h2>HTML DOM NodeList Object</h2>
+  <p>NodeList는 대상 문서로 부터 추출 된 노트의 목록이다.</p>
+  <p>NodeList Object는 HTMLCollection 객체와 거의 같습니다.</p>
+  <p>일부(구형)브라우저는 getElementsByClassName()과 같은 method에 대해 HTMLCollection대신 NodeList객체를 반환합니다.</p>
+  <p>모든 브라우저는 childNodes 속성에 대한 NodeList 객체를 반환합니다.</p>
+  <p>대부분의 브라우저는 querySelectorAll() method의 NodeList객체를 반환합니다.</p>
+  <p>다음 코드는 문서의 모든 p 노드를 선택합니다.</p>
+  <pre>
+    var myNodeList = document.querySelectorAll("p");
+
+    NodeList의 요소는 index number로 access할 수 있습니다.
+    두 번째 p 노드에 엑세스 하려면 다음과 같이 작성할 수 있습니다.
+    
+    y = myNodeList[1];
+  </pre>
+  <hr>
+
+  <h2>HTML DOM NodeList length</h2>
+  <p>length 속성은 노드 목록의 노드 수를 정의합니다.</p>
+  <pre>
+    var myNodelist = document.querySelectorAll("p");
+    document.getElementById("demo").innerHTML = myNodeList.length;
+  </pre>
+  <p>예제 설명</p>
+  <ol>
+    <li>모든 p 요소 목록 만들기</li>
+    <li>목록 길이 표시</li>
+  </ol>
+  <p>length 속성은 노드 목록의 노드를 반복 할 때 유용합니다.</p>
+  <pre>
+    예
+    노드 목록의 모든 p 요소의 배경색을 변경하십시오.
+  </pre>
+  <pre>
+    var elemP = document.querySelectorAll("p");
+    var i;
+    for(i = 0; i < elemP.length; i++) {
+      elemP[i].style.background = "lightblue";
+      elemP[i].style.color = "red";
+      elemP[i].style.fontWeight = "bold";
+    }
+  </pre>
+  <hr>
+
+  <h2>HTMLCollection과 NodeList의 차이점</h2>
+  <p>HTMLCollection은 HTML요소 모음입니다.</p>
+  <p>NodeList는 문서 노드의 모음입니다.</p>
+  <p>NodeList와 HTMLCollection은 매우 똑같습니다.</p>
+  <p>HTMLCollection 객체와 NodeList객체는 객체의 배열과 같은 목록입니다.</p>
+  <p>둘 다 목록의 항목수를 정의하는 length property를 가집니다.</p>
+  <p>둘 다 배열과 같은 각 항목에 access하기 위한 index(0, 1, 2, 3, 4, ...)를 제공합니다.</p>
+  <p>HTMLCollection 항목은 이름, ID 또는 index number로 access할 수 있습니다.</p>
+  <p>NodeList 항목은 해당 index number로만 접근할 수 있습니다.</p>
+  <p>NodeList Object에만 속성 노드와 텍스트 노드가 포함될 수 있습니다.</p>
+  <p class="yellow">
+    NodeList는 배열이 아닙니다.<br><br>
+    NodeList는 배열처럼 보일 수 있지만 그렇지 않습니다.<br><br>
+    NodeList는 반복하여 배열과 같은 노드를 참조 할 수 있습니다.<br><br>
+    그러나 NodeList에서 valueOf(), push(), pop(), 또는 join()과 같음 Array Methods를 사용할 수 없습니다.
+  </p>
+</body>
+</html>
+<script src="main.js"></script>
