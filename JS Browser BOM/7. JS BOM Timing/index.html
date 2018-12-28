@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript Timing Events</h1>
+  <hr>
+
+  <h2>Timing Event</h2>
+  <p>window 객체는 지정된 시간 간격으로 코드 실행을 허용합니다.</p>
+  <p>이러한 시간 간격을 타이밍 이벤트라고 합니다.</p>
+  <p>JavaScript와 함께 사용하는 두 가지 주요 방법은 다음과 같습니다.</p>
+  <ul>
+    <li>
+      setTimeout(function, milliseconds)<br>
+      지정된 밀리초를 기다린 후 함수를 실행합니다.
+    </li>
+    <li>
+      setInterval(function, milliseconds)<br>
+      setTimeout()과 같지만 함수의 실행을 계속 반복합니다.
+    </li>
+  </ul>
+  <p class="yellow">setTimeout() 및 setInterval()은 모두 HTML DOM 윈도우 객체의 메서드입니다.</p>
+  <hr>
+
+  <h2>setTimeout() method</h2>
+  <pre>
+    window.setTimeout(function, milliseconds);
+  </pre>
+  <p>window.setTimeout() method는 window 접두사 없이 작성할 수 있습니다.</p>
+  <p>첫 번째 매개변수는 실행할 함수 입니다.</p>
+  <p>두 번째 매개변수는 실행 전 밀리초 수를 나타냅니다.</p>
+  <pre>
+    버튼을 클릭하십시오. 3초 정도 기다리면 페이지에 "Hello"가 표시됩니다.
+
+    <button onclick="setTimeout(myFunction, 3000)">여기를 클릭하세요. 3초후 발생</button>
+    function myFunction(){
+      alert("Hello");
+    }
+  </pre>
+  <hr>
+
+  <h2>실행을 중지하는 방법?</h2>
+  <p>clearTimeout() method는 setTimeout()에 지정된 함수의 실행을 중지합니다.</p>
+  <pre>
+    window.clearTimeout(timeoutVariable);
+  </pre>
+  <p>window.clearTimeout() method는 윈도우 접두사 없이 작성 할 수 있습니다.</p>
+  <p>clearTimeout() method는 setTumeout() 에서 반환 된 변수를 사용합니다.</p>
+  <pre>
+    myVar = setTimeout(function, milliseconds);
+    clearTimeout(myVar);
+  </pre>
+  <p>함수가 아직 실행되지 않은경우 clearTimeout() method를 호출하여 실행을 중지 할 수 있습니다.</p>
+  <pre>
+    위와 같은 예제이지만 "중지"버튼이 추가되었습니다.
+    <button onclick="myVar = setTimeout(myFunction, 3000)">Try it</button>
+    <button onclick="clearTimeout(myVar)">Stop it</button>
+  </pre>
+  <hr>
+
+  <h2>setInterval() method</h2>
+  <p>setInterval() method는 주어진 시간 간격마다 주어진 함수를 반복합니다.</p>
+  <pre>
+    window.setInterval(function, milliseconds);
+  </pre>
+  <p>window.setInterval() method는 윈도우 접두사 없이 작성 할 수 있습니다.</p>
+  <p>첫 번째 매개변수는 실행할 함수입니다.</p>
+  <p>두 번째 매개변수는 각 실행 사이의 시간 간격의 길이를 나타냅니다.</p>
+  <p>이 예제는 매초마다 "myTumer"라는 함수를 실행합니다.(디지털 시계처럼)</p>
+  <pre>
+    var myVar2 = setInterval(myTimer2, 1000);
+
+    function myTimer2() {
+      var d = new Date();
+      document.getElementById("demo3").innerHTML = d.toLocaleTimeString();
+    }
+  </pre>
+  
+  <hr>
+
+  <h2>실행을 중지하는 방법? </h2>
+  <p>clearInterval() method는 setInterval() method에 지정된 함수의 실행을 중지합니다.</p>
+  <pre>
+    window.clearInterval(timerVariable)
+  </pre>
+  <p>window.clearInterval() method는 윈도우 접두사 없이 작성 할 수 있습니다.</p>
+  <p>clearInterval() method는 setInterval() method에서 반환된 변수를 사용합니다.</p>
+  <pre>
+    myVar = setInterval(function, milliseconds);
+    clearInterval(myVar);
+  </pre>
+  <pre>
+    위와 같은 예제이지만 "중지 시간"버튼이 추가되었습니다.
+
+    var myVar2 = setInterval(myTimer2, 1000);
+
+    function myTimer2() {
+      var d = new Date();
+      document.getElementById("demo3").innerHTML = d.toLocaleTimeString();
+    }
+  </pre>
+  <p id="demo3"></p>
+  <button onclick="clearInterval(myVar2)">Stop time</button>
+
+</body>
+</html>
+<script src="main.js"></script>
