@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript Window Screen</h1>
+  <hr>
+
+  <p>window.screen 객체는 사용자 화면에 대한 정보를 포함합니다.</p>
+  <hr>
+
+  <h2>Window Screen</h2>
+  <p>window.screen의 객체는 윈도우 접두사 없이 작성할 수 있습니다.</p>
+  <p>등록정보</p>
+  <ul class="green">
+    <li>screen.width</li>
+    <li>screen.height</li>
+    <li>screen.availWidth</li>
+    <li>screen.availHeight</li>
+    <li>screen.colorDepth</li>
+    <li>screnn.pixelDepth</li>
+  </ul>
+  <hr>
+
+  <h2>window screen width</h2>
+  <p>screen.width 속성은 방문자의 화면 너비를 픽셀 단위로 반환합니다.</p>
+  <pre>
+    화면의 너비를 픽셀 단위로 표시합니다.
+    document.getElementById("demo").innerHTML = "Screen Width: " + screen.width + "px";
+  </pre>
+  <div id="demo"></div>
+  <hr>
+
+  <h2>window screen height</h2>
+  <p>screen.height 속성은 방문자의 화면 높이를 픽셀 단위로 반환합니다.</p>
+  <pre>
+    화면의 높이를 픽셀 단위로 표시합니다.
+    documenet.getElementById("demo1").innerHTML = "Screnn Height: " + screen.height + "px";
+  </pre>
+  <div id="demo1"></div>
+  <hr>
+
+  <h2>window screen 사용가능한 width</h2>
+  <p>screen.availWdith 속성은 방문자의 화면 너비 (픽셀 단위)에서 Windows 작업표시줄과 같은 인터페이스 기능을 뺀 값을 반환합니다.</p>
+  <pre>
+    화면의 사용가능한 너비를 픽셀 단위로 표시합니다.
+    document.getElementById("demo2").innerHTML = "Available Screen Width : " + screen.availWidth + "px";
+  </pre>
+  <div id="demo2"></div>
+  <hr>
+
+  <h2>window screen 사용가능한 height</h2>
+  <p>screen.availHeight 속성은 방문자의 화면 높이에서 windows작업 표시줄과 같은 인터페이스 기능을 땐 값을 반환합니다.</p>
+  <pre>
+    document.getElementById("demo3").innerHTML = "Available Screen Height: " + screen.availHeight + "px";
+  </pre>
+  <div id="demo3"></div>
+  <hr>
+
+  <h2>window screen color 농도</h2>
+  <p>screen.colorDepth 속성은 한 색상을 표시하는 데 사용되는 비트 수를 반환합니다.</p>
+  <p>현대의 모든 컴퓨터는컬러 해상도를 위해 24비트 또는 32비트 하드웨어를 사용합니다.</p>
+  <ul>
+    <li>24비트 = 16,777,216 다른 "트루 컬러"</li>
+    <li>32qlxm = 4,294,967,296 다른 "딥 컬러"</li>
+  </ul>
+  <p>이전 컴퓨터는 16비트를 사용 했습니다. : 66536가지의 "하이 컬러" 해상도</p>
+  <p>아주 오래된 컴퓨터와 오랜된 휴대폰은 8비트를 사용했습니다. : 256 가지 "VGA 색상"</p>
+  <pre>
+    화면의 색상 수를 비트 단위로 표시합니다.
+    document.getElementById("demo3").innerHTML = "Screen Color Depth: " + screen.colorDepth;
+  </pre>
+  <div id="demo4"></div>
+  <hr>
+
+  <h2>window screen pixel depth</h2>
+  <p>screen.pixelDepth 속성은 화면의 픽셀 깊이를 반환합니다.</p>
+  <pre>
+    화면의 픽셀 깊이를 비트 단위로 표시합니다.
+    document.getElementById("demo5").innerHTML = "Screen Pixel Depth: " + screen.pixelDepth;
+  </pre>
+  <div id="demo5"></div>
+  <p class="yellow">최신 컴퓨터의 경우 색상 수와 픽셀 수는 동일합니다.</p>
+</body>
+</html>
+<script src="main.js"></script>
