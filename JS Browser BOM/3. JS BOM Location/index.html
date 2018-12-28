@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript Window Location</h1>
+  <hr>
+
+  <p>window.location 객체는 현재 페이지 주소(URL)를 가져오고 브라우저를 새 페이지로 리디렉션 하는 데 사용할 수 있습니다.</p>
+  <hr>
+
+  <h2>window location</h2>
+  <p>window.location객체 에서는 윈도우 접두사 없이 작성할 수 있습니다.</p>
+  <ul class="green">
+    <li>window.location.herf는 현재 페이지의 href(URL)을 반환합니다.</li>
+    <li>window.location.hostname은 웹 호스트의 도메인 이름을 반환합니다.</li>
+    <li>window.location.pathname은 현재 페이지의 경로와 파일 이름을 반환합니다.</li>
+    <li>window.location.protocol은 사용 된 웹 프로토콜(http: || https:)을 반환합니다.</li>
+    <li>window.location.assign은 새 문서를 로드합니다.</li>
+  </ul>
+  <hr>
+
+  <h2>window location href</h2>
+  <p>window.location.href 속성은 현재 페이지의 URL을 반환합니다.</p>
+  <pre>
+    현재 페이지의 href(URL)를 표시합니다
+    document.getElementById("demo").innerHTML = "Page location is " + window.location.href;
+  </pre>
+  <hr>
+
+  <h2>window location hostname</h2>
+  <p>window,location.hostname의 속성은 (현재 페이지) 인터넷 호스트의 이름을 반환합니다.</p>
+  <pre>
+    document.getElementById("demo").innerHTML = "Page hostname is " + window.location.hostname;
+  </pre>
+  <hr>
+
+  <h2>window location pathname</h2>
+  <p>window.location.pathname의 속성은 현재 페이지의 경로 이름을 반환합니다.</p>
+  <pre>
+    현재 URL의 경로 이름 표시:
+    document.getElementById("demo").innerHTML = "Page path is " + window.location.pathname;
+  </pre>
+  <hr>
+
+  <h2>window location protocol</h2>
+  <p>window.location.protocol의 속성은 페이지의 웹 프로토콜을 반환합니다.</p>
+  <pre>
+    document.getElementById("demo").innerHTML = "Page protocol is " + window.location.protocol;
+  </pre>
+  <hr>
+
+  <h2>window location port</h2>
+  <p>window.location.port의 속성은 (현제 페이지) 인터넷 호스트 포트 수를 반환합니다.</p>
+  <pre>
+    document.getElementById("demo").innerHTML = "Port number is " + window.location.port;
+  </pre>
+  <p class="yellow">대부분의 브라우저는 기본 포트 번호를 표시하지 않습니다. (http: 80, https: 443)</p>
+  <hr>
+
+  <h2>window location assign() method는 새로운 문서를 로드합니다.</h2>
+  <pre>
+    function newDoc() {
+      window.location.assign("https://www.w3schools.com");
+    }
+  </pre>
+  <input type="button" value="Load new document" onclick="newDoc()">
+</body>
+</html>
+<script src="main.js"></script>
