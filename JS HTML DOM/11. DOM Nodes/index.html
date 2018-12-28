@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript HTML DOM Elements (Nodes)</h1>
+  <hr>
+  
+  <p>node add and remove</p>
+  <hr>
+
+  <h2>새 HTML 요소 (노드) 만들기</h2>
+  <p>HTML DOM에 새 요소를 추가하려면 먼저 요소를 만든다음 기존 요소에 추가해야 합니다.</p>
+  <pre>
+    <div id="div1">
+      <p id="p1">This is a paragraph</p>
+      <p id="p2">This is another paragraph</p>
+    </div>
+  </pre>
+  <hr>
+
+  <h2>예제 설명</h2>
+  <pre>
+    이 코드는 새로운 p 요소를 만듭니다.
+    var para = document.createElement("p");
+
+    p요소에 텍스트를 추가하려면 먼저 텍스트 노드를 만들어야 합니다. 이 코드는 테그스 코드를 만듭니다.
+    var node = document.createTextNode("This is a new paragraph");
+
+    그런 다음 텍스트 노드를 p 요소에 추가해야합니다.
+    para.appendChild(node);
+
+    마지막으로 기존 요소에 새 요소를 추가해야합니다.
+    이 코드는 기존 요소를 찾습니다.
+    var element = document.getElementById("div1");
+
+    이 코드는 새 요소를 기존 요소에 추가합니다.
+    element.appendChild(para);
+  </pre>
+  <hr>
+
+
+  <h2>새 HTML 요소 만들기</h2>
+  <p>앞의 예제에서 appendChild() method는 부모의 마지막 자식으로 요소를 추가했습니다.</p>
+  <p>insetBefore() method를 사용하지 않으려면 다음을 수행하십시오.</p>
+  <pre>
+    var para = document.createElement("p");
+    var node = document.createTextNode("This is new");
+    para.appendChild(node);
+
+    var element = document.getElementById("div1");
+    var child = document.getElementById("p1");
+    element.insertBefore(para, child);
+  </pre>
+  <hr>
+
+  <h2>기존 HTML 요소 제거</h2>
+  <p>HTML 요소를 제거하려면 요소의 부모를 알아야합니다.</p>
+  <pre>
+    var parent = document.getElementById("div2");
+    var child = document.getElementById("p3");
+    parent.removeChild(child);
+  </pre>
+  <p class="red">node.remove() method는 IE 브라우저의 모든 버전에서 작동하지 않습니다.</p>
+  <hr>
+
+  <h2>예제 설명</h2>
+  
+  <pre>
+    이 HTML 문서에는 두 개의 자식 노드가 있는 div 요소가 있습니다.
+    <div id="div2">
+      <p id="p3">This is a paragraph</p>
+      <p id="p4">This is another paragraph.</p>
+    </div>
+
+    id = "div2"인 요소를 찾습니다.
+    var parent = document.getElementById("div2");
+
+    id = "p1"인 p 요소를 찾습니다.
+    var child = document.getElementById("p1");
+
+    부모로부터 자식을 삭제합니다.
+    parent.removeChild(child);
+
+    <p class="yellow">
+      부모를 참조하지 않고 요소를 제거할 수 있으면 좋을 것입니다.<br/>
+      하지만 DOM은 제거하고자 하는 요소와 그 부모를 모두 알아야합니다.
+    </p>
+    <p>일반적인 해결 방법은 다음과 같습니다. 제거할 자식을 찾아 parentNode 속성을 사용하여 부모를 찾습니다.</p>
+    <pre>
+      var child = document.getElementById("p1");
+      child.parentNode.removeChild(child);
+    </pre>
+  </pre>
+  <hr>
+
+  <h2>HTML 요소 바꾸기</h2>
+  <p>요소를 HTML DOM으로 바꾸려면 replaceChild() method를 사용합니다.</p>
+  <pre>
+    var para = document.createElement("p");
+    var node = document.createTextNode("This is new.");
+    para.appendChild(node);
+
+    var parent = document.getElementById("div1");
+    var child = document.getElementById("p1");
+    parent.replaceChild(para, child);
+  </pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+<script src="main.js"></script>
