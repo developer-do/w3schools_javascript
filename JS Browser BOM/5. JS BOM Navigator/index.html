@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript Window Navigator</h1>
+  <hr>
+  
+  <p>window.navigator 객체에는 방문자의 브라우저에 대한 정보가 들어 있습니다.</p>
+  <hr>
+
+  <h2>window navigator</h2>
+  <p>window.navigator의 객체는 윈도우 접두사 없이 작성 할 수 있습니다.</p>
+  <p>몇가지 예</p>
+  <ul class="green">
+    <li>navigator.appName</li>
+    <li>navigator.appCodeName</li>
+    <li>navigator.platform</li>
+  </ul>
+  <hr>
+
+  <h2>browser cookie</h2>
+  <p>cookieEnabled 속성은, 그렇지 않은경우는 false, 쿠키를 사용하는 경우 true를 반환합니다.</p>
+  <pre>
+    <p id="demo1"></p>
+    document.getElementById("demo1").innerHTML = "cookiesEnabled is " + navigator.cookieEnabled;
+  </pre>
+  <hr>
+
+  <h2>browser 응용프로그램 이름</h2>
+  <p>appNAme의 속성은 브라우저 응용 프로그램 이름을 반환합니다.</p>
+  <pre>
+    <p id="demo2"></p>
+    document.getElementById("demo2").innerHTML = "navigator.appName is " + navigator.appName;
+  </pre>
+  <p class="yellow">이상하게도 "Netscape"는 IE11, Chrome, Firefox 및 Safari의 응용 프로그램 이름입니다.</p>
+  <hr>
+
+  <h2>browser 으용 프로그램 코드 이름</h2>
+  <p>appCodeName의 속성은 브라우저의 응용 프로그램 코드의 이름을 반환합니다.</p>
+  <pre>
+    <p id="demo3"></p>
+    document.getElementById("demo3").innerHTML = "navigator.appCodeName is " + navigator.appCodeName;
+  </pre>
+  <p class="yellow">"Mozilla"는 Chrome, Firefox, IE, Safari 및 Opera의 애플리케이션코드 이름입니다.</p>
+  <hr>
+
+  <h2>browser engine</h2>
+  <p>product속성은 브라우저 엔진의 제품 이름을 반환합니다.</p>
+  <pre>
+    <p id="demo4"></p>
+    document.getElementById("demo4").innerHTML = "navigator.product is " + navigator.product;
+  </pre>
+  <p class="yellow">이것에 의지하지 마십시오. 대부분의 브라우저는 제품이름으로 "Grcko"를 반환합니다.</p>
+  <hr>
+
+  <h2>browser version</h2>
+  <p>appVersion의 속성은 브라우저에 대한버전 정보를 반환합니다.</p>
+  <pre>
+    <p id="demo5"></p>
+    document.getElementById("demo5").innerHTML = navigator.appVersion;
+  </pre>
+  <hr>
+  
+  <h2>browser agent</h2>
+  <p>userAgent의 속성은 서버 브라우저가 보낸 사용자 agent header를 반환합니다.</p>
+  <pre>
+    <p id="demo6"></p>
+    document.getElementById("demo6").innerHTML = navigator.userAgent;
+  </pre>
+  <hr>
+
+  <h2>경고!!!!</h2>
+  <p>탐색기 객체의 정보는 종종 오도 될 수 있으므로 다음과 같은 이유로 브라우저 버전을 감지하느 데 사용하면 안됩니다.</p>
+  <ul class="green">
+    <li>브라우저마다 동일한 이름을 사용할 수 있습니다.</li>
+    <li>브라우저 소유자가 navigator 데이터는 변경할 수 있습니다.</li>
+    <li>일부 브라우저는 사이트 테스트를 우회하는 것으로 잘못 판단합니다.</li>
+    <li>브라우저는 브라우저보다 나중에 릴리스 된 새 운영체제를 보고 할 수 없습니다.</li>
+  </ul>
+  <hr>
+
+  <h2>브라우저 플랫폼</h2>
+  <p>platform 속성은 browser platform(운영체제)를 반환합니다.</p>
+  <pre>
+    <p id="demo7"></p>
+    document.getElementById("demo7").innerHTML = navigator.platform;
+  </pre>
+  <hr>
+
+  <h2>browser language</h2>
+  <p>language의 속성은 브라우저 언어를 반환합니다.</p>
+  <pre>
+    <p id="demo8"></p>
+    document.getElementById("demo8").innerHTML = navigator.language;
+  </pre>
+  <hr>
+
+  <h2>browser가 online입니까?</h2>
+  <p>online browser가 online인 경우 속성은 true를 반환합니다.</p>
+  <pre>
+    <p id="demo9"></p>
+    document.getElementById("demo9").innerHTML = navigator.onLine;
+  </pre>
+  <hr>
+
+  <h2>Java를 사용할 수 있습니까?</h2>
+  <p>Java를 사용하는 경우 javaEnabled() method는 true를 돌려줍니다.</p>
+  <pre>
+    <p id="demo10"></p>
+    document.getElementById("demo10").innerHTML = navigator.javaEnabled();
+  </pre>
+</body>
+</html>
+<script src="main.js"></script>

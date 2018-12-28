@@ -1,0 +1,10 @@
+document.getElementById("demo1").innerHTML = "cookiesEnabled is " + navigator.cookieEnabled;
+document.getElementById("demo2").innerHTML = "navigator.appName is " + navigator.appName;
+document.getElementById("demo3").innerHTML = "navigator.appCodeName is " + navigator.appCodeName;
+document.getElementById("demo4").innerHTML = "navigator.product is " + navigator.product;
+document.getElementById("demo5").innerHTML = navigator.appVersion;
+document.getElementById("demo6").innerHTML = navigator.userAgent;
+document.getElementById("demo7").innerHTML = navigator.platform;
+document.getElementById("demo8").innerHTML = navigator.language;
+document.getElementById("demo9").innerHTML = navigator.onLine;
+document.getElementById("demo10").innerHTML = navigator.javaEnabled();
