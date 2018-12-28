@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JavaScript Window - The Browser object Model</h1>
+  <hr>
+
+  <p>BOM (Browser Object Model)을 사용하면 JavaScript가 브라우저와 "대화" 할 수 있습니다.</p>
+  <hr>
+
+  <h2>브라우저 객체 모델(BOM)</h2>
+  <p>BOM에 대한 공식 표준은 없습니다.</p>
+  <p>최신 브라우저는 JavaScript 상호 작용을 위한 동일한 방법과 속성을 구현했기때문에 BOM의 method와 property이라고도 합니다.</p>
+  <hr>
+
+  <h2>Window Object</h2>
+  <p>Window object는 모든 브라우저에서 지원됩니다. 브라우저 창을 나타냅니다.</p>
+  <p>모든 전역 JavaScript 객체, 함수, 및 변수는 자동으로 윈도우 객체의 맴버가 됩니다.</p>
+  <p>전역변수는 윈도우 객체의 속성입니다.</p>
+  <p>심지어 (HTML DOM의) 문서 객체는 윈도우 객체의 속성입니다.</p>
+  <pre>
+    window.document.getElementById("header");
+    와
+    document.getElementById("header");
+    은 동일하다.
+  </pre>
+  <hr>
+
+  <h2>window size</h2>
+  <p>브라우저 창의 크기를 결정하는 데 두가지 속성을 사용할 수 있습니다.</p>
+  <p>두 속성 모두 크기(px)를 반환합니다.</p>
+  <ul>
+    <li>Window.innerHeight - 브라우저 창의 내부 높이(px)</li>
+    <li>Window.innerWidth - 브라우저 창의 내부 너비(px)</li>
+  </ul>
+  <p class="yellow">브라우저 창 (브라우저 뷰 포트)에 도구모음 및 스크롤 막대기가 포함되어 있지 않습니다.</p>
+  <p>IE 8, 7, 6, 5일 때</p>
+  <ul class="green">
+    <li>document.documentElement.clientHeight</li>
+    <li>documnet.documentElement.clientWidth</li>
+    <li>or</li>
+    <li>document.body.clientHeight</li>
+    <li>document.body.clientWidth</li>
+  </ul>
+  <p>시용적인 JavaScript 솔루션 (모든 브라우저를 포함)</p>
+  <pre>
+    var w = window.innerWidth 
+    || document.documentElement.clientWidth 
+    || document.body.clientWidth;
+    
+    var h = window.innerHeight 
+    || document.documentElement.clientHeight 
+    || document.body.clientHeight;
+  </pre>
+  <p>이 예제는 브라우저 창의 높이와 너비를 표시합니다.(툴바 / 스크롤 막대는포함하지 않습니다.)</p>
+  <hr>
+  
+  <h2>다른 window method</h2>
+  <p>다른 method</p>
+  <ul class="green">
+    <li>window.open() - 새 창 열기</li>
+    <li>window.close() - 현재 윈도우 닫기</li>
+    <li>window.moveTo() - 현재 윈도우 이동</li>
+    <li>window.resizeTo() - 현재 창 크기 조정</li>
+  </ul>
+
+</body>
+</html>
+<script src="main.js"></script>
