@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body onload="checkCookie()">
+  <h1>JavaScript Cookies</h1>
+  <hr>
+
+  <p>쿠키를 사용하면 사용자 정보를 웹 페이지에 저장할 수 있습니다.</p>
+  <hr>
+
+  <h2>cookies란 무엇입니까?</h2>
+  <p>cookies는 컴퓨터의 작은 텍스트 파일에 저장된 데이터 입니다.</p>
+  <p>웹 서버가 브라우저에 웹 페이지를 보내면 연결이 종료되고 서버가 사용자에 관한 모든것을 잊어 버리게 됩니다.</p>
+  <p>쿠키는 "사용자 정보를 기억하는 방법"이라는 문제를 해결하기 위해 고안되었습니다.</p>
+  <ul>
+    <li>사용자가 웹페이지를 방문하면 그의 이름을 쿠키에 저장 할 수 있습니다.</li>
+    <li>다음에 사용자가 페이지를 방문하면 쿠키는 그의 이름을 "기억"합니다.</li>
+  </ul>
+  <p>쿠키는 다음과 같이 "이름 - 값" 쌍으로 저장됩니다.</p>
+  <pre>
+    username = John Doe
+  </pre>
+  <p>브라우저가 서버에서 웹 페이지를 요청하는 해당 페이지를 요청하면 해당 페이지에 속한 쿠키가 요청에 추가됩니다. 이렇게하면 서버가 사용자에 대한 정보를 "기억" 하는데 필요한 데이터를 얻습니다.</p>
+  <p class="yellow">브라우저에 로컬 쿠키 지원이 꺼져있는경우 아래 예제는 작동하지 않습니다.</p>
+  <hr>
+
+  <h2>JavaScript로 Cookies만들기</h2>
+  <p>JavaScript는 document.cookie 속성을 사용하여 쿠키를 만들고, 읽고 삭제할 수 있습니다.</p>
+  <p>JavaScript를 사용하면 다음과 같이 cookie를 만들수 있습니다.</p>
+  <p>document.cookie = "username=John Doe"</p>;
+  <p>만료일을 추가 할 수도 있습니다.(UTC 시간). 기본적으로 브라우저가 닫힐 때 쿠키는 삭제됩니다.</p>
+  <p>document.cookie = "username=John Doe; expires=Thu, 18 Dec 2019 12:00:00 UTC";</p>
+  <p>경로 매개변수를 사용하면 쿠키가 속한 경로를 브라우저에 알릴 수 있습니다. 기본적으로 쿠키는 현제 페이지에 속합니다.</p>
+  <p>document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";</p>
+  <hr>
+
+  <h2>JavaScript로 쿠키 읽기</h2>
+  <p>JavaScript를 사용하면 다음과 같이 쿠키를 읽을 수 있습니다.</p>
+  <pre>
+    var x = document.cookie;
+  </pre>
+  <p class="yellow">document.cookie는 쿠키1 = 값, 쿠키2 = 값, 쿠키3 = 값 등 하나의 문자열로 모든 쿠키를 반환합니다. </p>
+  <hr>
+
+  <h2>JavaScript로 쿠키 변경</h2>
+  <p>JavaScript를 사용하면 쿠키를 만드는 것과 같은 방법으로 쿠키를 변경할 수 있습니다.</p>
+  <pre>
+    document.cookie = "username=John Smith; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+  </pre>
+  <p>이전 쿠키를 덮어씁니다.</p>
+  <hr>
+
+  <h2>JavaScript로 쿠키 삭제</h2>
+  <p>쿠키를 삭제하는 것은 매우 간단합니다.</p>
+  <p>쿠키를 삭제할 때 쿠키 값을 지정할 필요가 없습니다.</p>
+  <p>expires 매개변수를 전달된 날짜로 설정하시면 됩니다.</p>
+  <pre>
+    document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  </pre>
+  <p class="yellow">올바른 쿠키를 삭제하려면 쿠키 경로를 정의해야합니다.<br/>일부 브라우저에서는 경로를 지정하지 않으면 쿠키를 삭제할 수 없습니다.</p>
+  <hr>
+
+
+  <h2>cookie 문자열</h2>
+  <p>document.cookie 속성은 일반 텍스트 문자열처럼 보입니다. 그러나 그렇지 않습니다.</p>
+  <p>document.cokkie에 전체 쿠키 문자열을 쓰더라도다시 읽으면 이름 - 값 쌍만 볼 수 있습니다.</p>
+  <p>새 쿠키를 설정하면 이전 쿠키를 덮어쓰지 않습니다. 새로운 쿠키가 document.cookie에 추가되므로 document.cookie를 다시 읽으면 다음과 같은 내용이 표시됩니다.</p>
+  <p>쿠키 1 = 값; 쿠키 2 = 값;</p>
+  <p>지정된 하나의 쿠키 값을 찾으려면 쿠키 문자열의 쿠키 값을 검색하는 JavaScript 함수를 작성해야 합니다.</p>
+  <hr>
+
+  <h2>JavaScript cookie 예제</h2>
+  <p>다음 예제에서는 방문자의 이름을 저장하는 쿠키를 만듭니다.</p>
+  <p>방문자가 처음 웹 페이지에 도착하면 그는 자신의 이름을 기입해야 합니다. 그 이름은 쿠키에 저장됩니다.</p>  
+  <p>다음에 방문객이 같은 페이지에 도착하면 환영 메세지를 받게됩니다.</p>
+  <p>이 예제에서는 3가지 JavaScript 함수를 생성합니다.</p>
+  <ol>
+    <li>쿠키 값을 설정하는 함수</li>
+    <li>쿠키 값을 얻기위한 함수</li>
+    <li>쿠키 값을 확인하는 기능</li>
+  </ol>
+  <hr>
+
+  <h2>cookie를 설정하는 기능</h2>
+  <p>먼저 쿠키 변수에 방문자의 이름을 저장하는 함수를 만듭니다.</p>
+  <pre>
+    function setCookie(cname, cvalue, exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays*24*60*60*1000));
+      var expires = "expires=" + d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+  </pre>
+  <p>예제 설명</p>
+  <p>위의 함수의 매개변수는 쿠키의 이름(cname), 쿠키의 값(cvalue) 및 쿠키가 만료 될 때까지의 일 수(exdays)입니다.</p>
+  <p>이 함수는 cookiename, 쿠키 값 및 만료 문자열을 함께 추가하여 쿠키를 설정합니다.</p>
+  <hr>
+
+  <h2>쿠키를 얻는 함수</h2>
+  <p>그런 다음 지정된 쿠키의 값을 반환하는 함수를 만듭니다.</p>
+  <pre>
+    function getCookie(cname) {
+      var name = cname + "=";
+      var decodedCookie = decodeURIComponent(document.cookie);
+      var ca = decodedCookie.split(';');
+      for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while(c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if(c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+  </pre>
+  <p>기능 설명</p>
+  <p>cookiename을 매개변수 (cname)로 사용하십시오.</p>
+  <p>검색 할 텍스트 (cname + "=")로 변수(name)를 작성하십시오</p>
+  <p>특수문자(예: '$')가 있는 쿠키를 처리하려면 쿠키 문자열을 디코드 하십시오.</p>
+  <p>세미콜론의 document.cookie를 ca(ca=decodedCookie.split(';'))라는 배열로 분할합니다.</p>
+  <p>ca배열 (i = 0; i < ca.length; i++)을 반복하고 각 값 c = ca[i]를 읽습니다.</p>
+  <p>쿠키가 발견되면 (c.indexOf(name) == 0), 쿠키 값(c.substring(name.length, c.length))을 반환합니다.</p>
+  <p>쿠키가 없으면 ""을 반환하십시오.</p>
+  <hr>
+
+  <h2>쿠키 확인 기능</h2>
+  <p>마지막으로 쿠키가 설정되어 있는지 확인하는 함수를 만듭니다.</p>
+  <p>쿠키가 설정된 경우 인사말을 표시합니다.</p>
+  <p>쿠키가 설정되어 있지 않으면 setCookie 함수를 호출하여 265일 동안 사용자 이름을 묻는 프롬프트 상자를 표시하고 사용자 이름 쿠키를 저장합니다.</p>
+  <pre>
+    function checkCookie() {
+      var username = getCookie("username");
+      if(username != "") {
+        alert("Welcom again " + username);
+      } else {
+        username = prompt("Please enter your name:", "");
+        if(username != "" && username != null) {
+          setCookie("username", username, 365);
+        }
+      }
+    }
+  </pre>
+
+
+
+</body>
+</html>
+<script src="main.js"></script>
