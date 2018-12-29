@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>AJAX Introduction</h1>
+  <hr>
+
+  <p class="green">AJAX는 다음과 같은 이유로 개발자의 꿈입니다.</p>
+  <ul class="green">
+    <li>페이지가 로드 된 후 웹 서버에서 데이터 읽기</li>
+    <li>페이지를 다시 로드하지 않고 웹페이지 업데이트</li>
+    <li>백그라운드에서 웹 서버로 데이터 전송</li>
+  </ul>
+  <hr>
+
+  <h2>AJAX 예제 설명</h2>
+  <pre>
+    <div id="demo">
+      <h2>Let AJAX change this text</h2>
+      <button type="button" onclick="loadDoc()">Change Content</button>
+    </div>
+  </pre>
+
+  <p>HTML 페이지에는 div 섹션과 button이 있습니다.</p>
+  <p>div 섹션은 서버의 정보를 표시하는 데 사용됩니다.</p>
+  <p>button은 함수를 호출 합니다.(클릭한 경우)</p>
+  <p>이 함수는 웹 서버에 데이터를 요청하고 이를 표시합니다.</p>
+  <pre>
+    loadDoc() function
+
+    function loadDoc() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if(this.readyState == 4 && this.state == 200) {
+          document.getElementById("demo").innerHTML = this.responseText;
+        }
+      };
+      xhttp.open("GET", "ajax_info.txt", true);
+      xhttp.send();
+    }
+  </pre>
+  <hr>
+
+  <h2>AJAX란 무엇입니까?</h2>
+  <p>AJAX는 = Asynchronous JavaScript And XML의 약자입니다.</p>
+  <p>AJAX는 프로그래밍 언어가 아닙니다.</p>
+  <p>AJAX는 다음을 조합하여 사용합니다.</p>
+  <ul>
+    <li>브라우저 내장 XMLHttpRequest 객체(웹 서버에서 데이터를 요청)</li>
+    <li>JavaScript 및 HTML DOM (데이터 표시 또는 사용)</li>
+  </ul>
+  <p class="yellow">AJAX는 오해의 소지가 있는 이름입니다. AJAX 응용 프로그램은 XML을 사용하여 데이터를 전송할 수 있지만 일반 텍스트 또는 JSON 텍스트로 데이터를 전송하는 것은 똑같이 일반적입니다.</p>
+  <p>AJAX를 사용하면 background에서 웹 서버와 데이터를 교환하여 웹 페이지를 비동기 적으로 업데이트 할 수 있습니다. 즉, 전체 페이지를 다시 로드하지 않고도 웹페에지의 일부를 업데이트 할 수 있습니다.</p>
+  <hr>
+
+  <h2>AJAX 작동 방식</h2>
+  <p><img src="pic_ajax.gif" alt=""></p>
+  <ol class="green">
+    <li>웹 페이지에서 이벤트가 발생합니다. (페이지가 로드되고 단추가 클릭 됨)</li>
+    <li>XMLHttpRequest 객체는 JavaScript에 의해 생성됩니다.</li>
+    <li>XMLHttpRequest 객체는 웹 서버에 요청을 보냅니다.</li>
+    <li>서버가 요청을 처리합니다.</li>
+    <li>서버가 웹 페이지에 응답을 보냅니다.</li>
+    <li>응답은 JavaScript에 의해 읽혀집니다.</li>
+    <li>적절한 조치 (예 : 페이지 없데이트) 가 JavaScript에 의해 수행됩니다.</li>
+  </ol>
+</body>
+</html>
+<script src="main.js"></script>
