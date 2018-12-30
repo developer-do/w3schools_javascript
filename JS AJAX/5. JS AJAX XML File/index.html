@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>AJAX XML Example</h1>
+  <hr>
+
+  <p>AJAX는 XML 파일과의 대화식 통신에 사용될 수 있습니다.</p>
+  <hr>
+
+  <h2>AJAX XML 예제</h2>
+  <p>다음 예제는 웹 페이지가 AJAX가 있는 XML파일에서 정보를 가져올 수 있는 방법을 보여줍니다.</p>
+  <pre>
+    <button type="button" onclick="loadDoc()">클릭해보세요.</button>
+    <table id="demo"></table>
+
+    function loadDoc() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechage = function() {
+        if(this.readyState == 4 && this.status == 200) {
+          myFunction(this);
+        }
+      };
+      xhttp.open("GET", "ca_catalog.xml", true);
+      xhttp.send();
+    }
+
+    function myFunction(xml) {
+      var i;
+      var xmlDoc = xml.responseXML;
+      var table = "<tr><th>Artist</th></tr><tr><th>Title</th></tr>";
+      var x = xmlDoc.getElementsTagName("CD");
+      for(i = 0; i < x.length; i++){
+        table += "<tr><td>" +
+          x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+          "</td></tr>" +
+          x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+          "</td></tr>";
+      }
+      document.getElementById("demo").innerHTML = table;
+    }
+  </pre>
+  <hr>
+
+  <h2>예제 설명</h2>
+  <p>사용자가 위의 "CD 정보얻기" 버튼을 클릭하면 loadDoc() 함수가 실행됩니다.</p>
+  <p>loadDoc() 함수는 XMLHttpRequest 객체를 만들고, 서버 응답이 준비되었을 때 실행할 함수를 추가 한 다음 서버에 요청을 보냅니다.</p>
+  <p>서버 응답이 준비되면 HTML 테이블이 작성되고 XML 파일에서 nodes(요소)가 추출되고 마지막으로 XML 데이터로 채워진 HTML 테이블로 demo 요소가 업데이트 됩니다.</p>
+  <p><img src="k-003.png" alt=""></p>
+
+</body>
+</html>
+<script src="main.js"></script>
