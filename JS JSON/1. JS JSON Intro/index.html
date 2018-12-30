@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JSON - Introduction</h1>
+  <hr>
+
+  <p class="green">
+    JSON : JavaScript Object Notation. <br>
+    JSON은 데이터를 저장하고 교환하기 위한 구문입니다.<br>
+    JSON은 JavaScript 객체 표기법으로 작성된 텍스트 입니다.<br>
+  </p>
+  <hr>
+
+  <h2>데이터 교환</h2>
+  <p>브라우저와 서버간에 데이터를 교환 할 때 데이터는 텍스트 일 뿐입니다.</p>
+  <p>JSON은 텍스트이며 모든 JavaScript 객체를 JSON으로 변환하고 JSON을 서버로 보낼 수 있습니다.</p>
+  <p>또한 서버에서 받은 JSON을 JavaScript 객체로 변환 할 수 있습니다.</p>
+  <p>이렇게 하면 복잡한 파싱 및 번역 작업 없이 데이터를 JavaScript 객체로 처리할 수 있습니다.</p>
+  <hr>
+
+  <h2>데이터 전송중</h2>
+  <p>JavaScript 객체에 저장된 데이터가 있는 경우 객체를 JSON으로 변환하여 서버로 보낼 수 있습니다.</p>
+  <pre>
+    var myObj = {name: "John", age: 31, city: "New York"};
+    var myJSON = JSON.stringify(myObj);
+    window.location = "demo_json.php?x=" + myJSON;
+  </pre>
+  <p>JSON.stringify() 함수에 대한 자세한 내용은 이 자습서 뒷부분에 있습니다.</p>
+  <hr>
+
+  <h2>데이터 수신</h2>
+  <p>JSON 형식의 데이터를 받는 경우 JavaScript 객체로 변환 할 수 있습니다.</p>
+  <pre>
+    var myJSON = '{"name":"John", "age":31, "city":"New York"}';
+    var myObj = JSON.parse(myJSON);
+    document.getElementById("demo").innerHTML = myObj.name;
+  </pre>
+  <div id="demo"></div>
+  <hr>
+
+  <h2>데이터 저장</h2>
+  <p>데이터를 저장할 때 데이터는 특정 형식이어야하며 저장할 위치와 관계없이 텍스트는 항상 합법적인 형식중 하나입니다.</p>
+  <p>JSON을 사용하면 JavaScript 객체를 텍스트로 저장할 수 있습니다.</p>
+  <pre>
+    로컬 저장소에 데이터 저장
+    // Storing data:
+    myObj = {name: "John", age: 31, city: "New York"};
+    myJSON = JSON.stringify(myObj);
+    localStorage.setItem("testJSON", myJSON);
+
+    // Retrieving data:
+    text = localStorage.getItem("testJSON");
+    obj = JSON.parse(text);
+    document.getElementById("demo").innerHTML = obj.name;
+  </pre>
+  <hr>
+
+  <h2>JSON이란 무엇입니까 ?</h2>
+  <ul>
+    <li>JSON 약자는 JavaScript Object Notation이다.</li>
+    <li>JSON은 간단한 데이터 교환 형식입니다.</li>
+    <li>JSON은 "자체설명"하고 이해하기 쉽습니다.</li>
+    <li>JSON은 언어와 무관합니다.*</li>
+  </ul>
+  <p class="yellow">
+    *<br/>
+    JSON은 JavaScript 구문을 사용하지만 JSON 형식은 텍스트만 사용합니다.<br/>
+    텍스트는 모든 프로그래밍 언어에서 데이터 형식으로 읽고 사용할 수 있습니다.<br/>
+  </p>
+  <hr>
+
+  <h2>왜 JSON을 사용합니까?</h2>
+  <p>JSON 형식은 텍스트 형식이므로 서버와 주고받을 수 있으며 모든 프로그래밍 언어에서 데이터 형식으로 사용됩니다.</p>
+  <p>JavaScript에는 JSON형식으로 작성된 문자열을 기본 JavaScript 객체로 변환하는 내장 함수가 있습니다.</p>
+  <p>JSON.parse()</p>
+  <p>따라서 JSON 형식의 서버에서 데이터를 받으면 다른 JavaScript 객체처럼 사용할 수 있습니다.</p>
+</body>
+</html>
+<script src="main.js"></script>

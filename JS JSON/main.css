@@ -1,0 +1,23 @@
+ol.green ,ul.green { border: 1px solid; border-left: 6px solid; border-color: #4CAF50; padding: 8px; padding-left: 30px;}
+ul.yellow { border: 1px solid; border-left: 6px solid; border-color: #ffeb3b; padding: 8px; padding-left: 30px;}
+p.green { border: 1px solid; border-left: 6px solid; border-color: #4CAF50; padding: 8px;}
+.red { border: 1px solid; border-left: 6px solid; border-color: #f44336; padding: 8px; background-color:#ffdddd;}
+.yellow { border: 1px solid; border-left: 6px solid; border-color: #ffeb3b; padding: 8px; background-color:#ffffcc;}
+
+/* */
+table {border-collapse: collapse; width: 100%;}
+table, 
+table th, 
+table td {
+  border: 1px solid black;
+  text-align: center;
+  padding: 5px;
+}
+
+table th {
+  background-color: #4CAF50;
+  color: white;
+}
+table tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
