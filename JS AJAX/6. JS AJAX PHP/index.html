@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>AJAX PHP Example</h1>
+  <hr>
+
+  <p>AJAX는 더 많은 양방향 응용 프로그램을 만드는 데 사용됩니다.</p>
+  <hr>
+
+  <h2>AJAX PHP 예제</h2>
+  <p>다음 예제에서는 사용자가 입력 필드에 문자를 입력하는 동안 웹페이지가 서버와 통신하는 방법을 보여줍니다.</p>
+  <hr>
+  <h2>예제 설명</h2>
+  <p>예에서 사용자가 입력 필드에 문자를 입력하면 "showHint()"라는 함수가 실행됩니다.</p>
+  <p>이 함수는 onkeyup이벤트에 의해 트리거 됩니다.</p>
+  
+  <h2>The XMLHttpRequest Object</h2>
+
+  <h3>Start typing a name in the input field below:</h3>
+
+  <p>Suggestions: <span id="txtHint"></span></p> 
+
+  <p>First name: <input type="text" id="txt1" onkeyup="showHint(this.value)"></p>
+  <p>이건 서버단에서 해보자.</p>
+</body>
+</html>
+<script src="main.js"></script>
