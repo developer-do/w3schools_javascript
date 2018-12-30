@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>AJAX - XMLHttpRequest Object</h1>
+  <hr>
+
+  <p>AJAX의 핵심은 XMLHttpRequest 객체입니다.</p>
+  <hr>
+
+  <h2>XMLHttpRequest 객체</h2>
+  <p>최신의 모든 브라우저는 XMLHttpRequest 객체를 지원합니다.</p>
+  <p>XMLHttpRequest 객체는 백그라운드에서 웹 서버와 데이터를 교환하는 데 사용할 수 있습니다. 즉, 전체 페이지를 다시로드하지 않고도 웹 페이지의 일부를 업데이트 할 수 있습니다.</p>
+  <hr>
+
+  <h2>XMLHttpRequest 객체 만들기</h2>
+  <p>모든 최신 브라우저에는 기본 제공 XMLHttpRequest 객체가 있습니다.</p>
+  <p>XMLHttpRequest 객체를 만들기 위한 구문:</p>
+  <pre>
+    variable = new XMLHttpRequest();
+
+    ex)
+    var xhttp = new XMLHttpRequest();
+  </pre>
+  <hr>
+
+  <h2>도메인간 접근</h2>
+  <p>보안상의 이유로 최신 브라우저는 도메인 전체에 대한 접근을 허용하지 않습니다.</p>
+  <p>즉, 로드하려는 웹 페이지와 XML 파일은 모두 동일한 서버에 있어야합니다.</p>
+  <p>W3Schools의 예제는 모두 W3Schools 도메인이 있는 XML 파일을 엽니다.</p>
+  <p>위의 예를 자신의 웹 페이지중 하나에서 사용하려면 로드하는 XML파일을 자신의 서버에 위치시켜야합니다.</p>
+  <hr>
+
+  <h2>XMLHttpRequest객체 method와 property</h2>
+  <p>아래 링크를 클릭하시면 method와 property를 참고 하실 수 있습니다.</p>
+  <p><a href="https://www.w3schools.com/js/js_ajax_http.asp">click me!</a></p>
+</body>
+</html>
+<script src="main.js"></script>
