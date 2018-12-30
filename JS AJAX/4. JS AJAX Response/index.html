@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>AJAX - Server Response</h1>
+  <hr>
+
+  <h2>onreadystatechange 속성</h2>
+  <p>readyState의 속성은 XMLHttpRequest의 상태를 보유하고 있습니다.</p>
+  <p>onreadystatechange 속성은 readyState가 변경될 때 실행할 기능을 정의합니다.</p>
+  <p>status 속성 및 statusText 속성은 XMLHttpRequest 객체의 상태를 유지합니다.</p>
+  <table>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>onreadystatechange</td>
+      <td>readyState 속성이 변경될 때 호출할 함수를 정의합니다.</td>
+    </tr>
+    <tr>
+      <td>readyState</td>
+      <td>
+        XMLHttpRequest의 상태 유지<br>
+        0 : 요청이 초기화되지 않았습니다.<br>
+        1 : 서버 연결이 설정되었습니다.<br>
+        2 : 요청 받음<br>
+        3 : 처리 요청<br>
+        4 : 요청 완료 및 응답 준비 완료
+      </td>
+    </tr>
+    <tr>
+      <td>status</td>
+      <td>
+        200 : "OK"<br>
+        043 : "Forbidden"(금지됨)<br>
+        404 : "Page not found"(페이지를 찾을 수 없다)<br>
+      </td>
+    </tr>
+    <tr>
+      <td>statusText</td>
+      <td>statusText를 반환합니다.(예 : "확인" 또는 "찾을 수 없음")</td>
+    </tr>
+  </table>
+  <p>읽기/위치 변경기능은 읽기/위치가 변경될 때마다 호출됩니다.</p>
+  <p>readyState가 4이고 상태가 200이면 응답 준비가 완료됩니다.</p>
+  <pre>
+    function loadDoc() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if(this.readyState == 4 && this.status == 200) {
+          document.getElementById("demo").innerHTML = this.responseText;
+        }
+      };
+      xhttp.open("GET", "ajax_info.txt", true);
+      xhttp.send();
+    }
+  </pre>
+  <p class="yellow">onreadystatechange 이벤트는 readyState가 변경 될 때마다 한 번씩 네번(1-4)트리거 됩니다.</p>
+  <hr>
+
+  <h2>콜백 함수 사용</h2>
+  <p>콜백 함수는 다른 함수에 매개변수로 전달되는 함수입니다.</p>
+  <p>웹 사이트에 두개 이상의 AJAX 작업이 있는 경우 XMLHttpRequest 객체를 실행하기 위한 함수 하나와 각 AJAX 작업에 대해 하나의 콜백함수를 만들어야 합니다.</p>
+  <p>함수 호출에는 URL과 응답 준비가 되었을 때 호출할 함수가 있어야합니다.</p>
+  <pre>
+    loadDOC("url-1", myFunction1);
+
+    loadDOC("url-2", myFunction2);
+
+    function loadDoc(url, cFunction) {
+      var xhttp;
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechage = function() {
+        if(this.readyState == 4 && this.status == 200) {
+          cFunction(this);
+        }
+      };
+      xhttp.open("GET", url, true);
+      xhttp.send();
+    }
+
+    function myFunction1(xhttp) {
+      document.getElementById("demo").innerHTML = this.responseText;
+    }
+    function myFunction2(xhttp) {
+      document.getElementById("demo").innerHTML = this.responseText;
+    }
+  </pre>
+  <div id="demo"></div>
+  <div id="demo1"></div>
+  <div id="demo2"></div>
+  <button type="button" onclick="loadDoc('ajax_info1.html', myFunction1)">1. 클릭하세요</button>
+  <button type="button" onclick="loadDoc('ajax_info2.html', myFunction2)">2. 클릭하세요</button>
+  <hr>
+
+  <h2>서버 응답 특성</h2>
+  <table>
+    <tr>
+      <th>property</th>
+      <th>description</th>
+    </tr>
+    <tr>
+      <td>responseText</td>
+      <td>반응 데이터를 문자열로 가져온다.</td>
+    </tr>
+    <tr>
+      <td>responseXML</td>
+      <td>응답 데이터를 XML데이터로 가져오기</td>
+    </tr>
+  </table>
+  <hr>
+
+  <h2>서버 응답 메소드</h2>
+  <table>
+    <tr>
+      <th>Method</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>getResponseHeader()</td>
+      <td>서버 리소스에서 특정 헤더 정보 반환</td>
+    </tr>
+    <tr>
+      <td>getAllResponseHeaders()</td>
+      <td>서버 리소스에서 모든 헤더 정보 반환</td>
+    </tr>
+  </table>
+  <hr>
+
+  <h2>respnseText 속성</h2>
+  <p>responseText 속성은 서버 응답을 JavaScript 문자열로 반환하며, 그에 따라 사용할 수 있다. </p>
+  <pre>
+    document.getElementById("demo").innerHTML = xhttp.responseText;
+  </pre>
+  <hr>
+
+  <h2>responseXML 속성</h2>
+  <p>XMLHttpRequest 객체에는 내장된 XML 파서가 있습니다.</p>
+  <p>responseXML 속성은 서버 응답을 XML DOM 객체로 반환합니다.</p>
+  <p>이 속성을 사용하여 응답을 XML DOM 객체로 파싱 할 수 있습니다.</p>
+  <pre>
+    var xhttp, xmlDoc, txt, x, i;
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechage = function() {
+      if(this.readyState == 4 && this.status == 200) {
+        xmlDoc = this.responseXML;
+        txt = "";
+        x = xmlDoc.getElementsByTagName("ARTIST");
+        for(i = 0; i < x.length; i++) {
+          txt = txt + x[i].childNodes[0].nodeValue + "\n";
+        }
+        document.getElementById("demo").innerHTML = txt;
+      }
+    }
+    xhttp.open("GET", "cd_catalog.xml", true);
+    xhttp.send();
+  </pre>
+  <hr>
+
+  <h2>getAllResponseHeaders() method</h2>
+  <p>getAllResponseHeaders() method는 서버 응답에서 모든 헤더 정보를 반환합니다.</p>
+  <pre>
+    var xhttp = newXMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if(this.readyState == 4 && this.status == 200) {
+        document.getElementById("demo1").innerHTML = this.getAllResponseHeaders();
+      }
+    }
+  </pre>
+  <hr>
+
+  <h2>getResponseHeader() method</h2>
+  <p>getResponseHeader() method는 서버 응답에서 특정 헤더 정보를 반환합니다.</p>
+  <pre>
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechage = function() {
+      if(this.readyState == 4 && this.status == 200) {
+        document.getElementById("demo2").innerHTML = this.getResponseHeader("Last-Modified");
+      }
+    };
+    xhttp.open("GET", "ajax_info.txt", true);
+    xhttp.send();
+  </pre>
+
+
+
+</body>
+</html>
+<script src="main.js"></script>
