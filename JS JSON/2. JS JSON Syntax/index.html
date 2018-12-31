@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JSON Syntax</h1>
+  <hr>
+
+  <p>JSON 구문은 JavaScript 구문의 하위 집합입니다.</p>
+  <hr>
+
+  <h2>JSON 구문 규칙</h2>
+  <p>JSON 구문은 JavaScript 객체 표기법 구문에서 파생됩니다.</p>
+  <ul class="green">
+    <li>데이터는 name / value 가 쌍으로 이루어져 있습니다.</li>
+    <li>데이터는 쉼표로 구분됩니다.</li>
+    <li>중괄호는 객체를 유지합니다.</li>
+    <li>대괄호는 배열을 유지합니다.</li>
+  </ul>
+  <hr>
+
+  <h2>JSON 데이터 - 이름 및 값</h2>
+  <p>JSON 데이터는 name / value 가 쌍으로 이루어져 작성됩니다.</p>
+  <p>name / value 쌍은 필드 이름(큰 따옴표로 묶임)과 콜론, 값 다음으로 구성됩니다.</p>
+  <pre>
+    "name":"John"
+  </pre>
+  <p class="yellow">JSON 이름에는 큰 따옴표가 필요합니다. 자바스크립트 이름은 그렇지 않습니다.</p>
+  <hr>
+
+  <h2>JSON - JavaScript 객체를 평가합니다.</h2>
+  <p>JSON 형식은 JavaScript 객체와 거의 동일합니다.</p>
+  <p>JSON에서 key는 큰따옴표로 묶은 문자열이어야 합니다.</p>
+  <pre>
+    JSON
+    { "name":"John" }
+  </pre>
+  <p>JavaScript에서 key는 문자열, 숫자 또는 식별자 이름이 될 수 있습니다.</p>
+  <pre>
+    JavaScript
+    { name:"John"}
+  </pre>
+  <hr>
+
+  <h2>JSON value</h2>
+  <p>JSON에서 값은 다음과 같은 데이터 유형중 하나여야 합니다.</p>
+  <ul class="green">
+    <li>a string</li>
+    <li>a number</li>
+    <li>an boejct(JSON obejct)</li>
+    <li>an array</li>
+    <li>a boolean</li>
+    <li>null</li>
+  </ul>
+  <p>JavaScript 값에서 위의 모든 값과 다음을 포함한 기타 유효한 JavaScript 식이 될 수 있습니다.</p>
+  <ul class="green">
+    <li>a function</li>
+    <li>a Date</li>
+    <li>undefined</li>
+  </ul>
+
+  <p>JSON에서 문자열 value은 큰 따옴표로 작성해야 합니다.</p>
+  <pre>
+    JSON
+    {"name":"John"}
+  </pre>
+  <p>JavaScript에서는 문자열 값을 큰 따옴표나 작은 따옴표로 작성할 수 있습니다.</p>
+  <pre>
+    JavaScript
+    {name:'John'}
+  </pre>
+  <hr>
+
+  <h2>JSON은 JavaScript 구문을 사용합니다.</h2>
+  <p>JSON 구문은 JavaScript객체 표기법에서 파생되므로 JavaScript 내에서 JSON을 사용하려면 약간의 추가 소프트 웨어가 필요합니다.</p>
+  <p>JavaScript를 사용하면 다음과 같이 객체를 생성하고 객체에 데이터를 할당 할 수 있습니다.</p>
+  <pre>
+    var person = { name : "John", age: 31, city: "New York" };
+  </pre>
+  <p>다음과 같이 JavaScript 객체에 접근할 수 있습니다.</p>
+  <pre>
+    // returns John
+    person.name;
+  </pre>
+  <p>다음과 같이 접근할 수도 있습니다.</p>
+  <pre>
+    // returns John
+    person["name"];
+  </pre>
+  <p>데이터는 다음과 같이 수정할 수 있습니다.</p>
+  <pre>
+    person.name = "Gilbert";
+  </pre>
+  <p>다음과 같이 수정할수도 있습니다.</p>
+  <pre>
+    person["name"] = "Gilbert";
+  </pre>
+  <p>이 자습서의 뒷부분에서 JavaScript 객체를 JSON으로 변환하는 방법을 배우게 됩니다.</p>
+  <hr>
+
+  <h2>JavaScript 배열을 JSON으로 사용</h2>
+  <p>JavaScript 객체를 JSON으로 사용할 수 있는 것과 같은 방식으로 JavaScript 배열을 JSON으로 사용할 수도 있습니다.</p>
+  <p>이 튜토리얼의 뒷부분에서 JSON으로 배열에 대해 자세히 배울 것 입니다.</p>
+  <hr>
+
+  <h2>JSON 파일</h2>
+  <ul>
+    <li>JSON 파일의 파일 형식은 ".json"입니다.</li>
+    <li>JSON 텍스트의 MIME 유형은 "application / json" 입니다.</li>
+  </ul>
+
+
+
+
+
+
+</body>
+</html>
+<script src="main.js"></script>
