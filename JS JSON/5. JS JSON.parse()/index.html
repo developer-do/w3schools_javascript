@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JSON.parse()</h1>
+  <hr>
+
+  <p>JSON은 웹 서버와 데이터를 교환하는데 주로 사용됩니다.</p>
+  <p>웹 서버에서 데이터를 수신할 때 데이터는 항상 문자열 입니다.</p>
+  <p>JSON.parse()를 사용하여 데이터를 파싱하면 데이터가 JavaScript 객체가 됩니다.</p>
+  <hr>
+
+  <h2>예 - JSON 구문 분석</h2>
+  <p>우리가 웹 서버에서 이 텍스트를 받았다고 상상해보십시오.</p>
+  <pre>
+    '{"name":"John", "age":30, "city":"New York"}'
+  </pre>
+  <p>JSON.parse() JavaScript 함수를 사용하여 텍스트를 JavaScript객체로 변환합니다.</p>
+  <pre>
+    var obj = JSON.parse('{"name":"John", "age": 30, "city": "New York"}');
+  </pre>
+  <p class="yellow">텍스트가 JSON 형식으로 작성되었는지 확인하십시오. 그렇지 않으면 구문 오류가 발생합니다.</p>
+  <p>귀하의 페이지에서 자바스크립트 객체를 사용하십시오.</p>
+  <pre>
+    <p id="demo"></p>
+    document.getElementById("demo").innerHTML = obj.name + " " + obj.age;
+  </pre>
+  <hr>
+
+  <h2>JSON 서버</h2>
+  <p>AJAX 요청을 사용하여 서버에서 JSON을 요청할 수 있습니다.</p>
+  <p>서버의 응답이 JSON 형식으로 작성된 경우 문자열을 JavaScript 객체로 구문 분석 할 수 있습니다.</p>
+  <pre>
+    XMLHttpRequest를 사용하여 서버에서 데이터 가져오기
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if(this.readyState == 4 && this.status == 200) {
+        var myObj = JSON.parse(this.responseText);
+        document.getElementById("demo1").innerHTML = myObj.name;
+      }
+    };
+    xmlhttp.open("GET", "json_demo.json", true);
+    xmlhttp.send();
+  </pre>
+  <div id="demo1"></div>
+  <hr>
+
+  <h2>JSON으로 배열</h2>
+  <p>배열에서 파생 된 JSON에서 JSON.parse()를 사용하면 이 메서드는 JavaScript 객체 대신 JavaScript 배열을 반환합니다.</p>
+  <pre>
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if(this.readyState == 4 && this.status == 200) {
+        var myArr = JSON.parse(this.responseText);
+        document.getElementById("demo2").innerHTML = myArr[0];
+      }
+    }
+    xmlhttp.open("GET", "json_demo_array.json", true);
+    xmlhttp.send();
+  </pre>
+  <div id="demo2"></div>
+  <hr>
+
+  <h2>예외</h2>
+  <h3>날짜 분석</h3>
+  <p>Date 객체는 JSON에서 사용할 수 없습니다.</p>
+  <p>날짜를 포함해야 하는 경우 이를 문자열로 씁니다.</p>
+  <p>나중에 다시 날짜 객체로 변환 할 수 있습니다.</p>
+  <pre>
+    문자열을 날짜로 변환 :
+    var text = '{"name":"John", "birth":"1986-12-14", "city":"New York"}';
+    var obj = JSON.parse(text);
+    obj.birth = new Date(obj.birth);
+
+    document.getElementById("demo3").innerHTML = obj.name + "의 생일은 " + obj.birth + "입니다.";
+  </pre>
+  <div id="demo3"></div>
+  <p>또는 reviver라고 하는 JSON.parse() 함수의 두번째 매개 변수를 사용할 수 있습니다.</p>
+  <p>reviver 매개변수는 값을 변환하기 전에 각 속성을 확인하는 함수다.</p>
+  <pre>
+    reviver 함수를 사용하여 문자열을 날짜로 변환합니다. 
+
+    var text = '{"name":"John", "birth":"1986-12-14", "city":"New York"}';
+    var obj = JSON.parse(text, function (key, value) {
+      if(key == "birth") {
+        return new Date(value);
+      } else {
+        return value;
+      }
+    });
+
+    document.getElementById("demo4").innerHTML = obj.name + "의 생일은 " + obj.birth + "입니다.";
+  </pre>
+  <div id="demo4"></div>
+  <hr>
+
+  <h3>구문 분석 함수</h3>
+  <p>JSON에서는 함수가 허용되지 않습니다.</p>
+  <p>함수를 포함해야 하는 경우 문자열로 작성하십시오.</p>
+  <p>나중에 다시 함수로 변환 할 수 있습니다.</p>
+  <pre>
+    문자열을 함수로 변환: 
+    var text = '{ "name":"John", "age":"function () {return 30;}", "city":"New York"}';
+    var obj = JSON.parse(text);
+    obj.age = eval("(" + obj.age + ")");
+
+    document.getElementById("demo5").innerHTML = obj.name + ", " + obj.age();
+  </pre>
+  <div id="demo5"></div>
+  <p class="red">JSON에서 함수를 사용하지 말아야합니다. 함수는 범위를 잃어버리고, 함수로 다시 변환하려면 eval()을 사용해야합니다.</p>
+</body>
+</html>
+<script src="main.js"></script>
