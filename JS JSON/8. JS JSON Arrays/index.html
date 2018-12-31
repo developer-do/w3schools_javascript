@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JSON Arrays</h1>
+  <hr>
+
+  <h2>Arrays as JSON Objects</h2>
+  <pre>
+    ["Ford", "BMW", "Fiat"];
+  </pre>
+  <p>JSON의 배열은 JavaScript의 배열과 거의 같습니다.</p>
+  <p>JSON에서 배열 값은 string, number, object, array, boolean, null 유형이어야 합니다.</p>
+  <p>JavaScript에서 배열값은 위의 모든것 외에도 function, date, undefined 및 다른 유효한 JavaScript 표현식을 포함 할 수 있습니다.</p>
+  <hr>
+
+  <h2>JSON 객체의 배열</h2>
+  <p>배열은 객체 속성의 값이 될 수 있습니다.</p>
+  <pre>
+    {
+      "name":"John",
+      "age":30,
+      "cars":["Ford", "BMW", "Fiat"]
+    }
+  </pre>
+  <hr>
+
+  <h2>배열 값 접근</h2>
+  <p>인덱스 번호를 사용하여 배열 값에 접근합니다.</p>
+  <pre>
+    x = myObj.cars[0]
+  </pre>
+  <hr>
+
+  <h2>배열을 통해 반복하기</h2>
+  <p>for-in 루프를 사용하여 배열 값에 접근할 수 있습니다.</p>
+  <pre>
+    for(i in myObj.cars) {
+      x = myObj.cars[i];
+    }
+  </pre>
+  <p>또는 for 루프를 사용할 수 있습니다.</p>
+  <pre>
+    for(i = 0; i < myObj.cars.length; i++) {
+      x += myObj.cars[i] + "\n";
+    }
+  </pre>
+  <hr>
+
+  <h2>JSON 객체의 중첩 배열</h2>
+  <p>배열의 값은 다른 배열 또는 다른 JSON객체 일 수도 있습니다.</p>
+  <pre>
+    myObj = {
+      "name":"John",
+      "age":30,
+      "cars": [
+        { "name":"Ford", "models":[ "Fiesta", "Focus", "Mustang" ] },
+        { "name":"BMW", "models":[ "320", "X3", "X5" ] },
+        { "name":"Fiat", "models":[ "500", "Panda" ] }
+      ]
+    }
+  </pre>
+  <p>배열 내부의 배열에 접근하려면 각 배열에 for-in 루프를 사용하십시오.</p>
+  <pre>
+    for(i in myObj.cars) {
+      x += "h1" + myObj.cars[i].name + "h1";
+      for(j in myObj.cars[i].models) {
+        x += myObj.cars[i].models[j];
+      }
+    }
+  </pre>
+  <div id="demo1"></div>
+  <hr>
+
+  <h2>배열 값 수정</h2>
+  <p>인덱스 번호를 사용하여 배열을 수정하십시오.</p>
+  <pre>
+    myObj.cars[1] = "Mercedes";
+  </pre>
+  <hr>
+
+  <h2>배열 항목 삭제</h2>
+  <p>배열에서 항목을 삭제하려면 delete 키워드를 사용하십시오.</p>
+  <pre>
+    dlelete myObj.cars[1];
+  </pre>
+</body>
+</html>
+<script src="main.js"></script>
