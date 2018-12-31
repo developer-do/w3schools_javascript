@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  
+  <h1>JSON.stringify()</h1>
+  <hr>
+
+  <p>JSON은 웹 서버와 데이터를 교환하는데 주로 사용됩니다.</p>
+  <p>데이터를 웹 서버로 보낼 때 데이터는 문자열이어야합니다.</p>
+  <p>JSON.stringify()로 JavaScript 객체를 문자열로 변환합니다.</p>
+  <hr>
+
+  <h2>JavaScript 객체 문자열로 변환하기</h2>
+  <p>JavaScript에서 이 객체를 적용해보세요.</p>
+  <pre>
+    var obj = { name: "John", age: 30, city: "New York" };
+  </pre>
+  <p>JSON.stringify() JavaScript 함수를 사용하여 문자열로 변환하십시오.</p>
+  <pre>
+    var myJSON = JSON.stringify();
+  </pre>
+  <p class="yellow">결과는 JSON 표기법을 따르는 문자열이 됩니다.</p>
+  <p>myJSON은 이제 문자열이며 서버에 보낼 준비가 되었습니다.</p>
+  <pre>
+    var obj = { name: "John", age: 30, city: "New York" };
+    var myJSON = JSON.stringify(obj);
+    document.getElementById("demo").innerHTML = myJSON;
+  </pre>
+  <div id="demo"></div>
+  <div id="demo1"></div>
+  <p>다음 장에서 JSON을 서버로 보내는 방법을 배웁니다.</p>
+  <hr>
+
+  <h2>JavaScript 배열 문자열화</h2>
+  <p>JavaScript 배열을 문자열로 변환하는 것도 가능합니다.</p>
+  <p>자바스크립트에서 이 배열을 상상해 보십시오.</p>
+  <pre>
+    var arr = [ "John", "Peter", "Sally", "Jane" ];
+  </pre>
+  <p>JSON.stringify() JavaScript 함수를 사용하여 문자열로 변환하십시오.</p>
+  <pre>
+    var myJSON = JSON.stringify(arr);
+  </pre>
+  <p class="yellow">결과는 JSON 표기법을 따르는 문자열 입니다.</p>
+  <p>myJSON은 이제 문자열이며 서버에 보낼 준비가 되었습니다.</p>
+  <pre>
+    var arr = [ "John", "Peter", "Sally", "Jane" ];
+    var myJSON = JSON.stringify(arr);
+    document.getElementById("demo").innerHTML = myJSON;
+  </pre>
+  <hr>
+
+  <h2>예외</h2>
+  <h3>날짜 문자열 지정</h3>
+  <p>JSON에서는 날짜 객체가 허용되지 않습니다. JSON.stringify() 함수는 모든 날짜를 문자열로 변환합니다.</p>
+  <pre>
+    var obj = { name: "John", today: new Date(), city: "New York" };
+    var myJSON = JSON.stringify(obj);
+
+    document.getElementById("demo2").innerHTML = myJSON;
+  </pre>
+  <div id="demo2"></div>  
+  <p>문자열을 수신기에서 날짜 객체로 다시 변환할 수 있습니다.</p>
+  <hr>
+
+  <h3>문자열 화 함수</h3>
+  <p>JSON에서는 함수가 객체 값으로 허용되지 않습니다.</p>
+  <p>JSON.stringify() 함수는 키와 값 모두 JavaScript 객체에서 모든 함수를 제거시킵니다.</p>
+  <pre>
+    var obj = { name: "John", age: function () {return 30;}, city: "New York"};
+    var myJSON = JSON.stringify(obj);
+
+    document.getElementById("demo3").innerHTML = myJSON;
+  </pre>
+  <div id="demo3"></div>
+  <p>JSON.stringify() 함수를 실행하기전에 함수를 문자열로 변환하면 생략할 수 있습니다.</p>
+  <pre>
+    var obj = { name: "John", age: function () {return 30;}, city: "New York"};
+    obj.age = obj.age.toString();
+    var myJSON = JSON.stringify(obj);
+
+    document.getElementById("demo4").innerHTML = myJSON;
+  </pre>
+  <div id="demo4"></div>
+  <p class="red">JSON에서 함수를 사용하지 말아야합니다. 함수는 scope를 잃어버리고, 함수로 다시 변환하려면 eval()을 사용해야합니다.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+<script src="main.js"></script>
