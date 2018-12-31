@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JSON Data Types</h1>
+  <hr>
+
+  <h2>유효한 데이터 유형</h2>
+  <p>JSON에서 값은 다음 데이터 유형중 하나여야 합니다.</p>
+  <ul>
+    <li>a string</li>
+    <li>a number</li>
+    <li>object(JSON object)</li>
+    <li>array</li>
+    <li>boolean</li>
+    <li>null</li>
+  </ul>
+  <p class="red">JSON 값은 다음 데이터 유형 중 하나일 수 없습니다.</p>
+  <ul>
+    <li>function</li>
+    <li>Date</li>
+    <li>undefined</li>
+  </ul>
+  <hr>
+
+  <h2>JSON string</h2>
+  <p>JSON의 문자열은 큰 따옴표로 작성해야 합니다.</p>
+  <pre>
+    {"name":"John"}
+  </pre>
+  <hr>
+
+  <h2>JSON number</h2>
+  <p>JSON의 숫자는 정수 또는 부동 소수점이어야합니다.</p>
+  <pre>
+    {"age":30}
+  </pre>
+  <hr>
+
+  <h2>JSON object</h2>
+  <p>JSON의 값은 객체가 될 수 있습니다.</p>
+  <pre>
+    {
+      "employee": {
+        "name":"John",
+        "age":30,
+        "city":"New York"
+      }
+    }
+  </pre>
+  <p class="yellow">JSON의 값으로 사용되는 객체는 JSON객체와 동일한 규칙을 따라야 합니다.</p>
+  <hr>
+
+  <h2>JSON array</h2>
+  <p>JSON의 값은 배열 일 수 있습니다.</p>
+  <pre>
+    {
+      "employees": ["John", "Anna", "Peter"]
+    }
+  </pre>
+  <hr>
+
+  <h2>JSON Boolean</h2>
+  <p>JSON의 Boolean값은 true/false 일 수 있습니다.</p>
+  <pre>
+    {"sale":true}
+  </pre>
+  <hr>
+
+  <h2>JSON null</h2>
+  <p>JSON의 값은 null일 수 있습니다.</p>
+  <pre>
+    {"middlename":null}
+  </pre>
+
+
+
+</body>
+</html>
+<script src="main.js"></script>
