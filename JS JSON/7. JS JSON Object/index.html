@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
+</head>
+<body>
+  <h1>JSON Object</h1>
+  <hr>
+
+  <h2>Object syntax</h2>
+  <pre>
+    { "name": "John", "age": 30, "car":null }
+  </pre>
+  <p>JSON 객체는 중괄호 {}로 묶습니다.</p>
+  <p>JSON 객체는 key / value 쌍으로 작성됩니다.</p>
+  <p>key는 문자열이여야 하며 value는 유효한 JSON 데이터 유형(string, number, object, array, boolean, null)이어야 합니다.</p>
+  <p>key와 value는 콜론으로 구분됩니다.</p>
+  <p>각 key / value 쌍은 쉼표로 구분됩니다.</p>
+  <hr>
+
+  <h2>객체 값에 접근하기</h2>
+  <p>dot (.) 표기법을 사용하여 객체 값에 접근할 수 있습니다.</p>
+  <pre>
+    myObj = { "name": "John", "age": 30, "car": null };
+    x = myObj.name;
+  </pre>
+  <p>대괄호([]) 표기법을 사용하여 객체 값에 접근할 수 있습니다.</p>
+  <pre>
+    myObj = { "name": "John", "age": 30, "car": null };
+    x = myObj["car"];
+  </pre>
+
+  <hr>
+
+
+  <h2>객체 루팡하기</h2>
+  <p>for-in 루프를 사용하여 객체 속성을 반복할 수 있습니다.</p>
+  <pre>
+    myObj = {"name":"John", "age":30, "car":null};
+    for(x in myObj) {
+      document.getElementById("demo1").innerHTML += myObj;
+    }
+  </pre>
+  <div id="demo1"></div>
+  <p>for0in 루프에서 대괄호 표기법을 사용하여 속성 값에 접근합니다.</p>
+  <pre>
+    myObj = {"name":"john", "age":30, "car": null};
+    for(x in myObj) {
+      document.getElementById("demo2").innerHTML = myObj[x];
+    }
+  </pre>
+  <div id="demo2"></div>
+  <hr>
+
+  <h2>중첩된 JSON 객체</h2>
+  <p>JSON 객체의 값은 다른 JSON 객체가 될 수 있습니다.</p>
+  <pre>
+    myObj = {
+      "name":"john",
+      "age":30,
+      "cars": {
+        "car1":"Ford",
+        "car2":"BMW",
+        "car3":"Fiat"
+      }
+    }
+  </pre>
+  <p>점 표기법이나 괄호 표기법을 사용하여 중첩 된 JSON 객체에 접근할 수 있습니다.</p>
+  <pre>
+    x = myObj.cars.car2;
+    // or:
+    x = myObj.cars["car2"];
+  </pre>
+  <hr>
+
+  <h2>값 수정</h2>
+  <p>점 표기법을 사용하여 JSON객체의 값을 수정할 수 있습니다.</p>
+  <pre>
+    myObj1.cars.car2 = "Mercedes";
+  </pre>
+  <p>대괄호 표기법을 사용하여 JSON 객체의 값을 수정할 수도 있습니다.</p>
+  <pre>
+    myObj1.cars["car2"] = "Mercedes";
+  </pre>
+  <hr>
+
+  <h2>객체 속성 삭제</h2>
+  <p>delete 키워드를 사용하여 JSON객체에서 속성을 삭제하십시오.</p>
+  <pre>
+    delete myObj.cars.car2;
+  </pre>
+</body>
+</html>
+<script src="main.js"></script>
